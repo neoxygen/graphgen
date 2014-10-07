@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Graphgen | Neoxygen.io</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ app.request.basepath }}/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ app.request.basepath }}/assets/alchemyjs/dist/styles/vendor.css" rel="stylesheet">
+    <link href="{{ app.request.basepath }}/assets/alchemyjs/dist/alchemy.min.css" rel="stylesheet">
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+
+    <![endif]-->
+    <style>
+        body { padding-top: 70px; }
+
+    </style>
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Graphgen<span>&beta;eta</span></a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <!-- Currently no need for links
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            -->
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+        <form role="form" id="patternForm" method="POST" action="{{ path('api_pattern_transform') }}">
+            <div class="form-group">
+                <label for="patternBox">Enter your pattern here</label>
+                <textarea id="patternBox" class="form-control" rows="6" placeholder=""></textarea>
+            </div>
+
+            <button type="submit" id="gen_button" class="btn btn-default">Generate</button>
+        </form>
+            </div>
+    </div>
+    <hr />
+    <div class="col-xs-12">
+
+    </div>
+</div>
+
+<div id="alchemy" class="alchemy"></div>
+
+{% block javascripts %}
+    <script src="{{ app.request.basepath }}/assets/jquery/dist/jquery.min.js"></script>
+    <script src="{{ app.request.basepath }}/assets/bootstrap/js/collapse.js"></script>
+    <script src="{{ app.request.basepath }}/assets/alchemyjs/dist/scripts/vendor.js"></script>
+    <script src="{{ app.request.basepath }}/assets/alchemyjs/dist/alchemy.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#patternForm').submit(function (e) {
+        e.preventDefault();
+        var apiEndpoint = $(this).attr('action');
+        var pattern = $('#patternBox').val();
+        var posting = $.post(apiEndpoint, {'pattern': pattern});
+        posting.done(function (data) {
+            var data = $.parseJSON(data);
+            console.log(data);
+            g = {
+                nodes: [],
+                edges: []
+            };
+            $.each(data.nodes, function (index, node) {
+                g.nodes.push({
+                    id: node.id,
+                    label: node.type,
+                    caption: node.type,
+                    color: node.neogen_color
+                });
+            });
+
+            $.each(data.edges, function (index, edge) {
+                g.edges.push({
+                    source: edge.source,
+                    target: edge.target,
+                    caption: edge.caption
+                });
+            });
+
+            var config = {
+                dataSource: g
+            };
+            console.log(g);
+            alchemy.begin(config)
+
+
+        });
+    });
+});
+</script>
+{% endblock javascripts %}
+</body>
+</html>
