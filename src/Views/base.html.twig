@@ -57,6 +57,14 @@
             text-decoration: none;
         }
 
+        #desc {
+            color: #fff;
+        }
+
+        #desc a.neolink {
+            color: #1DC116;
+        }
+
     </style>
 
     <script>
@@ -82,12 +90,13 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="{{ path('home') }}" id="ggbrand">Graphgen<span>&beta;eta</span></a>
+            <p class="navbar-text" id="desc">Graph generator for <a href="http://neo4j.org" title="Neo4j" class="navbar-link neolink">Neo4j</a></p>
         </div>
         <ul class="nav navbar-nav navbar-right">
             <li class=""><a href="#">Docs</a></li>
-            <li><button type="button" class="btn btn-default navbar-btn">
-                    <a href="https://github.com/neoxygen/graphgen" title="Fork me I'm famous" id="linkToRepo">
-                        <img src="{{ app.request.basepath }}/assets/images/ghmark.png" alt="Github Repository"/>&nbsp; Fork me I'm famous</a></button></li>
+            <li class=""><a href="http://www.neoxygen.io" target="_blank">Neoxygen.io</a></li>
+            <li><a href="https://github.com/neoxygen/graphgen" title="Fork me I'm famous" id="linkToRepo">
+                        <img src="{{ app.request.basepath }}/assets/images/ghmarklight.png" alt="Github Repository"/></a></li>
         </ul>
         <div class="collapse navbar-collapse">
         </div>
