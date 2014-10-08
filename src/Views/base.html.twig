@@ -8,6 +8,7 @@
     <meta name="author" content="">
 
     <title>Graphgen | Neoxygen.io</title>
+    <link rel="icon" href="{{ app.request.basepath }}/favicon.ico" type="image/x-icon">
 
     <!-- Bootstrap core CSS -->
     <link href="{{ app.request.basepath }}/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -48,6 +49,14 @@
             margin-left: 2px;
         }
 
+        #linkToRepo {
+            font-size: 13px;
+        }
+
+        #linkToRepo:hover {
+            text-decoration: none;
+        }
+
     </style>
 </head>
 <body>
@@ -63,6 +72,12 @@
             </button>
             <a class="navbar-brand" href="#" id="ggbrand">Graphgen<span>&beta;eta</span></a>
         </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li class=""><a href="#">Docs</a></li>
+            <li><button type="button" class="btn btn-default navbar-btn">
+                    <a href="https://github.com/neoxygen/graphgen" title="Fork me I'm famous" id="linkToRepo">
+                        <img src="{{ app.request.basepath }}/assets/images/ghmark.png" alt="Github Repository"/>&nbsp; Fork me I'm famous</a></button></li>
+        </ul>
         <div class="collapse navbar-collapse">
         </div>
     </div>
@@ -135,7 +150,7 @@ $(document).ready(function() {
                     id: node.id,
                     label: node.type,
                     caption: node.type,
-                    node_color: node.neogen_node_color
+                    node_color: node.neogen_node_color,
                 });
             });
 
@@ -149,9 +164,12 @@ $(document).ready(function() {
 
             var config = {
                 dataSource: g,
-                cluster: false,
                 forceLocked: true,
-                collisionDetection: false
+                collisionDetection: true,
+                edgeArrowSize: 2,
+                directedEdges: true,
+                zoomControls: true,
+                linkDistance: function() {return 250;},
             };
             console.log(g);
             alchemy.begin(config)
