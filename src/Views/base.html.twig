@@ -210,7 +210,7 @@ $(document).ready(function() {
                 edgeArrowSize: 2,
                 directedEdges: true,
                 zoomControls: true,
-                linkDistance: function() {return 250;},
+                initialScale: 0.5
             };
             $('#gjson_result').html(pattern);
             alchemy.begin(config);
