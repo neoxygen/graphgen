@@ -29,9 +29,6 @@
         body { padding-top: 70px; }
 
         #alchemy {
-            width: 70%;
-            margin-left: 100px;
-            margin-right: 100px;
             min-height: 600px;
         }
 
@@ -126,9 +123,13 @@
     <div class="col-xs-12">
 
     </div>
-</div>
 
-<div id="alchemy" class="alchemy"></div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="alchemy" class="alchemy"></div>
+        </div>
+    </div>
+</div>
 
 {% block javascripts %}
     <script src="{{ app.request.basepath }}/assets/jquery/dist/jquery.min.js"></script>
@@ -192,7 +193,7 @@ $(document).ready(function() {
                 linkDistance: function() {return 250;},
             };
             console.log(g);
-            alchemy.begin(config)
+            alchemy.begin(config);
 
 
         });
