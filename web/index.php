@@ -22,9 +22,11 @@ $app->get('/', 'Neoxygen\\Graphgen\\Controller\\WebController::home')
 $app->post('/api/pattern/process', 'Neoxygen\\Graphgen\\Controller\\WebController::transformPattern')
     ->bind('api_pattern_transform');
 
+/**
 $app->after(function (Request $request, Response $response) {
     $response->headers->add(array(
         'Cache-Control' => 'no-cache'
     ));
 });
+ */
 $app->run();
