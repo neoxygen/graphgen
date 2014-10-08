@@ -5,6 +5,7 @@ namespace Neoxygen\Graphgen\Controller;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request,
     Symfony\Component\HttpFoundation\Response,
+    Symfony\Component\HttpFoundation\ResponseHeaderBag,
     Symfony\Component\HttpFoundation\JsonResponse,
     Neoxygen\Neogen\Exception\SchemaException;
 
@@ -39,6 +40,7 @@ class WebController
             $graphJson = $processor->getGraphJson();
             $response->setData($graphJson);
             $response->setStatusCode(200);
+            $this->increment();
         } catch (SchemaException $e) {
             $data = array(
                 'error' => array(
@@ -52,6 +54,28 @@ class WebController
 
         return $response;
 
+    }
+
+    public function exportToGraphJson(Application $application, Request $request)
+    {
+        $file = sys_get_temp_dir().'/'.uniqid().'.json';
+        $parser = $application['parser'];
+        $processor = $application['processor'];
+        $pattern = $request->request->get('pattern');
+
+        try {
+            $parser->parseCypher($pattern);
+            $schema = $parser->getSchema();
+
+            $processor->process($schema);
+            $graphJson = $processor->getGraphJson();
+            file_put_contents($file, $graphJson);
+            return $application
+                ->sendFile($file)
+                ->setContentDisposition(ResponseHeaderBag::DISPOSITION_ATTACHMENT, 'export.json');
+        } catch (\Exception $e) {
+            throw $e;
+        }
     }
 
     private function increment()
