@@ -25,6 +25,8 @@ $app->post('/api/pattern/process', 'Neoxygen\\Graphgen\\Controller\\WebControlle
 $app->post('/api/export/graphjson', 'Neoxygen\\Graphgen\\Controller\\WebController::exportToGraphJson')
     ->bind('api_export_graphjson');
 
+$app->post('/api/export/cypher', 'Neoxygen\\Graphgen\\Controller\\WebController::exportToCypher')
+    ->bind('api_export_cypher');
 /**
 $app->after(function (Request $request, Response $response) {
     $response->headers->add(array(

@@ -138,6 +138,11 @@
                         <input type="submit" value="GraphJSON">
                     </form>
                 </li>
+                <li><form action="{{ path('api_export_cypher') }}" target="_blank" method="POST" id="exportToCypher">
+                        <input type="hidden" name="pattern" id="cypher_pattern"/>
+                        <input type="submit" value="Cypher Queries Statement">
+                    </form>
+                </li>
             </ul>
         </div>
     </div>
@@ -230,6 +235,11 @@ $(document).ready(function() {
     $('#exportToGraphJson').submit(function(e){
         var pattern = $('#gjson_result').html();
         $('#gjson_pattern').val(pattern);
+    });
+
+    $('#exportToCypher').submit(function(e){
+        var pattern = $('#gjson_result').html();
+        $('#cypher_pattern').val(pattern);
     });
 });
 </script>

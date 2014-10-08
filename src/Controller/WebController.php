@@ -78,6 +78,34 @@ class WebController
         }
     }
 
+    public function exportToCypher(Application $application, Request $request)
+    {
+        $file = sys_get_temp_dir().'/'.uniqid().'.json';
+        $parser = $application['parser'];
+        $processor = $application['processor'];
+        $pattern = $request->request->get('pattern');
+
+        try {
+            $parser->parseCypher($pattern);
+            $schema = $parser->getSchema();
+
+            $processor->process($schema);
+            $text = '';
+            foreach ($processor->getConstraints() as $constraint) {
+                $text .= $constraint."\n";
+            }
+            foreach ($processor->getQueries() as $query) {
+                $text .= $query."\n";
+            }
+            file_put_contents($file, $text);
+            return $application
+                ->sendFile($file)
+                ->setContentDisposition(ResponseHeaderBag::DISPOSITION_ATTACHMENT, 'cypher_export.cql');
+        } catch (\Exception $e) {
+            throw $e;
+        }
+    }
+
     private function increment()
     {
         if(extension_loaded('apc') && ini_get('apc.enabled'))
