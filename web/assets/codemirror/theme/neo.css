@@ -3,7 +3,7 @@
 /* Color scheme */
 
 .cm-s-neo.CodeMirror {
-  background-color:#ffffff;
+  background-color:#fcfcfc;
   color:#2e383c;
   line-height:1.4375;
 }
@@ -23,13 +23,19 @@
 
 .cm-s-neo .CodeMirror-gutters {
   border:none;
-  border-right:10px solid transparent;
+  border-right:1px solid #777777;
   background-color:transparent;
+    padding-right: 9px;
+}
+
+.cm-s-neo .CodeMirror-lines {
+    padding-left: 5px;
 }
 
 .cm-s-neo .CodeMirror-linenumber {
   padding:0;
   color:#e0e2e5;
+    color: #01a0e4;
 }
 
 .cm-s-neo .CodeMirror-guttermarker { color: #1d75b3; }
