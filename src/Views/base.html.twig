@@ -13,6 +13,8 @@
     <link href="{{ app.request.basepath }}/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{ app.request.basepath }}/assets/alchemyjs/dist/styles/vendor.css" rel="stylesheet">
     <link href="{{ app.request.basepath }}/assets/alchemyjs/dist/alchemy.min.css" rel="stylesheet">
+    <link href="{{ app.request.basepath }}/assets/codemirror/lib/codemirror.css" rel="stylesheet">
+    <link href="{{ app.request.basepath }}/assets/codemirror/theme/neo.css" rel="stylesheet">
 
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -26,9 +28,14 @@
         body { padding-top: 70px; }
 
         #alchemy {
-            width: 80%;
-            margin-left: auto;
-            margin-right: auto;
+            width: 70%;
+            margin-left: 100px;
+            margin-right: 100px;
+            min-height: 600px;
+        }
+
+        .CodeMirror {
+            height: 200px;
         }
 
     </style>
@@ -63,11 +70,13 @@
         <div class="col-xs-12">
         <form role="form" id="patternForm" method="POST" action="{{ path('api_pattern_transform') }}">
             <div class="form-group">
-                <span class="help-block">Example: <br/>
-                (p:Person 35)-[:WORKS_AT n..1]->(c:Company)<br/>
-                (p)-[:FOLLOWS n..n]->(p)</span>
                 <label for="patternBox">Enter your pattern here</label>
-                <textarea id="patternBox" class="form-control" rows="6" placeholder=""></textarea>
+                <textarea id="patternBox" class="form-control" rows="6" placeholder="">// Example Query :
+(p:Person 35)-[:KNOWS n..n]->(p)
+(p)-[:HAS n..n]->(s:Skill 20)
+(c:Company 20)-[:LOOKS_FOR_COMPETENCE n..n]->(s)
+(c)-[:LOCATED_IN n..1]->(country:Country 70)
+(p)-[:LIVES_IN n..1]->(country)</textarea>
             </div>
 
             <button type="submit" id="gen_button" class="btn btn-default">Generate</button>
@@ -87,9 +96,23 @@
     <script src="{{ app.request.basepath }}/assets/bootstrap/js/collapse.js"></script>
     <script src="{{ app.request.basepath }}/assets/alchemyjs/dist/scripts/vendor.js"></script>
     <script src="{{ app.request.basepath }}/assets/alchemyjs/dist/alchemy.js"></script>
+    <script src="{{ app.request.basepath }}/assets/codemirror/lib/codemirror.js"></script>
+    <script src="{{ app.request.basepath }}/assets/codemirror/mode/cypher/cypher.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function() {
+
+    // Instantiate code editor
+
+    var editor = CodeMirror.fromTextArea(document.getElementById("patternBox"), {
+        lineNumbers: true,
+        mode: "application/x-cypher-query",
+        matchBrackets: true,
+        autofocus: true,
+        theme: 'neo'
+    });
+
+
     $('#patternForm').submit(function (e) {
         e.preventDefault();
         var apiEndpoint = $(this).attr('action');
@@ -107,7 +130,7 @@ $(document).ready(function() {
                     id: node.id,
                     label: node.type,
                     caption: node.type,
-                    color: node.neogen_color
+                    node_color: node.neogen_node_color
                 });
             });
 
