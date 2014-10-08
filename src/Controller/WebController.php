@@ -12,7 +12,16 @@ class WebController
 {
     public function home(Application $application, Request $request)
     {
-        return $application['twig']->render('base.html.twig');
+        $current = 0;
+        if(extension_loaded('apc') && ini_get('apc.enabled'))
+        {
+            $fetch = apc_fetch('graphgen_generated');
+            if (null !== $fetch) {
+                $current = $fetch;
+            }
+        }
+
+        return $application['twig']->render('base.html.twig', array('current' => $current));
     }
 
     public function transformPattern(Application $application, Request $request)
@@ -43,5 +52,14 @@ class WebController
 
         return $response;
 
+    }
+
+    private function increment()
+    {
+        if(extension_loaded('apc') && ini_get('apc.enabled'))
+        {
+            $current = apc_fetch('graphgen_generated');
+            apc_store('graphgen_generated', $current++);
+        }
     }
 }

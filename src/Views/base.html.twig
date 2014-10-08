@@ -92,6 +92,9 @@
         <ul class="nav navbar-nav navbar-right">
             <li class=""><a href="#">Docs</a></li>
             <li class=""><a href="http://www.neoxygen.io" target="_blank">Neoxygen.io</a></li>
+            {% if current > 0 %}
+            <li><a href="#">{{ current }} graphs generated</a></li>
+            {% endif %}
             <li><a href="https://github.com/neoxygen/graphgen" title="Fork me I'm famous" id="linkToRepo">
                         <img src="{{ app.request.basepath }}/assets/images/ghmarklight.png" alt="Github Repository"/></a></li>
         </ul>
