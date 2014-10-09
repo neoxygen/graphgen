@@ -197,6 +197,9 @@ $(document).ready(function() {
                     label: node.type,
                     caption: node.type,
                     node_color: node.neogen_node_color,
+                    nodeStyle: {
+                        'fill': node.neogen_color
+                    }
                 });
             });
 
