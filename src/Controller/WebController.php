@@ -7,7 +7,10 @@ use Symfony\Component\HttpFoundation\Request,
     Symfony\Component\HttpFoundation\Response,
     Symfony\Component\HttpFoundation\ResponseHeaderBag,
     Symfony\Component\HttpFoundation\JsonResponse,
-    Neoxygen\Neogen\Exception\SchemaException;
+    Neoxygen\Neogen\Exception\SchemaException,
+    Neoxygen\Neogen\Converter\GraphJSONConverter,
+    Neoxygen\Neogen\Converter\StandardCypherConverter,
+    Neoxygen\Neogen\Converter\CypherStatementsConverter;
 
 class WebController
 {
@@ -27,17 +30,14 @@ class WebController
 
     public function transformPattern(Application $application, Request $request)
     {
-        $parser = $application['parser'];
-        $processor = $application['processor'];
+        $gen = $application['neogen'];
         $pattern = $request->request->get('pattern');
         $response = new JsonResponse();
 
         try {
-            $parser->parseCypher($pattern);
-            $schema = $parser->getSchema();
-
-            $processor->process($schema);
-            $graphJson = $processor->getGraphJson();
+            $graph = $gen->generateGraphFromCypher($pattern);
+            $converter = new GraphJSONConverter();
+            $graphJson = $converter->convert($graph);
             $response->setData($graphJson);
             $response->setStatusCode(200);
             $this->increment();
@@ -59,16 +59,13 @@ class WebController
     public function exportToGraphJson(Application $application, Request $request)
     {
         $file = sys_get_temp_dir().'/'.uniqid().'.json';
-        $parser = $application['parser'];
-        $processor = $application['processor'];
+        $gen = $application['neogen'];
         $pattern = $request->request->get('pattern');
 
         try {
-            $parser->parseCypher($pattern);
-            $schema = $parser->getSchema();
-
-            $processor->process($schema);
-            $graphJson = $processor->getGraphJson();
+            $graph = $gen->generateGraphFromCypher($pattern);
+            $converter = new GraphJSONConverter();
+            $graphJson = $converter->convert($graph);
             file_put_contents($file, $graphJson);
             return $application
                 ->sendFile($file)
@@ -81,21 +78,17 @@ class WebController
     public function exportToCypher(Application $application, Request $request)
     {
         $file = sys_get_temp_dir().'/'.uniqid().'.json';
-        $parser = $application['parser'];
-        $processor = $application['processor'];
+        $gen = $application['neogen'];
         $pattern = $request->request->get('pattern');
 
         try {
-            $parser->parseCypher($pattern);
-            $schema = $parser->getSchema();
-
-            $processor->process($schema);
+            $graph = $gen->generateGraphFromCypher($pattern);
+            $converter = new StandardCypherConverter();
+            $converter->convert($graph);
+            $sts = $converter->getStatements();
             $text = '';
-            foreach ($processor->getConstraints() as $constraint) {
-                $text .= $constraint."\n";
-            }
-            foreach ($processor->getQueries() as $query) {
-                $text .= $query."\n";
+            foreach ($sts as $statement) {
+                $text .= $statement."\n";
             }
             file_put_contents($file, $text);
             return $application

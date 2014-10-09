@@ -2,15 +2,13 @@
 
 require_once __DIR__.'/../vendor/autoload.php';
 
-use Neoxygen\Neogen\Parser\CypherPattern,
-    Neoxygen\Neogen\Schema\Processor,
-    Symfony\Component\HttpFoundation\Request,
+use Neoxygen\Neogen\Neogen;
+use Symfony\Component\HttpFoundation\Request,
     Symfony\Component\HttpFoundation\Response;
 
 $app = new Silex\Application();
 $app['debug'] = true;
-$app['parser'] = new CypherPattern();
-$app['processor'] = new Processor();
+$app['neogen'] = new Neogen();
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../src/Views',
 ));

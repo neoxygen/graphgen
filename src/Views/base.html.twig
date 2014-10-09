@@ -193,21 +193,17 @@ $(document).ready(function() {
             };
             $.each(data.nodes, function (index, node) {
                 g.nodes.push({
-                    id: node.id,
-                    label: node.type,
-                    caption: node.type,
-                    node_color: node.neogen_node_color,
-                    nodeStyle: {
-                        'fill': node.neogen_color
-                    }
+                    id: node._id,
+                    label: node.laebl,
+                    caption: node.label,
                 });
             });
 
             $.each(data.edges, function (index, edge) {
                 g.edges.push({
-                    source: edge.source,
-                    target: edge.target,
-                    caption: edge.caption
+                    source: edge._source,
+                    target: edge._target,
+                    caption: edge.type
                 });
             });
 
