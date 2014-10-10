@@ -1,0 +1,47 @@
+body { padding-top: 70px; }
+
+#alchemy {
+    height: 100px;
+}
+
+.CodeMirror {
+    height: 200px;
+}
+
+#ggbrand {
+    color: #1DC116;
+}
+
+#ggbrand span {
+    color: #fff;
+    font-size: 12px;
+    margin-left: 2px;
+}
+
+#linkToRepo {
+    font-size: 13px;
+}
+
+#linkToRepo:hover {
+    text-decoration: none;
+}
+
+#desc {
+    color: #fff;
+}
+
+#desc a.neolink {
+    color: #1DC116;
+}
+
+.exportButtons {
+    text-align: right;
+    display: none;
+}
+
+#footer {
+    height: 60px;
+    background-color: #f5f5f5;
+    padding-top: 20px;
+    margin-top:10px;
+}
