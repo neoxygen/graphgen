@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request,
     Symfony\Component\HttpFoundation\Response;
 
 $app = new Silex\Application();
+$app['root_dir'] = sys_get_temp_dir();
 $app['debug'] = true;
 $app['neogen'] = new Neogen();
 $app->register(new Silex\Provider\TwigServiceProvider(), array(

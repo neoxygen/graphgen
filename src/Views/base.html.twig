@@ -29,7 +29,7 @@
         body { padding-top: 70px; }
 
         #alchemy {
-            min-height: 600px;
+            height: 100px;
         }
 
         .CodeMirror {
@@ -65,6 +65,13 @@
         .exportButtons {
             text-align: right;
             display: none;
+        }
+
+        #footer {
+            height: 60px;
+            background-color: #f5f5f5;
+            padding-top: 20px;
+            margin-top:10px;
         }
 
     </style>
@@ -197,6 +204,14 @@
     </div>
 </div>
 
+<div id="footer">
+    <div class="container">
+            <div class="col-xs-12">
+                <p>Brought to you by <a href="https://twitter.com/ikwattro" title="Christophe Willemsen">Christophe Willemsen | @ikwattro</a></p>
+            </div>
+    </div>
+</div>
+
 {% block javascripts %}
     <script src="{{ app.request.basepath }}/assets/jquery/dist/jquery.min.js"></script>
     <script src="{{ app.request.basepath }}/assets/bootstrap/js/collapse.js"></script>
@@ -209,7 +224,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
 
-    //$('.exportButtons').hide();
+    $('.exportButtons').hide();
     // Instantiate code editor
 
     var editor = CodeMirror.fromTextArea(document.getElementById("patternBox"), {
@@ -260,6 +275,7 @@ $(document).ready(function() {
                 initialScale: 0.5
             };
             $('#gjson_result').html(pattern);
+            $('#alchemy').css('min-height', '600px');
             alchemy.begin(config);
             $('.exportButtons').show();
 

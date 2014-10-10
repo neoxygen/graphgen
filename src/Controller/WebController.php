@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request,
     Symfony\Component\HttpFoundation\Response,
     Symfony\Component\HttpFoundation\ResponseHeaderBag,
     Symfony\Component\HttpFoundation\JsonResponse,
+    Symfony\Component\Filesystem\Filesystem,
     Neoxygen\Neogen\Exception\SchemaException,
     Neoxygen\Neogen\Converter\GraphJSONConverter,
     Neoxygen\Neogen\Converter\StandardCypherConverter,
@@ -16,20 +17,19 @@ class WebController
 {
     public function home(Application $application, Request $request)
     {
-        $current = 0;
-        if(extension_loaded('apc') && ini_get('apc.enabled'))
-        {
-            $fetch = apc_fetch('graphgen_generated');
-            if (null !== $fetch) {
-                $current = $fetch;
-            }
-        }
+        $root = $application['root_dir'];
+        $file = $root.'/counter';
+
+        $current = $this->getCounter($file);
 
         return $application['twig']->render('base.html.twig', array('current' => $current));
     }
 
     public function transformPattern(Application $application, Request $request)
     {
+        $root = $application['root_dir'];
+        $file = $root.'/counter';
+
         $gen = $application['neogen'];
         $pattern = $request->request->get('pattern');
         $response = new JsonResponse();
@@ -40,7 +40,7 @@ class WebController
             $graphJson = $converter->convert($graph);
             $response->setData($graphJson);
             $response->setStatusCode(200);
-            $this->increment();
+            $this->increment($file);
         } catch (SchemaException $e) {
             $data = array(
                 'error' => array(
@@ -119,12 +119,30 @@ class WebController
         }
     }
 
-    private function increment()
+    private function increment($file)
     {
-        if(extension_loaded('apc') && ini_get('apc.enabled'))
-        {
-            $current = apc_fetch('graphgen_generated');
-            apc_store('graphgen_generated', $current++);
+        $fs = new Filesystem();
+        if (!$fs->exists($file)){
+            $fs->touch($file);
+            $fs->chmod($file, 0777);
+            file_put_contents($file, 1);
+            return true;
         }
+        $fs->chmod($file, 0777);
+        $current = (int) file_get_contents($file);
+        $current++;
+        file_put_contents($file, $current);
+        return true;
+
+    }
+
+    private function getCounter($file)
+    {
+        if (!file_exists($file)){
+            return 0;
+        }
+        $current = (int) file_get_contents($file);
+
+        return $current;
     }
 }
