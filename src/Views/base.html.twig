@@ -162,19 +162,20 @@
                                 <label for="location">Server address</label>
                                 <input type="text" class="form-control" name="location" id="populate-location" value="http://localhost:7474">
                             </div>
-                            <!--
+                            <hr/>
+                            Authentication (optional)
                             <div class="form-group">
                                 <label for="user">User</label>
-                                <input type="text" class="form-control" id="populate-user" name="user" placeholder="Chris">
+                                <input type="text" class="form-control" id="populate-user" name="user" placeholder="">
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" id="populate-password" name="password" placeholder="s3cr3t">
+                                <input type="password" class="form-control" id="populate-password" name="password" placeholder="">
                             </div>
-                            -->
+
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" checked="" id="populate-empty-condition"> Empty database before load ?
+                                    <input type="checkbox" id="populate-empty-condition"> Clear database before load ?
                                 </label>
                             </div>
                             <button type="submit" class="btn btn-primary" id="populate-submit">Populate</button>
