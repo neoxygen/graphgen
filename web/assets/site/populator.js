@@ -65,9 +65,17 @@ $(document).ready(function(){
     function sendStatement(endpoint, data)
     {
         var neoError;
+        var user = $('#populate-user').val();
+        var pwd = $('#populate-password').val();
+        var token = user + ':' +pwd;
+        var hash = btoa(token);
+        var authHeader = 'Basic ' + hash;
         $.ajax({
             url: endpoint,
             type: "POST",
+            beforeSend: function (xhr){
+                xhr.setRequestHeader('Authorization', authHeader);
+            },
             data: data,
             async: false,
             contentType: "application/json"
