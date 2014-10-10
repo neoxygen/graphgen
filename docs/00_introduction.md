@@ -34,7 +34,7 @@ This will create 35 nodes with the `Person` label.
 Note:
 
 - The identifier is optional, but handy for relationships pattern.
-- The start (*) before the desired amount and the amount are mandatory
+- The star (*) before the desired amount and the amount are mandatory
 
 #### Defining relationships
 
