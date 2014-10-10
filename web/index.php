@@ -18,6 +18,9 @@ $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 $app->get('/', 'Neoxygen\\Graphgen\\Controller\\WebController::home')
     ->bind('home');
 
+$app->get('/documentation', 'Neoxygen\\Graphgen\\Controller\\WebController::docAction')
+    ->bind('doc');
+
 $app->post('/api/pattern/process', 'Neoxygen\\Graphgen\\Controller\\WebController::transformPattern')
     ->bind('api_pattern_transform');
 

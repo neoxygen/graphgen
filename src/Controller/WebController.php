@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request,
     Neoxygen\Neogen\Converter\GraphJSONConverter,
     Neoxygen\Neogen\Converter\StandardCypherConverter,
     Neoxygen\Neogen\Converter\CypherStatementsConverter;
+use Michelf\MarkdownExtra;
 
 class WebController
 {
@@ -23,6 +24,23 @@ class WebController
         $current = $this->getCounter($file);
 
         return $application['twig']->render('base.html.twig', array('current' => $current));
+    }
+
+    public function docAction(Application $application, Request $request)
+    {
+        $file = __DIR__.'/../../docs/00_introduction.md';
+        $contents = file_get_contents($file);
+
+        $doc = MarkdownExtra::defaultTransform($contents);
+
+        $root = $application['root_dir'];
+        $file = $root.'/counter';
+
+        $current = $this->getCounter($file);
+
+        return $application['twig']->render('doc.html.twig', array('doctext' => $doc, 'current' => $current));
+
+
     }
 
     public function transformPattern(Application $application, Request $request)
