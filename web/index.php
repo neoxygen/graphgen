@@ -3,8 +3,6 @@
 require_once __DIR__.'/../vendor/autoload.php';
 
 use Neoxygen\Neogen\Neogen;
-use Symfony\Component\HttpFoundation\Request,
-    Symfony\Component\HttpFoundation\Response;
 
 $app = new Silex\Application();
 $app['root_dir'] = sys_get_temp_dir();
@@ -21,7 +19,7 @@ $app->get('/', 'Neoxygen\\Graphgen\\Controller\\WebController::home')
 $app->get('/documentation', 'Neoxygen\\Graphgen\\Controller\\WebController::docAction')
     ->bind('doc');
 
-$app->post('/api/pattern/process', 'Neoxygen\\Graphgen\\Controller\\WebController::transformPattern')
+$app->post('/api/pattern/transform', 'Neoxygen\\Graphgen\\Controller\\WebController::transformPattern')
     ->bind('api_pattern_transform');
 
 $app->post('/api/export/graphjson', 'Neoxygen\\Graphgen\\Controller\\WebController::exportToGraphJson')
