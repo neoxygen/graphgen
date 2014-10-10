@@ -365,12 +365,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:neoxygen/neogen.git",
-                "reference": "ec4b29f1980265b5e73c0de9531b1caa923236c4"
+                "reference": "4e0a6dcbc58154ae69d1aa0d8271722d99108b51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neoxygen/neogen/zipball/ec4b29f1980265b5e73c0de9531b1caa923236c4",
-                "reference": "ec4b29f1980265b5e73c0de9531b1caa923236c4",
+                "url": "https://api.github.com/repos/neoxygen/neogen/zipball/4e0a6dcbc58154ae69d1aa0d8271722d99108b51",
+                "reference": "4e0a6dcbc58154ae69d1aa0d8271722d99108b51",
                 "shasum": ""
             },
             "require": {
@@ -408,7 +408,7 @@
                 "graph",
                 "neo4j"
             ],
-            "time": "2014-10-09 20:37:28"
+            "time": "2014-10-10 19:11:55"
         },
         {
             "name": "pimple/pimple",
@@ -1152,12 +1152,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security-core.git",
-                "reference": "cd35c9337766e0f0f14f2968371e1922d93ea880"
+                "reference": "e9030aec262e7d697e2f66d7f47db6164cc360c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-core/zipball/cd35c9337766e0f0f14f2968371e1922d93ea880",
-                "reference": "cd35c9337766e0f0f14f2968371e1922d93ea880",
+                "url": "https://api.github.com/repos/symfony/security-core/zipball/e9030aec262e7d697e2f66d7f47db6164cc360c0",
+                "reference": "e9030aec262e7d697e2f66d7f47db6164cc360c0",
                 "shasum": ""
             },
             "require": {
@@ -1205,7 +1205,7 @@
             ],
             "description": "Symfony Security Component - Core Library",
             "homepage": "http://symfony.com",
-            "time": "2014-09-29 07:38:25"
+            "time": "2014-10-10 16:59:52"
         },
         {
             "name": "symfony/security-csrf",
@@ -1390,12 +1390,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "9fb15e343e881c9a89b97ee2262d7b8fbf512c6e"
+                "reference": "84df881b8b2db91edd33ba144c575d1312e585da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/9fb15e343e881c9a89b97ee2262d7b8fbf512c6e",
-                "reference": "9fb15e343e881c9a89b97ee2262d7b8fbf512c6e",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/84df881b8b2db91edd33ba144c575d1312e585da",
+                "reference": "84df881b8b2db91edd33ba144c575d1312e585da",
                 "shasum": ""
             },
             "require": {
@@ -1439,7 +1439,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2014-10-01 17:51:59"
+            "time": "2014-10-10 18:56:23"
         }
     ],
     "packages-dev": [],

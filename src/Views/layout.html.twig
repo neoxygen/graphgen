@@ -186,10 +186,20 @@
                         dataSource: g,
                         forceLocked: true,
                         collisionDetection: true,
-                        edgeArrowSize: 2,
-                        directedEdges: true,
                         zoomControls: true,
-                        initialScale: 0.5
+                        initialScale: 0.5,
+                        cluster: true,
+                        nodeTypes: {"node_type":
+                                [
+                                    "Person",
+                                    "Country",
+                                    "Company",
+                                    "Skill",
+                                    //"other"
+                                ]
+                        },
+                        rootNodeRadius: 30,
+                        toggleRootNodes: false
                     };
                     $('#gjson_result').html(pattern);
                     $('#alchemy').css('min-height', '600px');
