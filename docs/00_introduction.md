@@ -46,7 +46,7 @@ You need to define the `type` of the relationship and the cardinality :
 (p:Person *35)
 (c:Company *10)
 (p)-[:KNOWS *n..n]->(p)
-(p)-[:WORKS_AT *]->(c)
+(p)-[:WORKS_AT *n..1]->(c)
 ```
 
 This will create 35 `Person` nodes, 10 `Company` nodes and a relationship between persons and companies (here a person works
