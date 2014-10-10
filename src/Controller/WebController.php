@@ -99,6 +99,26 @@ class WebController
         }
     }
 
+    public function getPopulateQueries(Application $application, Request $request)
+    {
+        $gen = $application['neogen'];
+        $pattern = $request->request->get('pattern');
+
+        try {
+            $graph = $gen->generateGraphFromCypher($pattern);
+            $converter = new CypherStatementsConverter();
+            $converter->convert($graph);
+            $sts = $converter->getStatements();
+            $response = new JsonResponse();
+            $data = json_encode($sts);
+            $response->setData($data);
+            return $response;
+
+        } catch (\Exception $e) {
+            throw $e;
+        }
+    }
+
     private function increment()
     {
         if(extension_loaded('apc') && ini_get('apc.enabled'))

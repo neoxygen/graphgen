@@ -143,7 +143,48 @@
                         <input type="submit" value="Cypher Queries Statement">
                     </form>
                 </li>
+                <li> | </li>
+                <li><button type="button" id="triggerPopBox" class="btn btn-success" data-toggle="modal" data-target="#myModal">NEW ! Populate your database </button></li>
             </ul>
+
+        </div>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Populate your database</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form role="form" id="populator" action="{{ path('api_export_populate') }}">
+                            <div id="popResult"></div>
+                            <div class="form-group">
+                                <label for="location">Server address</label>
+                                <input type="text" class="form-control" name="location" id="populate-location" value="http://localhost:7474">
+                            </div>
+                            <!--
+                            <div class="form-group">
+                                <label for="user">User</label>
+                                <input type="text" class="form-control" id="populate-user" name="user" placeholder="Chris">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="populate-password" name="password" placeholder="s3cr3t">
+                            </div>
+                            -->
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" checked="" id="populate-empty-condition"> Empty database before load ?
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="populate-submit">Populate</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" id="popFormClose" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -162,11 +203,12 @@
     <script src="{{ app.request.basepath }}/assets/alchemyjs/dist/alchemy.js"></script>
     <script src="{{ app.request.basepath }}/assets/codemirror/lib/codemirror.js"></script>
     <script src="{{ app.request.basepath }}/assets/codemirror/mode/cypher/cypher.js"></script>
+    <script src="{{ app.request.basepath }}/assets/site/populator.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function() {
 
-    $('.exportButtons').hide();
+    //$('.exportButtons').hide();
     // Instantiate code editor
 
     var editor = CodeMirror.fromTextArea(document.getElementById("patternBox"), {

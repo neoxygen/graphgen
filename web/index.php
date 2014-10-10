@@ -25,11 +25,7 @@ $app->post('/api/export/graphjson', 'Neoxygen\\Graphgen\\Controller\\WebControll
 
 $app->post('/api/export/cypher', 'Neoxygen\\Graphgen\\Controller\\WebController::exportToCypher')
     ->bind('api_export_cypher');
-/**
-$app->after(function (Request $request, Response $response) {
-    $response->headers->add(array(
-        'Cache-Control' => 'no-cache'
-    ));
-});
- */
+
+$app->post('/api/export/populate', 'Neoxygen\\Graphgen\\Controller\\WebController::getPopulateQueries')
+    ->bind('api_export_populate');
 $app->run();
