@@ -49,7 +49,7 @@
             <a class="navbar-brand" href="{{ path('home') }}" id="ggbrand">Graphgen<span>&beta;eta</span></a>
             <p class="navbar-text" id="desc">Graph generator for <a href="http://neo4j.org" title="Neo4j" class="navbar-link neolink">Neo4j</a></p>
         </div>
-        <div class="navbar-collapse collapse">
+        <div class="navbar-collapse collapse" id="dropmenu">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{ path('doc') }}">Docs</a></li>
                 <li><a href="http://www.neoxygen.io" target="_blank">Neoxygen.io</a></li>
@@ -89,8 +89,9 @@
 {% endblock javascripts %}
 <script type="text/javascript">
     $(document).ready(function(){
-       $('#collbut').click(function(){
-           $('.collapse.in').slideToggle();
+       $('#collbut').click(function(e){
+           e.preventDefault();
+           $('#dropmenu').slideToggle().removeClass('in');
        }) ;
     });
 </script>
