@@ -55,3 +55,7 @@ body { padding-top: 70px; }
     background-color: #ac4142;
     display: none;
 }
+
+.textright {
+    text-align: right;
+}
