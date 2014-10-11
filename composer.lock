@@ -62,12 +62,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "66fd916e9f9130bc22c51450476823391cb2f67c"
+                "reference": "cfdb1169e4eefd6513e577c2fa8b4cc02d8de8a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/66fd916e9f9130bc22c51450476823391cb2f67c",
-                "reference": "66fd916e9f9130bc22c51450476823391cb2f67c",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/cfdb1169e4eefd6513e577c2fa8b4cc02d8de8a8",
+                "reference": "cfdb1169e4eefd6513e577c2fa8b4cc02d8de8a8",
                 "shasum": ""
             },
             "require": {
@@ -119,7 +119,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-10-05 19:29:14"
+            "time": "2014-10-11 17:32:43"
         },
         {
             "name": "guzzlehttp/streams",
@@ -365,12 +365,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:neoxygen/neogen.git",
-                "reference": "9a593470c597083a3d5b7374ca706e02fa43638b"
+                "reference": "4e0054e087e1b41f8fb61e0163e339dce4ab6e8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neoxygen/neogen/zipball/9a593470c597083a3d5b7374ca706e02fa43638b",
-                "reference": "9a593470c597083a3d5b7374ca706e02fa43638b",
+                "url": "https://api.github.com/repos/neoxygen/neogen/zipball/4e0054e087e1b41f8fb61e0163e339dce4ab6e8f",
+                "reference": "4e0054e087e1b41f8fb61e0163e339dce4ab6e8f",
                 "shasum": ""
             },
             "require": {
@@ -408,7 +408,7 @@
                 "graph",
                 "neo4j"
             ],
-            "time": "2014-10-10 19:54:25"
+            "time": "2014-10-11 23:40:59"
         },
         {
             "name": "pimple/pimple",
@@ -1390,12 +1390,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "84df881b8b2db91edd33ba144c575d1312e585da"
+                "reference": "c476a6b1fc4d5f79b2bd53c16420465592f4bf38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/84df881b8b2db91edd33ba144c575d1312e585da",
-                "reference": "84df881b8b2db91edd33ba144c575d1312e585da",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/c476a6b1fc4d5f79b2bd53c16420465592f4bf38",
+                "reference": "c476a6b1fc4d5f79b2bd53c16420465592f4bf38",
                 "shasum": ""
             },
             "require": {
@@ -1439,7 +1439,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2014-10-10 18:56:23"
+            "time": "2014-10-11 22:29:52"
         }
     ],
     "packages-dev": [],
