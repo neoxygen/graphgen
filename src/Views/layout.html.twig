@@ -40,7 +40,7 @@
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <button type="button" id="collbut" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -51,12 +51,12 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li class=""><a href="{{ path('doc') }}">Docs</a></li>
-                <li class=""><a href="http://www.neoxygen.io" target="_blank">Neoxygen.io</a></li>
+                <li><a href="{{ path('doc') }}">Docs</a></li>
+                <li><a href="http://www.neoxygen.io" target="_blank">Neoxygen.io</a></li>
                 {% if current > 0 %}
                     <li><a href="#">{{ current }} graphs generated</a></li>
                 {% endif %}
-                <li><a href="https://github.com/neoxygen/graphgen" title="Fork me I'm famous" id="linkToRepo">
+                <li class="hidden-xs"><a href="https://github.com/neoxygen/graphgen" title="Fork me I'm famous" id="linkToRepo">
                         <img src="{{ app.request.basepath }}/assets/images/ghmarklight.png" alt="Github Repository"/></a></li>
             </ul>
         </div>
@@ -79,16 +79,20 @@
 
 {% block javascripts %}
     <script src="{{ app.request.basepath }}/assets/jquery/dist/jquery.min.js"></script>
-    <script src="{{ app.request.basepath }}/assets/bootstrap/js/collapse.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="{{ app.request.basepath }}/assets/alchemyjs/dist/scripts/vendor.js"></script>
     <script type="text/javascript" src="http://cdn.graphalchemist.com/alchemy.min.js"></script>
-        <!--
-    <script src="{{ app.request.basepath }}/assets/alchemyjs/dist/alchemy.js"></script>
-    -->
     <script src="{{ app.request.basepath }}/assets/codemirror/lib/codemirror.js"></script>
     <script src="{{ app.request.basepath }}/assets/codemirror/mode/cypher/cypher.js"></script>
     <script src="{{ app.request.basepath }}/assets/site/webapp.js"></script>
     <script src="{{ app.request.basepath }}/assets/site/populator.js"></script>
 {% endblock javascripts %}
+<script type="text/javascript">
+    $(document).ready(function(){
+       $('#collbut').click(function(){
+           $('.collapse.in').slideToggle();
+       }) ;
+    });
+</script>
 </body>
 </html>
