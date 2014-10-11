@@ -133,6 +133,7 @@ $(document).ready(function() {
     function setNodeInfo(node)
     {
         var box = $('#nodeInfo');
+        box.show();
         box.html('');
         box.append('<h4>' + node.properties.label + '</h4>');
         box.append('<h5>Properties</h5>');

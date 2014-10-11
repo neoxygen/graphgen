@@ -53,4 +53,5 @@ body { padding-top: 70px; }
     top: 5px;
     right: 5px;
     background-color: #ac4142;
+    display: none;
 }
