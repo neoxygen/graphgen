@@ -99,6 +99,7 @@ $(document).ready(function() {
             };
             $('#gjson_result').html(pattern);
             $('#alchemy').css('min-height', '600px');
+            $('#intro').hide();
             alchemy.begin(config);
             $.each(nodeTypes, function(index, type){
                 clust = rulesRuled[type];
