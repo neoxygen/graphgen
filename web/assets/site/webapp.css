@@ -45,3 +45,12 @@ body { padding-top: 70px; }
     padding-top: 20px;
     margin-top:10px;
 }
+
+#nodeInfo{
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    top: 5px;
+    right: 5px;
+    background-color: #ac4142;
+}

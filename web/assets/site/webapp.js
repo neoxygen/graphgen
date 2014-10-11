@@ -94,6 +94,7 @@ $(document).ready(function() {
                 toggleRootNodes: false,
                 nodeMouseOver: function(node){
                     console.log(node);
+                    setNodeInfo(node);
                 }
             };
             $('#gjson_result').html(pattern);
@@ -128,4 +129,17 @@ $(document).ready(function() {
         var pattern = $('#gjson_result').html();
         $('#cypher_pattern').val(pattern);
     });
+
+    function setNodeInfo(node)
+    {
+        var box = $('#nodeInfo');
+        box.html('');
+        box.append('<h4>' + node.properties.label + '</h4>');
+        box.append('<h5>Properties</h5>');
+        box.append('<ul>');
+        $.each(node.properties.properties, function(index, value){
+            box.append('<li>' + index + ' : ' + value + '</li>');
+        });
+        box.append('</ul>');
+    }
 });
