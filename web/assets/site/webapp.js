@@ -1,5 +1,34 @@
 $(document).ready(function() {
 
+    var sheet = (function() {
+        // Create the <style> tag
+        var style = document.createElement("style");
+
+        // Add a media (and/or media query) here if you'd like!
+        // style.setAttribute("media", "screen")
+        // style.setAttribute("media", "only screen and (max-width : 1024px)")
+
+        // WebKit hack :(
+        style.appendChild(document.createTextNode(""));
+
+        // Add the <style> element to the page
+        document.head.appendChild(style);
+
+        return style.sheet;
+    })();
+    function addCSSRule(sheet, selector, rules, index) {
+        if("insertRule" in sheet) {
+            console.log(rules);
+            sheet.insertRule(selector + "{" + rules + "}", index);
+        }
+        else if("addRule" in sheet) {
+            sheet.addRule(selector, rules, index);
+        }
+    }
+
+
+
+
     $('.exportButtons').hide();
     // Instantiate code editor
 
@@ -17,10 +46,14 @@ $(document).ready(function() {
         var apiEndpoint = $(this).attr('action');
         var pattern = $('#patternBox').val();
         var posting = $.post(apiEndpoint, {'pattern': pattern});
+        var clusterColors = ["#DD79FF", "#FFFC00", "#00FF30", "#5168FF", "#00C0FF",
+            "#FF004B", "#00CDCD", "#f83f00", "#f800df", "#ff8d8f",
+            "#ffcd00", "#184fff", "#ff7e00"];
+        var rulesRuled = [];
+        var nodeTypes = [];
         posting.done(function (data) {
             $('#cypherError').hide();
             var data = $.parseJSON(data);
-            console.log(data);
             g = {
                 nodes: [],
                 edges: []
@@ -28,9 +61,16 @@ $(document).ready(function() {
             $.each(data.nodes, function (index, node) {
                 g.nodes.push({
                     id: node._id,
-                    label: node.laebl,
+                    label: node.label,
                     caption: node.label,
+                    node_type: node.label,
+                    cluster: node.cluster,
+                    properties: node.properties
                 });
+                if (!(node.label in rulesRuled)){
+                    rulesRuled[node.label] = node.cluster;
+                    nodeTypes.push(node.label);
+                }
             });
 
             $.each(data.edges, function (index, edge) {
@@ -43,26 +83,29 @@ $(document).ready(function() {
 
             var config = {
                 dataSource: g,
+                nodeTypes: {"label": nodeTypes},
                 forceLocked: true,
                 collisionDetection: true,
                 zoomControls: true,
                 initialScale: 0.5,
-                cluster: true,
-                nodeTypes: {"node_type":
-                    [
-                        "Person",
-                        "Country",
-                        "Company",
-                        "Skill",
-                        //"other"
-                    ]
-                },
+                cluster: false,
+                clusterKey: 'cluster',
                 rootNodeRadius: 30,
-                toggleRootNodes: false
+                toggleRootNodes: false,
+                nodeMouseOver: function(node){
+                    console.log(node);
+                }
             };
             $('#gjson_result').html(pattern);
             $('#alchemy').css('min-height', '600px');
             alchemy.begin(config);
+            $.each(nodeTypes, function(index, type){
+                clust = rulesRuled[type];
+                console.log(clust);
+                $('.' + type + ' circle').attr('fill', clusterColors[clust]);
+                $('.' + type + ' circle').css('fill', clusterColors[clust]);
+                console.log(clusterColors[clust]);
+            });
             $('.exportButtons').show();
 
 

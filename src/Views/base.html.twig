@@ -26,16 +26,16 @@
                 <li>Download as :</li>
                 <li><form action="{{ path('api_export_graphjson') }}" target="_blank" method="POST" id="exportToGraphJson">
                         <input type="hidden" name="pattern" id="gjson_pattern"/>
-                        <input type="submit" value="GraphJSON">
+                        <input type="submit" class="btn btn-info"value="GraphJSON">
                     </form>
                 </li>
                 <li><form action="{{ path('api_export_cypher') }}" target="_blank" method="POST" id="exportToCypher">
                         <input type="hidden" name="pattern" id="cypher_pattern"/>
-                        <input type="submit" value="Cypher Queries Statement">
+                        <input type="submit" class="btn btn-info" value="Cypher Queries Statement">
                     </form>
                 </li>
                 <li> | </li>
-                <li><button type="button" id="triggerPopBox" class="btn btn-success" data-toggle="modal" data-target="#myModal">NEW ! Populate your database </button></li>
+                <li><button type="button" id="triggerPopBox" class="btn btn-success btn-circle" data-toggle="modal" data-target="#myModal">Populate your database !</button></li>
             </ul>
 
         </div>
