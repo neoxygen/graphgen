@@ -108,6 +108,8 @@ $(document).ready(function() {
                 $('.' + type + ' circle').css('fill', clusterColors[clust]);
                 console.log(clusterColors[clust]);
             });
+            var input = $("<input>").attr("type", "hidden").attr('name', 'pattern').val(pattern);
+            $('#neo4j-console-form').append($(input));
             $('.exportButtons').show();
 
 

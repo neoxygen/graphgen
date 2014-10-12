@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\Request,
     Neoxygen\Neogen\Converter\StandardCypherConverter,
     Neoxygen\Neogen\Converter\CypherStatementsConverter;
 use Michelf\MarkdownExtra;
+use GuzzleHttp\Client;
 
 class WebController
 {
@@ -32,7 +33,6 @@ class WebController
         $current = $this->getCounter($application);
 
         return $application['twig']->render('doc.html.twig', array('doctext' => $doc, 'current' => $current));
-
 
     }
 
@@ -104,6 +104,40 @@ class WebController
             return $application
                 ->sendFile($file)
                 ->setContentDisposition(ResponseHeaderBag::DISPOSITION_ATTACHMENT, 'cypher_export.cql');
+        } catch (\Exception $e) {
+            throw $e;
+        }
+    }
+
+    public function getConsoleLinkAction(Application $application, Request $request)
+    {
+        $gen = $application['neogen'];
+        $pattern = $request->request->get('pattern');
+
+        try {
+            $graph = $gen->generateGraphFromCypher($pattern);
+            $converter = new StandardCypherConverter();
+            $converter->convert($graph);
+            $sts = $converter->getStatements();
+            $q = '';
+            foreach ($sts as $statement) {
+                $q .= $statement."\n";
+            }
+            $bodyContents = [
+                'init' => $q,
+                'query' => 'MATCH (n) RETURN n LIMIT 25;'
+            ];
+            $body = json_encode($bodyContents);
+            $client = new Client();
+            $request = $client->createRequest('POST', 'http://console.neo4j.org/r/share', ['body' => $body]);
+            $request->setHeader('Content-Type', 'application/json');
+
+            $response = $client->send($request);
+            $shareLink = trim((string) $response->getBody());
+
+            $consoleLink = 'http://console.neo4j.org/r/'.$shareLink;
+
+            return $application->redirect($consoleLink);
         } catch (\Exception $e) {
             throw $e;
         }

@@ -37,4 +37,7 @@ $app->post('/api/export/cypher', 'Neoxygen\\Graphgen\\Controller\\WebController:
 
 $app->post('/api/export/populate', 'Neoxygen\\Graphgen\\Controller\\WebController::getPopulateQueries')
     ->bind('api_export_populate');
+
+$app->post('/api/console', 'Neoxygen\\Graphgen\\Controller\\WebController::getConsoleLinkAction')
+    ->bind('api_console');
 $app->run();

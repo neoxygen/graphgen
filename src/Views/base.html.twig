@@ -23,6 +23,10 @@
     <div class="col-xs-12">
         <div class="exportButtons">
             <ul class="list-inline">
+                <li><form id="neo4j-console-form" method="POST" action="{{ path('api_console') }}">
+                        <input type="hidden" id="console-pattern"/>
+                        <button type="submit" id="goto-neo4j-console" class="btn btn-info">Open in Neo4j Console</button>
+                </form></li>
                 <li>Download as :</li>
                 <li><form action="{{ path('api_export_graphjson') }}" target="_blank" method="POST" id="exportToGraphJson">
                         <input type="hidden" name="pattern" id="gjson_pattern"/>
