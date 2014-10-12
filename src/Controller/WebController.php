@@ -59,6 +59,8 @@ class WebController
             $response->setData($graphJson);
             $response->setStatusCode(200);
             $this->increment($file);
+            $stats = $application['stats'];
+            $stats->addUserGenerateAction($request->getClientIp(), $pattern);
         } catch (SchemaException $e) {
             $data = array(
                 'error' => array(
@@ -85,6 +87,8 @@ class WebController
             $converter = new GraphJSONConverter();
             $graphJson = $converter->convert($graph);
             file_put_contents($file, $graphJson);
+            $stats = $application['stats'];
+            $stats->addUserGenerateAction($request->getClientIp(), $pattern);
             return $application
                 ->sendFile($file)
                 ->setContentDisposition(ResponseHeaderBag::DISPOSITION_ATTACHMENT, 'export.json');

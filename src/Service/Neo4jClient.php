@@ -21,4 +21,9 @@ class Neo4jClient
     {
         return $this->client;
     }
+
+    public function sendQuery($query, array $params = array(), $conn = null, array $resultsDataContents = array('row', 'graph'))
+    {
+        return $this->client->sendCypherQuery($query, $params, $conn, $resultsDataContents);
+    }
 }

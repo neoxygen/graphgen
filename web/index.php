@@ -4,7 +4,7 @@ require_once __DIR__.'/../vendor/autoload.php';
 
 use Neoxygen\Neogen\Neogen;
 use Neoxygen\Graphgen\Service\Neo4jClient,
-    Neoxygen\Graphgen\Service\GraphCounter;
+    Neoxygen\Graphgen\Statistics\StatisticService;
 
 $app = new Silex\Application();
 $app['root_dir'] = sys_get_temp_dir();
@@ -13,7 +13,7 @@ $app['neogen'] = new Neogen();
 
 $neo4jService = new Neo4jClient();
 $app['neo4j'] = $neo4jService;
-$app['counter'] = new GraphCounter($app['neo4j']);
+$app['stats'] = new StatisticService($app['neo4j']);
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../src/Views',

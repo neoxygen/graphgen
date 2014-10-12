@@ -1,4 +1,21 @@
 {
+    "name": "neoxygen/graphgen",
+    "type": "application",
+    "description": "Neo4j graph generator based on the Cypher spec",
+    "keywords": [
+        "graph",
+        "neo4j",
+        "cypher",
+        "generation"
+    ],
+    "homepage": "http://www.neoxygen.io",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christophe Willemsen",
+            "email": "chris@neoxygen.io"
+        }
+    ],
     "require": {
         "neoxygen/neogen": "dev-master",
         "silex/silex": "~1.1",
@@ -6,9 +23,21 @@
         "symfony/twig-bridge": "~2.3",
         "michelf/php-markdown": "~1.4"
     },
+    "require-dev": {
+        "phpspec/phpspec": "~2.0",
+        "phpunit/phpunit": "4.*",
+        "bossa/phpspec2-expect": "*",
+        "behat/behat": "~3.0"
+
+    },
     "autoload": {
         "psr-4": {
             "Neoxygen\\Graphgen\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Neoxygen\\Graphgen\\Tests\\": "tests/Neoxygen/Graphgen/Tests"
         }
     },
     "minimum-stability": "dev",
