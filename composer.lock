@@ -303,12 +303,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/neoxygen/neo4j-neoclient.git",
-                "reference": "6f761b346b01de1c480efaa108524c696b089181"
+                "reference": "c64ca04379be990fc56fe179533754296e83d3dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neoxygen/neo4j-neoclient/zipball/6f761b346b01de1c480efaa108524c696b089181",
-                "reference": "6f761b346b01de1c480efaa108524c696b089181",
+                "url": "https://api.github.com/repos/neoxygen/neo4j-neoclient/zipball/c64ca04379be990fc56fe179533754296e83d3dd",
+                "reference": "c64ca04379be990fc56fe179533754296e83d3dd",
                 "shasum": ""
             },
             "require": {
@@ -357,7 +357,7 @@
                 "http",
                 "neo4j"
             ],
-            "time": "2014-10-09 17:49:11"
+            "time": "2014-10-12 13:19:28"
         },
         {
             "name": "neoxygen/neogen",
@@ -507,12 +507,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex.git",
-                "reference": "be10a76303a1323a2e5709151ede97f60820b307"
+                "reference": "2603afb3d2d902a3dbc19075d91f0b39a9d46c40"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex/zipball/be10a76303a1323a2e5709151ede97f60820b307",
-                "reference": "be10a76303a1323a2e5709151ede97f60820b307",
+                "url": "https://api.github.com/repos/silexphp/Silex/zipball/2603afb3d2d902a3dbc19075d91f0b39a9d46c40",
+                "reference": "2603afb3d2d902a3dbc19075d91f0b39a9d46c40",
                 "shasum": ""
             },
             "require": {
@@ -526,7 +526,6 @@
             "require-dev": {
                 "doctrine/dbal": "~2.2",
                 "monolog/monolog": "~1.4,>=1.4.1",
-                "phpunit/phpunit": "~3.7",
                 "swiftmailer/swiftmailer": "5.*",
                 "symfony/browser-kit": ">=2.3,<2.6-dev",
                 "symfony/config": ">=2.3,<2.6-dev",
@@ -582,7 +581,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2014-09-26 09:33:25"
+            "time": "2014-10-12 12:14:54"
         },
         {
             "name": "symfony/config",
