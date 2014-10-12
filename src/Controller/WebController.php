@@ -104,7 +104,7 @@ class WebController
             $converter = new StandardCypherConverter();
             $converter->convert($graph);
             $sts = $converter->getStatements();
-            $text = '// Request IP Addr '.$request->getClientIp().PHP_EOL;
+            $text = '';
             foreach ($sts as $statement) {
                 $text .= $statement."\n";
             }
