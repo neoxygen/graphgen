@@ -18,10 +18,7 @@ class WebController
 {
     public function home(Application $application, Request $request)
     {
-        $root = $application['root_dir'];
-        $file = $root.'/counter';
-
-        $current = $this->getCounter($file);
+        $current = $this->getCounter($application);
 
         return $application['twig']->render('base.html.twig', array('current' => $current));
     }
@@ -32,11 +29,7 @@ class WebController
         $contents = file_get_contents($file);
 
         $doc = MarkdownExtra::defaultTransform($contents);
-
-        $root = $application['root_dir'];
-        $file = $root.'/counter';
-
-        $current = $this->getCounter($file);
+        $current = $this->getCounter($application);
 
         return $application['twig']->render('doc.html.twig', array('doctext' => $doc, 'current' => $current));
 
@@ -45,9 +38,6 @@ class WebController
 
     public function transformPattern(Application $application, Request $request)
     {
-        $root = $application['root_dir'];
-        $file = $root.'/counter';
-
         $gen = $application['neogen'];
         $pattern = $request->request->get('pattern');
         $response = new JsonResponse();
@@ -58,9 +48,7 @@ class WebController
             $graphJson = $converter->convert($graph);
             $response->setData($graphJson);
             $response->setStatusCode(200);
-            $this->increment($file);
-            $stats = $application['stats'];
-            $stats->addUserGenerateAction($request->getClientIp(), $pattern);
+            $this->increment($application, $request, $pattern);
         } catch (SchemaException $e) {
             $data = array(
                 'error' => array(
@@ -141,29 +129,16 @@ class WebController
         }
     }
 
-    private function increment($file)
+    private function increment(Application $application, Request $request, $pattern)
     {
-        $fs = new Filesystem();
-        if (!$fs->exists($file)){
-            $fs->touch($file);
-            $fs->chmod($file, 0777);
-            file_put_contents($file, 1);
-            return true;
-        }
-        $fs->chmod($file, 0777);
-        $current = (int) file_get_contents($file);
-        $current++;
-        file_put_contents($file, $current);
-        return true;
-
+        $stats = $application['stats'];
+        $stats->addUserGenerateAction($request->getClientIp(), $pattern);
     }
 
-    private function getCounter($file)
+    private function getCounter(Application $application)
     {
-        if (!file_exists($file)){
-            return 0;
-        }
-        $current = (int) file_get_contents($file);
+        $stat = $application['stats'];
+        $current = $stat->getGenerationCount();
 
         return $current;
     }
