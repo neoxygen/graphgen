@@ -39,6 +39,31 @@ $(document).ready(function() {
         theme: 'neo'
     });
 
+    precalculate();
+
+    function precalculate(){
+        var transformUrl = $('#patternBox').attr('data-validator');
+        var data = editor.getValue();
+        $.ajax({
+            url: transformUrl,
+            type: "POST",
+            data: {'pattern': data}
+        })
+            .done(function(result){
+                var graph = $.parseJSON(result);
+                $('#precalculate-info').html(graph.nodes.length + ' nodes | ~ ' + graph.edges.length + ' edges');
+                return true;
+
+            })
+            .fail(function(error){
+                return false;
+            });
+    }
+
+    editor.on("change", function(cm, change) {
+        precalculate();
+    });
+
 
     $('#patternForm').submit(function (e) {
         e.preventDefault();
