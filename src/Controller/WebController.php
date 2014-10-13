@@ -11,7 +11,8 @@ use Symfony\Component\HttpFoundation\Request,
     Neoxygen\Neogen\Exception\SchemaException,
     Neoxygen\Neogen\Converter\GraphJSONConverter,
     Neoxygen\Neogen\Converter\StandardCypherConverter,
-    Neoxygen\Neogen\Converter\CypherStatementsConverter;
+    Neoxygen\Neogen\Converter\CypherStatementsConverter,
+    Neoxygen\Neoclient\Exception\HttpException;
 use Michelf\MarkdownExtra;
 
 class WebController
@@ -137,9 +138,13 @@ class WebController
 
     private function getCounter(Application $application)
     {
-        $stat = $application['stats'];
-        $current = $stat->getGenerationCount();
-
-        return $current;
+        try {
+            $stat = $application['stats'];
+            $current = $stat->getGenerationCount();
+            
+            return $current;
+        } catch (HttpException $e){
+            return 0;
+        }
     }
 }
