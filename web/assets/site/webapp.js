@@ -18,7 +18,6 @@ $(document).ready(function() {
     })();
     function addCSSRule(sheet, selector, rules, index) {
         if("insertRule" in sheet) {
-            console.log(rules);
             sheet.insertRule(selector + "{" + rules + "}", index);
         }
         else if("addRule" in sheet) {
@@ -103,10 +102,8 @@ $(document).ready(function() {
             alchemy.begin(config);
             $.each(nodeTypes, function(index, type){
                 clust = rulesRuled[type];
-                console.log(clust);
                 $('.' + type + ' circle').attr('fill', clusterColors[clust]);
                 $('.' + type + ' circle').css('fill', clusterColors[clust]);
-                console.log(clusterColors[clust]);
             });
             $('.exportButtons').show();
 

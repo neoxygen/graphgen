@@ -50,6 +50,7 @@ class WebController
             $response->setData($graphJson);
             $response->setStatusCode(200);
             $this->increment($application, $request, $pattern);
+            $application['monolog']->addDebug('Pattern transformed successfully');
         } catch (SchemaException $e) {
             $data = array(
                 'error' => array(
@@ -59,6 +60,7 @@ class WebController
             );
             $response->setData($data);
             $response->setStatusCode(320);
+            $application['monolog']->addWarning(sprintf('Unable to transform pattern "%s"', $e->getMessage()));
         }
 
         return $response;
@@ -132,8 +134,14 @@ class WebController
 
     private function increment(Application $application, Request $request, $pattern)
     {
-        $stats = $application['stats'];
-        $stats->addUserGenerateAction($request->getClientIp(), $pattern);
+        try {
+            $stats = $application['stats'];
+            $stats->addUserGenerateAction($request->getClientIp(), $pattern);
+            return;
+        } catch (HttpException $e){
+            return;
+        }
+
     }
 
     private function getCounter(Application $application)
@@ -141,9 +149,10 @@ class WebController
         try {
             $stat = $application['stats'];
             $current = $stat->getGenerationCount();
-            
+
             return $current;
         } catch (HttpException $e){
+            $application['monolog']->addCritical(sprintf('Neo4j connection error %s', $e->getMessage()));
             return 0;
         }
     }

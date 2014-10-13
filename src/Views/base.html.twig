@@ -49,7 +49,7 @@
                     <div class="modal-body">
                         <form role="form" id="populator" action="{{ path('api_export_populate') }}">
                             <div id="popResult"></div>
-                            <div class="form-group">
+                            <div class="form-group" id="populate-form-box">
                                 <label for="location">Server address</label>
                                 <input type="text" class="form-control" name="location" id="populate-location" value="http://localhost:7474">
                             </div>
@@ -72,6 +72,7 @@
                             <button type="submit" class="btn btn-primary" id="populate-submit">Populate</button>
                         </form>
                     </div>
+                    <div id="populate-debug-box"></div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" id="popFormClose" data-dismiss="modal">Close</button>
                     </div>

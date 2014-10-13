@@ -18,6 +18,9 @@ $app['stats'] = new StatisticService($app['neo4j']);
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../src/Views',
 ));
+$app->register(new Silex\Provider\MonologServiceProvider(), array(
+    'monolog.logfile' => __DIR__.'/../logs/graphgen.log'
+));
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 
 $app->get('/', 'Neoxygen\\Graphgen\\Controller\\WebController::home')

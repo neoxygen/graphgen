@@ -10,42 +10,60 @@ $(document).ready(function(){
     });
     popForm.submit(function(e){
         e.preventDefault();
+        popForm.hide();
         $('form#populator :input').prop('disabled', true);
+        var inputBox = $('#populate-debug-box');
         var url = getUrl();
         var queriesEndpoint = popForm.attr('action');
         var emptyDB = $('#populate-empty-condition').is(':checked');
         var pattern = $('#gjson_result').html();
         var postCypher = $.post(queriesEndpoint, {'pattern': pattern});
         postCypher.done(function (data) {
-
             if (emptyDB){
                 var emptyStatement = JSON.stringify({
                     statements: [{
                         statement: 'MATCH (n) OPTIONAL MATCH (n)-[r]-() DELETE r,n'
                     }]
                 });
-                sendStatement(url, emptyStatement);
-                console.log('Database cleared')
+                if (!sendStatement(url, emptyStatement)){
+                    $('form#populator :input').prop('disabled', false);
+                    popForm.show();
+                    return false;
+                }
+                console.log('Database cleared');
+                inputBox.html('<div class="alert alert-info" role="alert">Database cleared</div>');
             }
 
             var queries = JSON.parse(data);
+            var constraintsCount = Object.keys(queries.constraints).length;
+            var nodesCount = countNodes(queries.nodes);
+            var edgesCount = countEdges(queries.edges);
 
             if (sendConstraints(url, queries.constraints) != true){
+                $('form#populator :input').prop('disabled', false);
+                popForm.show();
                 return false;
             }
+            inputBox.append('<div class="alert alert-info" role="alert">' + constraintsCount + ' Constraints created</div>');
 
             if (!loadNodes(url, queries.nodes)){
+                $('form#populator :input').prop('disabled', false);
+                popForm.show();
                 return false;
             }
+            inputBox.append('<div class="alert alert-info" role="alert"> '+ nodesCount +' Nodes imported</div>');
 
             if (!loadEdges(url, queries.edges)){
+                $('form#populator :input').prop('disabled', false);
+                popForm.show();
                 return false;
             }
 
             var msg = 'Data successfully loaded in your database. ' +
                 'Open it <a href="' + getBrowserUrl() + '" target="_blank">' + getBrowserUrl() + '</a>';
-            $('#popResult').html('<div class="alert alert-success" role="alert">' + msg + '</div>');
-            $('form#populator :input').prop('disabled', false);
+
+            inputBox.append('<div class="alert alert-info" role="alert">' + edgesCount + ' Relationships imported</div>');
+            inputBox.append('<div class="alert alert-success" role="alert">' + msg + '</div>');
 
         });
     });
@@ -92,7 +110,7 @@ $(document).ready(function(){
         if (neoError.length == 0){
             return true;
         } else {
-            displayError(neoError.message)
+            displayError(neoError.message);
             console.log(neoError);
             return false;
         }
@@ -155,5 +173,26 @@ $(document).ready(function(){
         });
         console.log('Edges created');
         return true;
+    }
+
+    function countNodes(nodes)
+    {
+        var x = 0;
+        $.each(nodes, function(index, map){
+            x = x + Object.keys(map.parameters.props).length;
+        });
+        return x;
+    }
+
+    function countEdges(edges)
+    {
+        var x = 0;
+        $.each(edges, function(index, map){
+            if (map.parameters !== undefined){
+                x = x + Object.keys(map.parameters.pairs).length;
+            }
+        });
+
+        return x;
     }
 });
