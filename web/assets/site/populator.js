@@ -118,7 +118,9 @@ $(document).ready(function(){
 
     function resetBoxContents()
     {
+        popForm.show();
         $('#popResult').html('');
+        $('#populate-debug-box').html('');
     }
 
     function displayError(error)
