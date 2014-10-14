@@ -121,6 +121,7 @@ $(document).ready(function(){
         popForm.show();
         $('#popResult').html('');
         $('#populate-debug-box').html('');
+        $('form#populator :input').prop('disabled', false);
     }
 
     function displayError(error)
