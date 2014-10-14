@@ -2,7 +2,9 @@
 
 namespace Neoxygen\Graphgen\Statistics;
 
+use GuzzleHttp\Url;
 use Neoxygen\Graphgen\Service\Neo4jClient,
+    Neoxygen\Graphgen\Service\UrlShortenerService,
     Neoxygen\Graphgen\Statistics\CypherQueryRepository,
     Neoxygen\NeoClient\Formatter\ResponseFormatter;
 use Neoxygen\NeoClient\Formatter\Node;
@@ -15,11 +17,14 @@ class StatisticService
 
     protected $formatter;
 
+    protected $urlService;
+
     public function __construct(Neo4jClient $client)
     {
         $this->neoService = $client;
         $this->cypher = new CypherQueryRepository();
         $this->formatter = new ResponseFormatter();
+        $this->urlService = new UrlShortenerService();
     }
 
     public function addUserGenerateAction($clientIp, $pattern)
