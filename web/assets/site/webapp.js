@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+    var graphJson;
+
     var sheet = (function() {
         // Create the <style> tag
         var style = document.createElement("style");
@@ -121,7 +123,7 @@ $(document).ready(function() {
                     setNodeInfo(node);
                 }
             };
-            $('#gjson_result').html(pattern);
+            $('#gjson_result').html(JSON.stringify(data));
             $('#alchemy').css('min-height', '600px');
             $('#intro').hide();
             alchemy.begin(config);

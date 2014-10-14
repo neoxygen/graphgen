@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "1ce76e851997c7ac51d7f76e5b4cd01ae50e607f"
+                "reference": "b6d383161d84092a7a9f5b14db6e2637edbd3a6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/1ce76e851997c7ac51d7f76e5b4cd01ae50e607f",
-                "reference": "1ce76e851997c7ac51d7f76e5b4cd01ae50e607f",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/b6d383161d84092a7a9f5b14db6e2637edbd3a6e",
+                "reference": "b6d383161d84092a7a9f5b14db6e2637edbd3a6e",
                 "shasum": ""
             },
             "require": {
@@ -54,7 +54,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2014-10-01 07:35:35"
+            "time": "2014-10-14 14:30:56"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -365,12 +365,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/neoxygen/neo4j-neogen.git",
-                "reference": "6bfdc250b84e9b7df8f27f164f2d113459742703"
+                "reference": "35cf61dcc6ae38acc17069dd026c354282e10968"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neoxygen/neo4j-neogen/zipball/6bfdc250b84e9b7df8f27f164f2d113459742703",
-                "reference": "6bfdc250b84e9b7df8f27f164f2d113459742703",
+                "url": "https://api.github.com/repos/neoxygen/neo4j-neogen/zipball/35cf61dcc6ae38acc17069dd026c354282e10968",
+                "reference": "35cf61dcc6ae38acc17069dd026c354282e10968",
                 "shasum": ""
             },
             "require": {
@@ -408,7 +408,7 @@
                 "graph",
                 "neo4j"
             ],
-            "time": "2014-10-14 12:09:44"
+            "time": "2014-10-14 14:40:12"
         },
         {
             "name": "pimple/pimple",

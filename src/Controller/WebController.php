@@ -39,14 +39,12 @@ class WebController
 
     public function transformPattern(Application $application, Request $request)
     {
-        $gen = $application['neogen'];
         $pattern = $request->request->get('pattern');
         $response = new JsonResponse();
 
         try {
-            $graph = $gen->generateGraphFromCypher($pattern);
-            $converter = new GraphJSONConverter();
-            $graphJson = $converter->convert($graph);
+            $graphJson = $application['converter']->transformPatternToGraphJson($pattern);
+
             $response->setData($graphJson);
             $response->setStatusCode(200);
             $this->increment($application, $request, $pattern);
@@ -64,22 +62,15 @@ class WebController
         }
 
         return $response;
-
     }
 
     public function exportToGraphJson(Application $application, Request $request)
     {
         $file = sys_get_temp_dir().'/'.uniqid().'.json';
-        $gen = $application['neogen'];
-        $pattern = $request->request->get('pattern');
+        $graph = $request->request->get('pattern');
 
         try {
-            $graph = $gen->generateGraphFromCypher($pattern);
-            $converter = new GraphJSONConverter();
-            $graphJson = $converter->convert($graph);
-            file_put_contents($file, $graphJson);
-            $stats = $application['stats'];
-            $stats->addUserGenerateAction($request->getClientIp(), $pattern);
+            file_put_contents($file, $graph);
             return $application
                 ->sendFile($file)
                 ->setContentDisposition(ResponseHeaderBag::DISPOSITION_ATTACHMENT, 'export.json');
@@ -91,16 +82,13 @@ class WebController
     public function exportToCypher(Application $application, Request $request)
     {
         $file = sys_get_temp_dir().'/'.uniqid().'.json';
-        $gen = $application['neogen'];
-        $pattern = $request->request->get('pattern');
+        $pattern = json_decode($request->request->get('pattern'), true);
 
         try {
-            $graph = $gen->generateGraphFromCypher($pattern);
-            $converter = new StandardCypherConverter();
-            $converter->convert($graph);
-            $sts = $converter->getStatements();
+            $converter = $application['converter'];
+            $statements = $converter->transformGraphJsonToStandardCypher($pattern);
             $text = '';
-            foreach ($sts as $statement) {
+            foreach ($statements as $statement) {
                 $text .= $statement."\n";
             }
             file_put_contents($file, $text);
@@ -114,16 +102,12 @@ class WebController
 
     public function getPopulateQueries(Application $application, Request $request)
     {
-        $gen = $application['neogen'];
-        $pattern = $request->request->get('pattern');
+        $pattern = json_decode($request->request->get('pattern'), true);
 
         try {
-            $graph = $gen->generateGraphFromCypher($pattern);
-            $converter = new CypherStatementsConverter();
-            $converter->convert($graph);
-            $sts = $converter->getStatements();
+            $statements = $application['converter']->transformGraphJsonToCypherPopulate($pattern);
             $response = new JsonResponse();
-            $data = json_encode($sts);
+            $data = json_encode($statements);
             $response->setData($data);
             return $response;
 
