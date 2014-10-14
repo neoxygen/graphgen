@@ -365,12 +365,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/neoxygen/neo4j-neogen.git",
-                "reference": "caf24b7e801b2baa3c15ef5afe515fc689426eca"
+                "reference": "6bfdc250b84e9b7df8f27f164f2d113459742703"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neoxygen/neo4j-neogen/zipball/caf24b7e801b2baa3c15ef5afe515fc689426eca",
-                "reference": "caf24b7e801b2baa3c15ef5afe515fc689426eca",
+                "url": "https://api.github.com/repos/neoxygen/neo4j-neogen/zipball/6bfdc250b84e9b7df8f27f164f2d113459742703",
+                "reference": "6bfdc250b84e9b7df8f27f164f2d113459742703",
                 "shasum": ""
             },
             "require": {
@@ -408,7 +408,7 @@
                 "graph",
                 "neo4j"
             ],
-            "time": "2014-10-14 05:01:06"
+            "time": "2014-10-14 12:09:44"
         },
         {
             "name": "pimple/pimple",
@@ -1389,12 +1389,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "875a56c8fa1a763d63d42b89f904aeaa5be44838"
+                "reference": "98f1a4b28092bee659c695e40afe8a94640cddbf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/875a56c8fa1a763d63d42b89f904aeaa5be44838",
-                "reference": "875a56c8fa1a763d63d42b89f904aeaa5be44838",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/98f1a4b28092bee659c695e40afe8a94640cddbf",
+                "reference": "98f1a4b28092bee659c695e40afe8a94640cddbf",
                 "shasum": ""
             },
             "require": {
@@ -1438,7 +1438,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2014-10-13 12:33:18"
+            "time": "2014-10-14 07:04:21"
         }
     ],
     "packages-dev": [
