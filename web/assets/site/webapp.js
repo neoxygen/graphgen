@@ -132,7 +132,13 @@ $(document).ready(function() {
                 $('.' + type + ' circle').attr('fill', clusterColors[clust]);
                 $('.' + type + ' circle').css('fill', clusterColors[clust]);
             });
+            $('.directLink').attr('href', window.location.origin + '?graph=' + data.shareUrl);
+            $('.directShortLink').html('Link: ' + data.shareUrl);
+            var shareText = 'Hey look, I just generated a graph on Graphgen. See it here : http://graphgen.neoxygen.io/?graph=' + data.shareUrl + ' #neo4j #neoxygen';
+            $('.twitterShareLink').attr('href', 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText));
+            $('.facebookShareLink').attr('href', 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareText));
             $('.exportButtons').show();
+
 
 
         });

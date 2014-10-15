@@ -6,12 +6,7 @@
             <div class="alert alert-danger" id="cypherError" role="alert" style="display: none;"></div>
             <div class="form-group">
                 <label for="patternBox">Enter your pattern here</label>
-                <textarea id="patternBox" class="form-control" rows="6" placeholder="" data-validator="{{ path('api_pattern_transform') }}">// Example :
-(p:Person {firstname: firstName, lastname: lastName } *35)-[:KNOWS *n..n]->(p)
-(p)-[:HAS *n..n]->(s:Skill *20)
-(c:Company {name: company, desc: catchPhrase} *20)-[:LOOKS_FOR_COMPETENCE *n..n]->(s)
-(c)-[:LOCATED_IN *n..1]->(country:Country {name: country} *70)
-(p)-[:LIVES_IN *n..1]->(country)</textarea>
+                <textarea id="patternBox" class="form-control" rows="6" placeholder="" data-validator="{{ path('api_pattern_transform') }}">{{ pattern }}</textarea>
             </div>
 
             <button type="submit" id="gen_button" class="btn btn-info">Generate</button>&nbsp;<span id="precalculate-info"></span>
@@ -23,16 +18,38 @@
     <div class="col-xs-12">
         <div class="exportButtons">
             <ul class="list-inline">
-                <li>Download as :</li>
-                <li><form action="{{ path('api_export_graphjson') }}" target="_blank" method="POST" id="exportToGraphJson">
-                        <input type="hidden" name="pattern" id="gjson_pattern"/>
-                        <input type="submit" class="btn btn-info"value="GraphJSON">
-                    </form>
+                <li>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                            <img src="{{ app.request.basepath }}/assets/images/share.png" alt="share this graph"/> Share this graph <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#" class="twitterShareLink" target="_blank"><img src="{{ app.request.basepath }}/assets/images/twitter.png" alt="share this graph on Twitter"/> Share on Twitter</a></li>
+                            <li><a href="#" class="facebookShareLink" target="_blank"><img src="{{ app.request.basepath }}/assets/images/facebook.png" alt="share this graph on Facebook"/> Share on Facebook</a></li>
+                            <li><a href="#" class="directLink" target="_blank"><img src="{{ app.request.basepath }}/assets/images/link.png" alt="Direct link to this graph"/> <span class="directShortLink"></span></a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </div>
                 </li>
-                <li><form action="{{ path('api_export_cypher') }}" target="_blank" method="POST" id="exportToCypher">
-                        <input type="hidden" name="pattern" id="cypher_pattern"/>
-                        <input type="submit" class="btn btn-info" value="Cypher Queries Statement">
-                    </form>
+                <li>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                            <img src="{{ app.request.basepath }}/assets/images/export.png" alt="share this graph"/> Export <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><form action="{{ path('api_export_graphjson') }}" target="_blank" method="POST" id="exportToGraphJson">
+                                    <input type="hidden" name="pattern" id="gjson_pattern"/>
+                                    <input type="submit" class="noMit" value="GraphJSON">
+                                </form>
+                            </li>
+                            <li><form action="{{ path('api_export_cypher') }}" target="_blank" method="POST" id="exportToCypher">
+                                    <input type="hidden" name="pattern" id="cypher_pattern"/>
+                                    <input type="submit" class="noMit" value="Cypher Queries Statement">
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <li> | </li>
                 <li><button type="button" id="triggerPopBox" class="btn btn-success btn-circle" data-toggle="modal" data-target="#myModal">Populate your database !</button></li>

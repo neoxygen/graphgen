@@ -59,3 +59,16 @@ body { padding-top: 70px; }
 .textright {
     text-align: right;
 }
+
+ul.dropdown-menu li{
+    text-align: left;
+}
+
+input.noMit{
+    background-color: #fff;
+    border:none;
+}
+
+input.noMit:hover{
+    background-color: #f7f7f7;
+}

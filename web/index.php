@@ -5,7 +5,8 @@ require_once __DIR__.'/../vendor/autoload.php';
 use Neoxygen\Neogen\Neogen;
 use Neoxygen\Graphgen\Service\Neo4jClient,
     Neoxygen\Graphgen\Statistics\StatisticService,
-    Neoxygen\Graphgen\Service\ConverterService;
+    Neoxygen\Graphgen\Service\ConverterService,
+    Neoxygen\Graphgen\Service\UrlShortenerService;
 
 $app = new Silex\Application();
 $app['root_dir'] = sys_get_temp_dir();
@@ -13,7 +14,8 @@ $app['debug'] = true;
 $app['neogen'] = new Neogen();
 $neo4jService = new Neo4jClient();
 $app['neo4j'] = $neo4jService;
-$app['stats'] = new StatisticService($app['neo4j']);
+$app['shortUrl'] = new UrlShortenerService();
+$app['stats'] = new StatisticService($app['neo4j'], $app['shortUrl']);
 $app['converter'] = new ConverterService($app['neogen']);
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(

@@ -19,7 +19,7 @@ class StatisticService
 
     protected $urlService;
 
-    public function __construct(Neo4jClient $client)
+    public function __construct(Neo4jClient $client, UrlShortenerService $urlService)
     {
         $this->neoService = $client;
         $this->cypher = new CypherQueryRepository();
@@ -29,21 +29,19 @@ class StatisticService
 
     public function addUserGenerateAction($clientIp, $pattern)
     {
-        /**
-        $blacklist = array('localhost', '127.0.0.1', '0.0.0.0');
-        if (in_array($clientIp, $blacklist)){
-            return;
-        }*/
+        $url = $this->urlService->getShortUrl();
 
         $q = 'CREATE (u:UserRequest)-[r:GENERATE_PATTERN]->(p:Pattern)
-        SET u.ip = {ip}, p.pattern = {pattern}, r.generated_on = timestamp()';
+        SET u.ip = {ip}, p.pattern = {pattern}, p.url = {url}, r.generated_on = timestamp()';
 
         $p = [
             'ip' => $clientIp,
-            'pattern' => addslashes($pattern)
+            'pattern' => addslashes($pattern),
+            'url' => addslashes($url)
         ];
 
         $this->neoService->sendQuery($q, $p);
+
 
         $query = 'MERGE (n:GenerationCounter {id: {props}.counterKey})
         ON MATCH SET n.count = n.count +1
@@ -56,6 +54,25 @@ class StatisticService
         ];
 
         $this->neoService->sendQuery($query, $params);
+
+        return $url;
+    }
+
+    public function getPatternFromUrl($url)
+    {
+        $url = addslashes($url);
+        $params = ['url' => $url];
+
+        $q = 'MATCH p=(pattern:Pattern) WHERE pattern.url = {url} RETURN pattern';
+        $response = $this->neoService->sendQuery($q, $params);
+        $formatter = new ResponseFormatter();
+        $result = $formatter->format($response);
+        if (null === $result->getSingleNode('Pattern')){
+            return false;
+        } else {
+            return $result->getSingleNode('Pattern')->getProperty('pattern');
+        }
+
     }
 
     public function getGenerationCount()

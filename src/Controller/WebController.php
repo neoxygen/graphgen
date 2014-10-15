@@ -17,11 +17,19 @@ use Michelf\MarkdownExtra;
 
 class WebController
 {
+    protected $application;
+
     public function home(Application $application, Request $request)
     {
+        $this->application = $application;
+
+        $graph = $request->query->get('graph');
+
+        $pattern = $this->getPattern($graph);
+
         $current = $this->getCounter($application);
 
-        return $application['twig']->render('base.html.twig', array('current' => $current));
+        return $application['twig']->render('base.html.twig', array('current' => $current, 'pattern' => $pattern));
     }
 
     public function docAction(Application $application, Request $request)
@@ -44,10 +52,11 @@ class WebController
 
         try {
             $graphJson = $application['converter']->transformPatternToGraphJson($pattern);
-
-            $response->setData($graphJson);
+            $graph = json_decode($graphJson, true);
+            $url = $this->increment($application, $request, $pattern);
+            $graph['shareUrl'] = urlencode($url);
+            $response->setData(json_encode($graph));
             $response->setStatusCode(200);
-            $this->increment($application, $request, $pattern);
             $application['monolog']->addDebug('Pattern transformed successfully');
         } catch (SchemaException $e) {
             $data = array(
@@ -120,8 +129,8 @@ class WebController
     {
         try {
             $stats = $application['stats'];
-            $stats->addUserGenerateAction($request->getClientIp(), $pattern);
-            return;
+            $url = $stats->addUserGenerateAction($request->getClientIp(), $pattern);
+            return $url;
         } catch (HttpException $e){
             return;
         }
@@ -139,5 +148,24 @@ class WebController
             $application['monolog']->addCritical(sprintf('Neo4j connection error %s', $e->getMessage()));
             return 0;
         }
+    }
+
+    private function getPattern($url = null)
+    {
+        $p = '// Example :
+(p:Person {firstname: firstName, lastname: lastName } *35)-[:KNOWS *n..n]->(p)
+(p)-[:HAS *n..n]->(s:Skill *20)
+(c:Company {name: company, desc: catchPhrase} *20)-[:LOOKS_FOR_COMPETENCE *n..n]->(s)
+(c)-[:LOCATED_IN *n..1]->(country:Country {name: country} *70)
+(p)-[:LIVES_IN *n..1]->(country)';
+
+        if (null !== $url){
+            $pattern = $this->application['stats']->getPatternFromUrl($url);
+            if (false !== $pattern){
+                return $pattern;
+            }
+        }
+
+        return $p;
     }
 }

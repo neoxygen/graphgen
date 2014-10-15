@@ -2,10 +2,25 @@
 
 namespace Neoxygen\Graphgen\Service;
 
+use Hashids\Hashids;
+
 class UrlShortenerService
 {
-    public function getShortUrl($text)
+    private $hasher;
+
+    public function __construct()
     {
-        return crc32(microtime(true) . $text);
+        $this->hasher = new Hashids();
+    }
+
+    public function getShortUrl()
+    {
+        $time = new \DateTime("now");
+        $timestamp = $time->getTimestamp();
+        $id = crc32(uniqid());
+
+        $code = $this->hasher->encode($timestamp, $id);
+
+        return $code;
     }
 }
