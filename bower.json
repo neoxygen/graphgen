@@ -12,5 +12,8 @@
         "jquery": "latest",
         "bootstrap": "~3.2.0"
     },
-    "devDependencies": {}
+    "devDependencies": {},
+    "resolutions":{
+        "bootstrap": "~3.2.0"
+    }
 }
