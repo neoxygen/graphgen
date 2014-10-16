@@ -7,7 +7,10 @@
         "tests"
     ],
     "dependencies": {
-        "alchemyjs": "~0.2.2"
+        "alchemyjs": "~0.2.2",
+        "codemirror": "~4.6.0",
+        "jquery": "latest",
+        "bootstrap": "~3.2.0"
     },
     "devDependencies": {}
 }
