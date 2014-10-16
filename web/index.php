@@ -18,6 +18,8 @@ $app['shortUrl'] = new UrlShortenerService();
 $app['stats'] = new StatisticService($app['neo4j'], $app['shortUrl']);
 $app['converter'] = new ConverterService($app['neogen']);
 
+$app->register(new Silex\Provider\SessionServiceProvider());
+
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../src/Views',
 ));

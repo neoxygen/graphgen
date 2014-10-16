@@ -163,6 +163,9 @@ class WebController
             $pattern = $this->application['stats']->getPatternFromUrl($url);
             if (false !== $pattern){
                 return $pattern;
+            } else {
+                $this->application['session']->getFlashBag()->add('message', 'Unable to find a pattern for the key "'.$url.'".
+                Loading default pattern example.');
             }
         }
 

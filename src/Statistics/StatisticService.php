@@ -67,7 +67,7 @@ class StatisticService
         $response = $this->neoService->sendQuery($q, $params);
         $formatter = new ResponseFormatter();
         $result = $formatter->format($response);
-        if (null === $result->getSingleNode('Pattern')){
+        if (!$result->getSingleNode('Pattern') instanceof Node){
             return false;
         } else {
             return $result->getSingleNode('Pattern')->getProperty('pattern');
