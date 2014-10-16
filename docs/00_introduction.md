@@ -119,7 +119,7 @@ Thanks to all the people involved in the [Neo4J](http://neo4j.org) community.
 
 ---
 
-### Faker types
+### Faker types {#fakertypes}
 
 Non exhaustive list of faker types :
 
@@ -238,6 +238,14 @@ Parameters : `start = "-30 years"`, `end = "now"`
 {date_of_birth: {dateTimeBetween: ["-65 years", "-18 years"]}}
 
 // 1960-10-19 20:13:11
+```
+
+#### progLanguage {#fakertypes-progLanguage}
+
+```
+{skill: progLanguage}
+
+// Cobolt
 ```
 
 ---
