@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9085f02d257902cc014efcf852b488cb",
+    "hash": "147977f3df2f99c2496b8dcf374072f2",
     "packages": [
         {
             "name": "fzaninotto/faker",
@@ -232,6 +232,51 @@
             "time": "2014-09-17 22:05:55"
         },
         {
+            "name": "ikwattro/faker-extra",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ikwattro/faker-extra.git",
+                "reference": "ea68fbb8f2eb32711c9eaeefdfaa7d913b63fcd2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ikwattro/faker-extra/zipball/ea68fbb8f2eb32711c9eaeefdfaa7d913b63fcd2",
+                "reference": "ea68fbb8f2eb32711c9eaeefdfaa7d913b63fcd2",
+                "shasum": ""
+            },
+            "require": {
+                "fzaninotto/faker": "~1.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ikwattro\\FakerExtra\\": "src/FakerExtra"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christophe Willemsen",
+                    "email": "chris@neoxygen.io"
+                }
+            ],
+            "description": "Extra providers for the Faker library",
+            "keywords": [
+                "faker",
+                "generation",
+                "provider",
+                "random"
+            ],
+            "time": "2014-10-16 12:56:16"
+        },
+        {
             "name": "michelf/php-markdown",
             "version": "dev-lib",
             "source": {
@@ -360,12 +405,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/neoxygen/neo4j-neoclient.git",
-                "reference": "c64ca04379be990fc56fe179533754296e83d3dd"
+                "reference": "b33c84732bdc778eab534e16d08d94516304bee9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neoxygen/neo4j-neoclient/zipball/c64ca04379be990fc56fe179533754296e83d3dd",
-                "reference": "c64ca04379be990fc56fe179533754296e83d3dd",
+                "url": "https://api.github.com/repos/neoxygen/neo4j-neoclient/zipball/b33c84732bdc778eab534e16d08d94516304bee9",
+                "reference": "b33c84732bdc778eab534e16d08d94516304bee9",
                 "shasum": ""
             },
             "require": {
@@ -414,24 +459,25 @@
                 "http",
                 "neo4j"
             ],
-            "time": "2014-10-12 13:19:28"
+            "time": "2014-10-16 11:55:15"
         },
         {
             "name": "neoxygen/neogen",
-            "version": "0.1.0",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/neoxygen/neo4j-neogen.git",
-                "reference": "9bd1fd354259e16d58dcaf91db75a4830466564f"
+                "reference": "27d0b65416fef0fccfa373c8d4e9b19007d0dfce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neoxygen/neo4j-neogen/zipball/9bd1fd354259e16d58dcaf91db75a4830466564f",
-                "reference": "9bd1fd354259e16d58dcaf91db75a4830466564f",
+                "url": "https://api.github.com/repos/neoxygen/neo4j-neogen/zipball/27d0b65416fef0fccfa373c8d4e9b19007d0dfce",
+                "reference": "27d0b65416fef0fccfa373c8d4e9b19007d0dfce",
                 "shasum": ""
             },
             "require": {
                 "fzaninotto/faker": "~1.4",
+                "ikwattro/faker-extra": "~0.1",
                 "neoxygen/neoclient": "~1.6",
                 "php": ">=5.4",
                 "symfony/console": "~2.5",
@@ -470,7 +516,7 @@
                 "graph",
                 "neo4j"
             ],
-            "time": "2014-10-15 19:05:19"
+            "time": "2014-10-16 13:06:08"
         },
         {
             "name": "pimple/pimple",
@@ -1451,12 +1497,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "0ceb2e4538f85e450c05dba8f74143d912fdfb54"
+                "reference": "e443766fc55c861a0af4b451d0b1a103bf83e4d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/0ceb2e4538f85e450c05dba8f74143d912fdfb54",
-                "reference": "0ceb2e4538f85e450c05dba8f74143d912fdfb54",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/e443766fc55c861a0af4b451d0b1a103bf83e4d3",
+                "reference": "e443766fc55c861a0af4b451d0b1a103bf83e4d3",
                 "shasum": ""
             },
             "require": {
@@ -1500,7 +1546,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2014-10-14 18:25:48"
+            "time": "2014-10-16 08:31:48"
         }
     ],
     "packages-dev": [
