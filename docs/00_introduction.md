@@ -195,6 +195,16 @@ Parameters : `nbWords = 6`
 // Wolfgang Rodriguez
 ```
 
+### fullName
+
+Returns a string containing a firstName *and* a lastName
+
+```
+{name: fullName}
+
+// e.g.: Duncan Satterfield
+```
+
 #### company
 
 ```

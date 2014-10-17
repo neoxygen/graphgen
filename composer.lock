@@ -233,16 +233,16 @@
         },
         {
             "name": "ikwattro/faker-extra",
-            "version": "0.1.0",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ikwattro/faker-extra.git",
-                "reference": "ea68fbb8f2eb32711c9eaeefdfaa7d913b63fcd2"
+                "reference": "35d74d6845d7cedbd7d3d33618251b34b15ec8d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ikwattro/faker-extra/zipball/ea68fbb8f2eb32711c9eaeefdfaa7d913b63fcd2",
-                "reference": "ea68fbb8f2eb32711c9eaeefdfaa7d913b63fcd2",
+                "url": "https://api.github.com/repos/ikwattro/faker-extra/zipball/35d74d6845d7cedbd7d3d33618251b34b15ec8d5",
+                "reference": "35d74d6845d7cedbd7d3d33618251b34b15ec8d5",
                 "shasum": ""
             },
             "require": {
@@ -274,7 +274,7 @@
                 "provider",
                 "random"
             ],
-            "time": "2014-10-16 12:56:16"
+            "time": "2014-10-17 13:44:30"
         },
         {
             "name": "michelf/php-markdown",
@@ -405,12 +405,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/neoxygen/neo4j-neoclient.git",
-                "reference": "b33c84732bdc778eab534e16d08d94516304bee9"
+                "reference": "f9e8658e1579772567a1f642678ca42614a7f4f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neoxygen/neo4j-neoclient/zipball/b33c84732bdc778eab534e16d08d94516304bee9",
-                "reference": "b33c84732bdc778eab534e16d08d94516304bee9",
+                "url": "https://api.github.com/repos/neoxygen/neo4j-neoclient/zipball/f9e8658e1579772567a1f642678ca42614a7f4f9",
+                "reference": "f9e8658e1579772567a1f642678ca42614a7f4f9",
                 "shasum": ""
             },
             "require": {
@@ -459,7 +459,7 @@
                 "http",
                 "neo4j"
             ],
-            "time": "2014-10-16 11:55:15"
+            "time": "2014-10-16 21:20:12"
         },
         {
             "name": "neoxygen/neogen",
@@ -1377,12 +1377,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/TwigBridge.git",
-                "reference": "6e0f32ca5b8cad53f4008d49832c6ed554e04b5a"
+                "reference": "d19464bd39ab41fb992c7ec47243d284df90ce72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/TwigBridge/zipball/6e0f32ca5b8cad53f4008d49832c6ed554e04b5a",
-                "reference": "6e0f32ca5b8cad53f4008d49832c6ed554e04b5a",
+                "url": "https://api.github.com/repos/symfony/TwigBridge/zipball/d19464bd39ab41fb992c7ec47243d284df90ce72",
+                "reference": "d19464bd39ab41fb992c7ec47243d284df90ce72",
                 "shasum": ""
             },
             "require": {
@@ -1442,7 +1442,7 @@
             ],
             "description": "Symfony Twig Bridge",
             "homepage": "http://symfony.com",
-            "time": "2014-10-06 12:52:17"
+            "time": "2014-10-17 07:38:59"
         },
         {
             "name": "symfony/yaml",
@@ -1497,12 +1497,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "e443766fc55c861a0af4b451d0b1a103bf83e4d3"
+                "reference": "5e4abadb4a7a1fe76dcbf20d7ecc67203ff0cf53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/e443766fc55c861a0af4b451d0b1a103bf83e4d3",
-                "reference": "e443766fc55c861a0af4b451d0b1a103bf83e4d3",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/5e4abadb4a7a1fe76dcbf20d7ecc67203ff0cf53",
+                "reference": "5e4abadb4a7a1fe76dcbf20d7ecc67203ff0cf53",
                 "shasum": ""
             },
             "require": {
@@ -1546,7 +1546,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2014-10-16 08:31:48"
+            "time": "2014-10-17 13:00:03"
         }
     ],
     "packages-dev": [
@@ -2297,12 +2297,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "a0d821158f305c48ff401c32bec15f60a878d9c1"
+                "reference": "cd4014775069d7d39d20f617037c2c0f9b4bc25b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/a0d821158f305c48ff401c32bec15f60a878d9c1",
-                "reference": "a0d821158f305c48ff401c32bec15f60a878d9c1",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/cd4014775069d7d39d20f617037c2c0f9b4bc25b",
+                "reference": "cd4014775069d7d39d20f617037c2c0f9b4bc25b",
                 "shasum": ""
             },
             "require": {
@@ -2360,7 +2360,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-10-15 17:08:28"
+            "time": "2014-10-17 09:28:50"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
