@@ -124,6 +124,7 @@ $(document).ready(function() {
                 }
             };
             $('#gjson_result').html(JSON.stringify(data));
+            $('#alchemy').show();
             $('#alchemy').css('min-height', '600px');
             $('#intro').hide();
             alchemy.begin(config);
