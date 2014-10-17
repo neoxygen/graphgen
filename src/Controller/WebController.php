@@ -154,7 +154,7 @@ class WebController
     {
         $p = '// Example :
 (p:Person {firstname: firstName, lastname: lastName } *35)-[:KNOWS *n..n]->(p)
-(p)-[:HAS *n..n]->(s:Skill *20)
+(p)-[:HAS *n..n]->(s:Skill {name: progLanguage} *20)
 (c:Company {name: company, desc: catchPhrase} *20)-[:LOOKS_FOR_COMPETENCE *n..n]->(s)
 (c)-[:LOCATED_IN *n..1]->(country:Country {name: country} *70)
 (p)-[:LIVES_IN *n..1]->(country)';
