@@ -463,21 +463,21 @@
         },
         {
             "name": "neoxygen/neogen",
-            "version": "0.3.0",
+            "version": "0.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/neoxygen/neo4j-neogen.git",
-                "reference": "984344561953041b1de99e823adc8408f26a078a"
+                "reference": "6c2801b6dd3d098a31288a1328dfdec7e6d1d137"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neoxygen/neo4j-neogen/zipball/984344561953041b1de99e823adc8408f26a078a",
-                "reference": "984344561953041b1de99e823adc8408f26a078a",
+                "url": "https://api.github.com/repos/neoxygen/neo4j-neogen/zipball/6c2801b6dd3d098a31288a1328dfdec7e6d1d137",
+                "reference": "6c2801b6dd3d098a31288a1328dfdec7e6d1d137",
                 "shasum": ""
             },
             "require": {
                 "fzaninotto/faker": "~1.4",
-                "ikwattro/faker-extra": "~0.1",
+                "ikwattro/faker-extra": "~0.3",
                 "neoxygen/neoclient": "~1.6",
                 "php": ">=5.4",
                 "symfony/console": "~2.5",
@@ -516,7 +516,7 @@
                 "graph",
                 "neo4j"
             ],
-            "time": "2014-10-17 13:53:28"
+            "time": "2014-10-17 20:52:43"
         },
         {
             "name": "pimple/pimple",
