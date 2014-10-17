@@ -195,7 +195,7 @@ Parameters : `nbWords = 6`
 // Wolfgang Rodriguez
 ```
 
-### fullName
+### fullName         {#fakertypes-fullName}
 
 Returns a string containing a firstName *and* a lastName
 

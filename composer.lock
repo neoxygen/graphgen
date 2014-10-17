@@ -463,16 +463,16 @@
         },
         {
             "name": "neoxygen/neogen",
-            "version": "0.2.0",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/neoxygen/neo4j-neogen.git",
-                "reference": "27d0b65416fef0fccfa373c8d4e9b19007d0dfce"
+                "reference": "984344561953041b1de99e823adc8408f26a078a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neoxygen/neo4j-neogen/zipball/27d0b65416fef0fccfa373c8d4e9b19007d0dfce",
-                "reference": "27d0b65416fef0fccfa373c8d4e9b19007d0dfce",
+                "url": "https://api.github.com/repos/neoxygen/neo4j-neogen/zipball/984344561953041b1de99e823adc8408f26a078a",
+                "reference": "984344561953041b1de99e823adc8408f26a078a",
                 "shasum": ""
             },
             "require": {
@@ -516,7 +516,7 @@
                 "graph",
                 "neo4j"
             ],
-            "time": "2014-10-16 13:06:08"
+            "time": "2014-10-17 13:53:28"
         },
         {
             "name": "pimple/pimple",
