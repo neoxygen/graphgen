@@ -72,3 +72,7 @@ input.noMit{
 input.noMit:hover{
     background-color: #f7f7f7;
 }
+
+ul.navbar-nav > li > a.supportProjectLink{
+    color: #ac4142;
+}

@@ -45,6 +45,19 @@ class WebController
 
     }
 
+    public function supportAction(Application $application, Request $request)
+    {
+        $file = __DIR__.'/../../docs/support.md';
+        $contents = file_get_contents($file);
+
+        $doc = MarkdownExtra::defaultTransform($contents);
+        $current = $this->getCounter($application);
+
+        return $application['twig']->render('support.html.twig', array('doctext' => $doc, 'current' => $current));
+
+
+    }
+
     public function transformPattern(Application $application, Request $request)
     {
         $pattern = $request->request->get('pattern');

@@ -34,6 +34,9 @@ $app->get('/', 'Neoxygen\\Graphgen\\Controller\\WebController::home')
 $app->get('/documentation', 'Neoxygen\\Graphgen\\Controller\\WebController::docAction')
     ->bind('doc');
 
+$app->get('/support-graphgen', 'Neoxygen\\Graphgen\\Controller\\WebController::supportAction')
+    ->bind('support');
+
 $app->post('/api/pattern/transform', 'Neoxygen\\Graphgen\\Controller\\WebController::transformPattern')
     ->bind('api_pattern_transform');
 
