@@ -405,12 +405,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/neoxygen/neo4j-neoclient.git",
-                "reference": "f9e8658e1579772567a1f642678ca42614a7f4f9"
+                "reference": "3c950c255196a3ff362f1f169d252ad1e8c6fe33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neoxygen/neo4j-neoclient/zipball/f9e8658e1579772567a1f642678ca42614a7f4f9",
-                "reference": "f9e8658e1579772567a1f642678ca42614a7f4f9",
+                "url": "https://api.github.com/repos/neoxygen/neo4j-neoclient/zipball/3c950c255196a3ff362f1f169d252ad1e8c6fe33",
+                "reference": "3c950c255196a3ff362f1f169d252ad1e8c6fe33",
                 "shasum": ""
             },
             "require": {
@@ -459,20 +459,20 @@
                 "http",
                 "neo4j"
             ],
-            "time": "2014-10-16 21:20:12"
+            "time": "2014-10-19 06:19:20"
         },
         {
             "name": "neoxygen/neogen",
-            "version": "0.4.4",
+            "version": "0.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/neoxygen/neo4j-neogen.git",
-                "reference": "36ead9355872df89b07dd331c9e358f8a9877dcf"
+                "reference": "b2c46fcb2c422b908928d1dbad09a924346756fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neoxygen/neo4j-neogen/zipball/36ead9355872df89b07dd331c9e358f8a9877dcf",
-                "reference": "36ead9355872df89b07dd331c9e358f8a9877dcf",
+                "url": "https://api.github.com/repos/neoxygen/neo4j-neogen/zipball/b2c46fcb2c422b908928d1dbad09a924346756fa",
+                "reference": "b2c46fcb2c422b908928d1dbad09a924346756fa",
                 "shasum": ""
             },
             "require": {
@@ -516,7 +516,7 @@
                 "graph",
                 "neo4j"
             ],
-            "time": "2014-10-18 21:06:37"
+            "time": "2014-10-19 13:15:50"
         },
         {
             "name": "pimple/pimple",
