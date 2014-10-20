@@ -33,8 +33,8 @@ This will create 35 nodes with the `Person` label.
 
 Note:
 
-- The identifier is optional, but handy for relationships pattern.
-- The star (*) before the desired amount and the amount are mandatory
+* The identifier is mandatory
+* The `*35` is the desired amount of Person nodes. You can omit it and it will default to 1 node.
 
 #### Defining relationships
 
