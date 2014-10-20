@@ -10,7 +10,7 @@ to the question ? Want to show the power of Neo4j ?
 
 ### What is it ?
 
-Graphgen aims to ease the generation of based on `Cypher` patterns, and will also generate real world values for nodes
+Graphgen aims to ease the generation of graphs based on the `Cypher` specification, and will also generate real world values for nodes
 and relationships properties, thanks to the `faker` library.
 
 ### Rapid prototyping
