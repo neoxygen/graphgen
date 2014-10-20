@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "147977f3df2f99c2496b8dcf374072f2",
+    "hash": "14be5f8af1ea859e61322134ca768b6b",
     "packages": [
         {
             "name": "fzaninotto/faker",
@@ -405,12 +405,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/neoxygen/neo4j-neoclient.git",
-                "reference": "3c950c255196a3ff362f1f169d252ad1e8c6fe33"
+                "reference": "c013c5d73a470ff32b8749e73964476267b178ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neoxygen/neo4j-neoclient/zipball/3c950c255196a3ff362f1f169d252ad1e8c6fe33",
-                "reference": "3c950c255196a3ff362f1f169d252ad1e8c6fe33",
+                "url": "https://api.github.com/repos/neoxygen/neo4j-neoclient/zipball/c013c5d73a470ff32b8749e73964476267b178ce",
+                "reference": "c013c5d73a470ff32b8749e73964476267b178ce",
                 "shasum": ""
             },
             "require": {
@@ -459,20 +459,20 @@
                 "http",
                 "neo4j"
             ],
-            "time": "2014-10-19 06:19:20"
+            "time": "2014-10-20 11:07:01"
         },
         {
             "name": "neoxygen/neogen",
-            "version": "0.4.5",
+            "version": "dev-development",
             "source": {
                 "type": "git",
                 "url": "https://github.com/neoxygen/neo4j-neogen.git",
-                "reference": "b2c46fcb2c422b908928d1dbad09a924346756fa"
+                "reference": "dc36405ea3acc96b53a2c349bfe6a3259c86743a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neoxygen/neo4j-neogen/zipball/b2c46fcb2c422b908928d1dbad09a924346756fa",
-                "reference": "b2c46fcb2c422b908928d1dbad09a924346756fa",
+                "url": "https://api.github.com/repos/neoxygen/neo4j-neogen/zipball/dc36405ea3acc96b53a2c349bfe6a3259c86743a",
+                "reference": "dc36405ea3acc96b53a2c349bfe6a3259c86743a",
                 "shasum": ""
             },
             "require": {
@@ -516,7 +516,7 @@
                 "graph",
                 "neo4j"
             ],
-            "time": "2014-10-19 13:15:50"
+            "time": "2014-10-20 22:28:35"
         },
         {
             "name": "pimple/pimple",
@@ -2488,12 +2488,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "5843509fed39dee4b356a306401e9dd1a931fec7"
+                "reference": "92d423df43b160006907ea4297b916fdf00415d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/5843509fed39dee4b356a306401e9dd1a931fec7",
-                "reference": "5843509fed39dee4b356a306401e9dd1a931fec7",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/92d423df43b160006907ea4297b916fdf00415d8",
+                "reference": "92d423df43b160006907ea4297b916fdf00415d8",
                 "shasum": ""
             },
             "require": {
@@ -2532,7 +2532,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2014-08-15 10:29:00"
+            "time": "2014-10-19 13:19:30"
         },
         {
             "name": "sebastian/environment",
@@ -2893,7 +2893,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "neoxygen/neogen": 20
+    },
     "prefer-stable": false,
     "platform": [],
     "platform-dev": []

@@ -87,15 +87,16 @@ $(document).ready(function() {
             $.each(data.nodes, function (index, node) {
                 g.nodes.push({
                     id: node._id,
-                    label: node.label,
-                    caption: node.label,
+                    label: node.identifier,
+                    caption: node.identifier,
                     node_type: node.label,
                     cluster: node.cluster,
-                    properties: node.properties
+                    properties: node.properties,
+                    labels: node.labels
                 });
-                if (!(node.label in rulesRuled)){
-                    rulesRuled[node.label] = node.cluster;
-                    nodeTypes.push(node.label);
+                if (!(node.identifier in rulesRuled)){
+                    rulesRuled[node.identifier] = node.cluster;
+                    nodeTypes.push(node.identifier);
                 }
             });
 
@@ -167,7 +168,9 @@ $(document).ready(function() {
         var box = $('#nodeInfo');
         box.show();
         box.html('');
-        box.append('<h4>' + node.properties.label + '</h4>');
+        var labels = node.properties.labels.join();
+        box.append('<p>Identifier : ' + node.properties.label + '</p>');
+        box.append('<p>Labels : ' + labels + '</p>');
         box.append('<h5>Properties</h5>');
         box.append('<ul>');
         $.each(node.properties.properties, function(index, value){

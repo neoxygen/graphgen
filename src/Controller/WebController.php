@@ -166,11 +166,11 @@ class WebController
     private function getPattern($url = null)
     {
         $p = '// Example :
-(p:Person {firstname: firstName, lastname: lastName } *35)-[:KNOWS *n..n]->(p)
-(p)-[:HAS *n..n]->(s:Skill {name: progLanguage} *20)
-(c:Company {name: company, desc: catchPhrase} *20)-[:LOOKS_FOR_COMPETENCE *n..n]->(s)
-(c)-[:LOCATED_IN *n..1]->(country:Country {name: country} *70)
-(p)-[:LIVES_IN *n..1]->(country)';
+(person:Person {firstname: firstName, lastname: lastName } *35)-[:KNOWS *n..n]->(person)
+(person)-[:HAS *n..n]->(skill:Skill {name: progLanguage} *20)
+(company:Company {name: company, desc: catchPhrase} *20)-[:LOOKS_FOR_COMPETENCE *n..n]->(skill)
+(company)-[:LOCATED_IN *n..1]->(country:Country {name: country} *70)
+(person)-[:LIVES_IN *n..1]->(country)';
 
         if (null !== $url){
             $pattern = $this->application['stats']->getPatternFromUrl($url);
