@@ -161,6 +161,7 @@ $(document).ready(function() {
     $('#exportToCypher').submit(function(e){
         var pattern = $('#gjson_result').html();
         $('#cypher_pattern').val(pattern);
+        console.log(pattern);
     });
 
     function setNodeInfo(node)

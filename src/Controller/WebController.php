@@ -105,7 +105,9 @@ class WebController
     {
         $file = sys_get_temp_dir().'/'.uniqid().'.json';
         $pattern = json_decode($request->request->get('pattern'), true);
-
+        //print_r(json_last_error_msg());
+        //$pattern = \GuzzleHttp\json_decode($request->request->get('pattern'));
+        //print_r($pattern);
         try {
             $converter = $application['converter'];
             $statements = $converter->transformGraphJsonToStandardCypher($pattern);

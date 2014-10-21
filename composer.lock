@@ -467,12 +467,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/neoxygen/neo4j-neogen.git",
-                "reference": "d40c9f205583117f60e1e70fe7a23193292a6940"
+                "reference": "77aff8362e2190693115c45e30d4be7165ac1a99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neoxygen/neo4j-neogen/zipball/d40c9f205583117f60e1e70fe7a23193292a6940",
-                "reference": "d40c9f205583117f60e1e70fe7a23193292a6940",
+                "url": "https://api.github.com/repos/neoxygen/neo4j-neogen/zipball/77aff8362e2190693115c45e30d4be7165ac1a99",
+                "reference": "77aff8362e2190693115c45e30d4be7165ac1a99",
                 "shasum": ""
             },
             "require": {
@@ -516,7 +516,7 @@
                 "graph",
                 "neo4j"
             ],
-            "time": "2014-10-21 12:31:48"
+            "time": "2014-10-21 16:11:11"
         },
         {
             "name": "pimple/pimple",
@@ -1497,12 +1497,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "27d1e21064b3743cb82f89434359535471ca2bfe"
+                "reference": "e37fc6b059f558ebf1320d3e7e8ba1d786ce657d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/27d1e21064b3743cb82f89434359535471ca2bfe",
-                "reference": "27d1e21064b3743cb82f89434359535471ca2bfe",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/e37fc6b059f558ebf1320d3e7e8ba1d786ce657d",
+                "reference": "e37fc6b059f558ebf1320d3e7e8ba1d786ce657d",
                 "shasum": ""
             },
             "require": {
@@ -1537,7 +1537,7 @@
                 },
                 {
                     "name": "Twig Team",
-                    "homepage": "https://github.com/fabpot/Twig/graphs/contributors",
+                    "homepage": "http://twig.sensiolabs.org/contributors",
                     "role": "Contributors"
                 }
             ],
@@ -1546,7 +1546,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2014-10-21 05:41:30"
+            "time": "2014-10-21 14:58:01"
         }
     ],
     "packages-dev": [
