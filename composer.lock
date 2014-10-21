@@ -333,12 +333,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "b738a6c04c5fcc9e304d72f287e25256439fd13e"
+                "reference": "f835cd21e472683a9d251131f8c89ba18ed506c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/b738a6c04c5fcc9e304d72f287e25256439fd13e",
-                "reference": "b738a6c04c5fcc9e304d72f287e25256439fd13e",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/f835cd21e472683a9d251131f8c89ba18ed506c7",
+                "reference": "f835cd21e472683a9d251131f8c89ba18ed506c7",
                 "shasum": ""
             },
             "require": {
@@ -397,7 +397,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-10-17 18:12:45"
+            "time": "2014-10-21 09:22:09"
         },
         {
             "name": "neoxygen/neoclient",
@@ -467,12 +467,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/neoxygen/neo4j-neogen.git",
-                "reference": "dc36405ea3acc96b53a2c349bfe6a3259c86743a"
+                "reference": "2cefff1660669cb456f7e3c4acb860846227a249"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neoxygen/neo4j-neogen/zipball/dc36405ea3acc96b53a2c349bfe6a3259c86743a",
-                "reference": "dc36405ea3acc96b53a2c349bfe6a3259c86743a",
+                "url": "https://api.github.com/repos/neoxygen/neo4j-neogen/zipball/2cefff1660669cb456f7e3c4acb860846227a249",
+                "reference": "2cefff1660669cb456f7e3c4acb860846227a249",
                 "shasum": ""
             },
             "require": {
@@ -516,7 +516,7 @@
                 "graph",
                 "neo4j"
             ],
-            "time": "2014-10-20 22:28:35"
+            "time": "2014-10-21 11:35:38"
         },
         {
             "name": "pimple/pimple",
@@ -1496,13 +1496,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fabpot/Twig.git",
-                "reference": "5e4abadb4a7a1fe76dcbf20d7ecc67203ff0cf53"
+                "url": "https://github.com/twigphp/Twig.git",
+                "reference": "27d1e21064b3743cb82f89434359535471ca2bfe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/5e4abadb4a7a1fe76dcbf20d7ecc67203ff0cf53",
-                "reference": "5e4abadb4a7a1fe76dcbf20d7ecc67203ff0cf53",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/27d1e21064b3743cb82f89434359535471ca2bfe",
+                "reference": "27d1e21064b3743cb82f89434359535471ca2bfe",
                 "shasum": ""
             },
             "require": {
@@ -1546,7 +1546,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2014-10-17 13:00:03"
+            "time": "2014-10-21 05:41:30"
         }
     ],
     "packages-dev": [
@@ -2297,12 +2297,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "cd4014775069d7d39d20f617037c2c0f9b4bc25b"
+                "reference": "3fd4dadd04e789b7a0e6b632d1ec1d241d0d4671"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/cd4014775069d7d39d20f617037c2c0f9b4bc25b",
-                "reference": "cd4014775069d7d39d20f617037c2c0f9b4bc25b",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3fd4dadd04e789b7a0e6b632d1ec1d241d0d4671",
+                "reference": "3fd4dadd04e789b7a0e6b632d1ec1d241d0d4671",
                 "shasum": ""
             },
             "require": {
@@ -2317,7 +2317,7 @@
                 "phpunit/php-text-template": "~1.2",
                 "phpunit/php-timer": "~1.0.2",
                 "phpunit/phpunit-mock-objects": "2.4.*@dev",
-                "sebastian/comparator": "~1.0",
+                "sebastian/comparator": "1.1.*@dev",
                 "sebastian/diff": "~1.1",
                 "sebastian/environment": "~1.1",
                 "sebastian/exporter": "~1.0",
@@ -2360,7 +2360,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-10-17 09:28:50"
+            "time": "2014-10-21 10:07:41"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -2423,12 +2423,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "e54a01c0da1b87db3c5a3c4c5277ddf331da4aef"
+                "reference": "6f67d2ae044ba17ba30573941f4ac96c4777be97"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/e54a01c0da1b87db3c5a3c4c5277ddf331da4aef",
-                "reference": "e54a01c0da1b87db3c5a3c4c5277ddf331da4aef",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/6f67d2ae044ba17ba30573941f4ac96c4777be97",
+                "reference": "6f67d2ae044ba17ba30573941f4ac96c4777be97",
                 "shasum": ""
             },
             "require": {
@@ -2442,7 +2442,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -2456,11 +2456,6 @@
             ],
             "authors": [
                 {
-                    "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
-                },
-                {
                     "name": "Jeff Welch",
                     "email": "whatthejeff@gmail.com"
                 },
@@ -2471,6 +2466,10 @@
                 {
                     "name": "Bernhard Schussek",
                     "email": "bschussek@2bepublished.at"
+                },
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "Provides the functionality to compare PHP values for equality",
@@ -2480,7 +2479,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2014-05-11 23:00:21"
+            "time": "2014-10-21 10:04:18"
         },
         {
             "name": "sebastian/diff",
