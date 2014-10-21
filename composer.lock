@@ -467,12 +467,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/neoxygen/neo4j-neogen.git",
-                "reference": "2cefff1660669cb456f7e3c4acb860846227a249"
+                "reference": "d40c9f205583117f60e1e70fe7a23193292a6940"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neoxygen/neo4j-neogen/zipball/2cefff1660669cb456f7e3c4acb860846227a249",
-                "reference": "2cefff1660669cb456f7e3c4acb860846227a249",
+                "url": "https://api.github.com/repos/neoxygen/neo4j-neogen/zipball/d40c9f205583117f60e1e70fe7a23193292a6940",
+                "reference": "d40c9f205583117f60e1e70fe7a23193292a6940",
                 "shasum": ""
             },
             "require": {
@@ -516,7 +516,7 @@
                 "graph",
                 "neo4j"
             ],
-            "time": "2014-10-21 11:35:38"
+            "time": "2014-10-21 12:31:48"
         },
         {
             "name": "pimple/pimple",
@@ -1377,12 +1377,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/TwigBridge.git",
-                "reference": "d19464bd39ab41fb992c7ec47243d284df90ce72"
+                "reference": "9c2b88a267ad93c198f030ed7763eb1e298d491d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/TwigBridge/zipball/d19464bd39ab41fb992c7ec47243d284df90ce72",
-                "reference": "d19464bd39ab41fb992c7ec47243d284df90ce72",
+                "url": "https://api.github.com/repos/symfony/TwigBridge/zipball/9c2b88a267ad93c198f030ed7763eb1e298d491d",
+                "reference": "9c2b88a267ad93c198f030ed7763eb1e298d491d",
                 "shasum": ""
             },
             "require": {
@@ -1442,7 +1442,7 @@
             ],
             "description": "Symfony Twig Bridge",
             "homepage": "http://symfony.com",
-            "time": "2014-10-17 07:38:59"
+            "time": "2014-10-21 12:25:39"
         },
         {
             "name": "symfony/yaml",
