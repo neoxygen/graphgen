@@ -233,16 +233,16 @@
         },
         {
             "name": "ikwattro/faker-extra",
-            "version": "0.3.0",
+            "version": "0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ikwattro/faker-extra.git",
-                "reference": "3a1cc2a973b42cd8aa593f4492cb9e2f5bcd69f5"
+                "reference": "e73283c80c18940e442657db2706a35c24bf85d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ikwattro/faker-extra/zipball/3a1cc2a973b42cd8aa593f4492cb9e2f5bcd69f5",
-                "reference": "3a1cc2a973b42cd8aa593f4492cb9e2f5bcd69f5",
+                "url": "https://api.github.com/repos/ikwattro/faker-extra/zipball/e73283c80c18940e442657db2706a35c24bf85d0",
+                "reference": "e73283c80c18940e442657db2706a35c24bf85d0",
                 "shasum": ""
             },
             "require": {
@@ -274,7 +274,7 @@
                 "provider",
                 "random"
             ],
-            "time": "2014-10-17 20:36:58"
+            "time": "2014-10-21 19:11:36"
         },
         {
             "name": "michelf/php-markdown",
@@ -333,12 +333,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "f835cd21e472683a9d251131f8c89ba18ed506c7"
+                "reference": "d0a9acbad0643726453e901d9d49c14e13de9f86"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/f835cd21e472683a9d251131f8c89ba18ed506c7",
-                "reference": "f835cd21e472683a9d251131f8c89ba18ed506c7",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/d0a9acbad0643726453e901d9d49c14e13de9f86",
+                "reference": "d0a9acbad0643726453e901d9d49c14e13de9f86",
                 "shasum": ""
             },
             "require": {
@@ -397,7 +397,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-10-21 09:22:09"
+            "time": "2014-10-21 20:10:18"
         },
         {
             "name": "neoxygen/neoclient",
@@ -405,12 +405,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/neoxygen/neo4j-neoclient.git",
-                "reference": "c013c5d73a470ff32b8749e73964476267b178ce"
+                "reference": "122b61802cb3d6ee4712fc4d91366ac99cc1d547"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neoxygen/neo4j-neoclient/zipball/c013c5d73a470ff32b8749e73964476267b178ce",
-                "reference": "c013c5d73a470ff32b8749e73964476267b178ce",
+                "url": "https://api.github.com/repos/neoxygen/neo4j-neoclient/zipball/122b61802cb3d6ee4712fc4d91366ac99cc1d547",
+                "reference": "122b61802cb3d6ee4712fc4d91366ac99cc1d547",
                 "shasum": ""
             },
             "require": {
@@ -459,7 +459,7 @@
                 "http",
                 "neo4j"
             ],
-            "time": "2014-10-20 11:07:01"
+            "time": "2014-10-21 23:05:25"
         },
         {
             "name": "neoxygen/neogen",
@@ -467,12 +467,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/neoxygen/neo4j-neogen.git",
-                "reference": "77aff8362e2190693115c45e30d4be7165ac1a99"
+                "reference": "d9a0df502914b33b5989be587a63e849d81d8772"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neoxygen/neo4j-neogen/zipball/77aff8362e2190693115c45e30d4be7165ac1a99",
-                "reference": "77aff8362e2190693115c45e30d4be7165ac1a99",
+                "url": "https://api.github.com/repos/neoxygen/neo4j-neogen/zipball/d9a0df502914b33b5989be587a63e849d81d8772",
+                "reference": "d9a0df502914b33b5989be587a63e849d81d8772",
                 "shasum": ""
             },
             "require": {
@@ -516,7 +516,7 @@
                 "graph",
                 "neo4j"
             ],
-            "time": "2014-10-21 16:11:11"
+            "time": "2014-10-22 10:01:50"
         },
         {
             "name": "pimple/pimple",
@@ -1497,12 +1497,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "e37fc6b059f558ebf1320d3e7e8ba1d786ce657d"
+                "reference": "78e59ef25c378476218317fce36760d300350337"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/e37fc6b059f558ebf1320d3e7e8ba1d786ce657d",
-                "reference": "e37fc6b059f558ebf1320d3e7e8ba1d786ce657d",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/78e59ef25c378476218317fce36760d300350337",
+                "reference": "78e59ef25c378476218317fce36760d300350337",
                 "shasum": ""
             },
             "require": {
@@ -1546,7 +1546,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2014-10-21 14:58:01"
+            "time": "2014-10-22 05:36:37"
         }
     ],
     "packages-dev": [
@@ -2297,12 +2297,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "3fd4dadd04e789b7a0e6b632d1ec1d241d0d4671"
+                "reference": "20de3c887df9bf1eddfd7686dbebcfc63747d362"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3fd4dadd04e789b7a0e6b632d1ec1d241d0d4671",
-                "reference": "3fd4dadd04e789b7a0e6b632d1ec1d241d0d4671",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/20de3c887df9bf1eddfd7686dbebcfc63747d362",
+                "reference": "20de3c887df9bf1eddfd7686dbebcfc63747d362",
                 "shasum": ""
             },
             "require": {
@@ -2313,13 +2313,13 @@
                 "ext-spl": "*",
                 "php": ">=5.3.3",
                 "phpunit/php-code-coverage": "3.0.*@dev",
-                "phpunit/php-file-iterator": "~1.3.1",
+                "phpunit/php-file-iterator": "~1.3.2",
                 "phpunit/php-text-template": "~1.2",
                 "phpunit/php-timer": "~1.0.2",
                 "phpunit/phpunit-mock-objects": "2.4.*@dev",
                 "sebastian/comparator": "1.1.*@dev",
                 "sebastian/diff": "~1.1",
-                "sebastian/environment": "~1.1",
+                "sebastian/environment": "~1.2",
                 "sebastian/exporter": "~1.0",
                 "sebastian/global-state": "1.0.*@dev",
                 "sebastian/version": "~1.0",
@@ -2360,7 +2360,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-10-21 10:07:41"
+            "time": "2014-10-22 09:54:46"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -2539,12 +2539,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "205fcef5998953ec69cb79bc1ea9fee1277c8714"
+                "reference": "0d9bf79554d2a999da194a60416c15cf461eb67d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/205fcef5998953ec69cb79bc1ea9fee1277c8714",
-                "reference": "205fcef5998953ec69cb79bc1ea9fee1277c8714",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/0d9bf79554d2a999da194a60416c15cf461eb67d",
+                "reference": "0d9bf79554d2a999da194a60416c15cf461eb67d",
                 "shasum": ""
             },
             "require": {
@@ -2556,7 +2556,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1.x-dev"
+                    "dev-master": "1.2.x-dev"
                 }
             },
             "autoload": {
@@ -2581,7 +2581,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2014-10-08 05:30:43"
+            "time": "2014-10-22 06:38:05"
         },
         {
             "name": "sebastian/exporter",
