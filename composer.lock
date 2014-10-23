@@ -180,12 +180,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ivanakimov/hashids.php.git",
-                "reference": "f913e0a04012a7e21a6cae7c2f2ebb698786e93b"
+                "reference": "7301eadec527fd472b26beb5eba4c40d4fb4809e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ivanakimov/hashids.php/zipball/f913e0a04012a7e21a6cae7c2f2ebb698786e93b",
-                "reference": "f913e0a04012a7e21a6cae7c2f2ebb698786e93b",
+                "url": "https://api.github.com/repos/ivanakimov/hashids.php/zipball/7301eadec527fd472b26beb5eba4c40d4fb4809e",
+                "reference": "7301eadec527fd472b26beb5eba4c40d4fb4809e",
                 "shasum": ""
             },
             "require": {
@@ -229,7 +229,7 @@
                 "obfuscate",
                 "youtube"
             ],
-            "time": "2014-09-17 22:05:55"
+            "time": "2014-10-22 20:27:42"
         },
         {
             "name": "ikwattro/faker-extra",
@@ -467,12 +467,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/neoxygen/neo4j-neogen.git",
-                "reference": "d9a0df502914b33b5989be587a63e849d81d8772"
+                "reference": "09b00da176a36b8eec32559f55159687ac9a52a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neoxygen/neo4j-neogen/zipball/d9a0df502914b33b5989be587a63e849d81d8772",
-                "reference": "d9a0df502914b33b5989be587a63e849d81d8772",
+                "url": "https://api.github.com/repos/neoxygen/neo4j-neogen/zipball/09b00da176a36b8eec32559f55159687ac9a52a3",
+                "reference": "09b00da176a36b8eec32559f55159687ac9a52a3",
                 "shasum": ""
             },
             "require": {
@@ -516,7 +516,7 @@
                 "graph",
                 "neo4j"
             ],
-            "time": "2014-10-22 10:01:50"
+            "time": "2014-10-23 11:59:19"
         },
         {
             "name": "pimple/pimple",
@@ -1497,12 +1497,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "78e59ef25c378476218317fce36760d300350337"
+                "reference": "79333cc8e3c6d74305837a2df0d4014cab67164f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/78e59ef25c378476218317fce36760d300350337",
-                "reference": "78e59ef25c378476218317fce36760d300350337",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/79333cc8e3c6d74305837a2df0d4014cab67164f",
+                "reference": "79333cc8e3c6d74305837a2df0d4014cab67164f",
                 "shasum": ""
             },
             "require": {
@@ -1546,7 +1546,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2014-10-22 05:36:37"
+            "time": "2014-10-23 06:07:50"
         }
     ],
     "packages-dev": [
@@ -2297,12 +2297,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "20de3c887df9bf1eddfd7686dbebcfc63747d362"
+                "reference": "628bcfbbefa0e47dbb7d773021338590bd7586ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/20de3c887df9bf1eddfd7686dbebcfc63747d362",
-                "reference": "20de3c887df9bf1eddfd7686dbebcfc63747d362",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/628bcfbbefa0e47dbb7d773021338590bd7586ee",
+                "reference": "628bcfbbefa0e47dbb7d773021338590bd7586ee",
                 "shasum": ""
             },
             "require": {
@@ -2334,7 +2334,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.4.x-dev"
+                    "dev-master": "4.5.x-dev"
                 }
             },
             "autoload": {
@@ -2360,7 +2360,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-10-22 09:54:46"
+            "time": "2014-10-22 11:54:43"
         },
         {
             "name": "phpunit/phpunit-mock-objects",

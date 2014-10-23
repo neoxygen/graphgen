@@ -76,3 +76,8 @@ input.noMit:hover{
 ul.navbar-nav > li > a.supportProjectLink{
     color: #ac4142;
 }
+
+#gen_blocked {
+    margin-top:5px;
+    display: none;
+}
