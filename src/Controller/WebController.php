@@ -122,6 +122,7 @@ class WebController
                 $consoleClient->addInitQuery($statement);
             }
             $consoleClient->addConsoleMessage('Welcome to your graph generated from Graphgen');
+            $consoleClient->addConsoleQuery('MATCH (n) RETURN n LIMIT 5');
             $consoleClient->createConsole();
             $consoleUrl = $consoleClient->getShortLink();
             $body = array(
