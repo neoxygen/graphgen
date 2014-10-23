@@ -81,3 +81,11 @@ ul.navbar-nav > li > a.supportProjectLink{
     margin-top:5px;
     display: none;
 }
+
+#modal-console-success{
+    display: none;
+}
+
+#modal-console-error{
+    display: none;
+}

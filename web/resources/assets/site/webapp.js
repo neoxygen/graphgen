@@ -193,4 +193,44 @@ $(document).ready(function() {
         });
         box.append('</ul>');
     }
+
+    $('#console-create-button').click(function(){
+        createConsole();
+    });
+
+    $('#consolePopClose').click(function(){
+        setTimeout(function(){
+            $('#modal-console-loading').show();
+            $('#modal-console-success').hide();
+            $('#console-target-link').attr('href', '#');
+        }, 500);
+    });
+
+    function createConsole(){
+        var consoleUrl = $('#console-create-button').attr('data-validator');
+        var data = $('#gjson_result').html();
+        $.ajax({
+            url: consoleUrl,
+            type: "POST",
+            data: {'pattern': data}
+        })
+            .done(function(result){
+                setTimeout(function(){
+                    $('#console-target-link').attr('href', result.console_url);
+                    $('#modal-console-loading').hide();
+                    $('#modal-console-success').show();
+                }, 3000);
+                return true;
+
+            })
+            .fail(function(error){
+                console.log(error);
+                setTimeout(function(){
+                    $('#modal-console-loading').hide();
+                    $('#console-error-message').html(error.message);
+                    $('#modal-console-success').show();
+                }, 3000);
+                return false;
+            });
+    }
 });

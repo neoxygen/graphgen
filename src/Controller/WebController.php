@@ -12,7 +12,8 @@ use Symfony\Component\HttpFoundation\Request,
     Neoxygen\Neogen\Converter\GraphJSONConverter,
     Neoxygen\Neogen\Converter\StandardCypherConverter,
     Neoxygen\Neogen\Converter\CypherStatementsConverter,
-    Neoxygen\Neoclient\Exception\HttpException;
+    Neoxygen\Neoclient\Exception\HttpException,
+    Neoxygen\ConsoleClient\Client as ConsoleClient;
 use Michelf\MarkdownExtra;
 
 class WebController
@@ -109,6 +110,39 @@ class WebController
         return $response;
     }
 
+    public function createConsoleAction(Application $application, Request $request)
+    {
+        $pattern = json_decode($request->request->get('pattern'), true);
+        $response = new JsonResponse();
+        try {
+            $converter = $application['converter'];
+            $statements = $converter->transformGraphJsonToStandardCypher($pattern);
+            $consoleClient = new ConsoleClient();
+            foreach ($statements as $statement){
+                $consoleClient->addInitQuery($statement);
+            }
+            $consoleClient->addConsoleMessage('Welcome to your graph generated from Graphgen');
+            $consoleClient->createConsole();
+            $consoleUrl = $consoleClient->getShortLink();
+            $body = array(
+                'console_url' => $consoleUrl
+            );
+            $response->setData($body);
+        } catch (SchemaException $e){
+            $data = array(
+                'error' => array(
+                    'code' => 320,
+                    'message' => $e->getMessage()
+                )
+            );
+            $response->setData($data);
+            $response->setStatusCode(320);
+        }
+
+        return $response;
+
+    }
+
     public function exportToGraphJson(Application $application, Request $request)
     {
         $file = sys_get_temp_dir().'/'.uniqid().'.json';
@@ -191,10 +225,10 @@ class WebController
     private function getPattern($url = null)
     {
         $p = '// Example :
-(person:Person {firstname: firstName, lastname: lastName } *35)-[:KNOWS *n..n]->(person)
-(person)-[:HAS *n..n]->(skill:Skill {name: progLanguage} *20)
-(company:Company {name: company, desc: catchPhrase} *20)-[:LOOKS_FOR_COMPETENCE *n..n]->(skill)
-(company)-[:LOCATED_IN *n..1]->(country:Country {name: country} *70)
+(person:Person {firstname: firstName, lastname: lastName } *20)-[:KNOWS *n..n]->(person)
+(person)-[:HAS *n..n]->(skill:Skill {name: progLanguage} *15)
+(company:Company {name: company, desc: catchPhrase} *10)-[:LOOKS_FOR_COMPETENCE *n..n]->(skill)
+(company)-[:LOCATED_IN *n..1]->(country:Country {name: country} *25)
 (person)-[:LIVES_IN *n..1]->(country)';
 
         if (null !== $url){

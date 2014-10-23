@@ -22,7 +22,8 @@
         "twig/twig": ">=1.8,<2.0-dev",
         "symfony/twig-bridge": "~2.3",
         "michelf/php-markdown": "~1.4",
-        "hashids/hashids": "~1.0"
+        "hashids/hashids": "~1.0",
+        "neoxygen/neo4j-console-client": "~0.1"
     },
     "require-dev": {
         "phpspec/phpspec": "~2.0",

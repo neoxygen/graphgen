@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "14be5f8af1ea859e61322134ca768b6b",
+    "hash": "e9a6c2ecb97ad8441073ff8e165cceae",
     "packages": [
         {
             "name": "fzaninotto/faker",
@@ -398,6 +398,53 @@
                 "psr-3"
             ],
             "time": "2014-10-21 20:10:18"
+        },
+        {
+            "name": "neoxygen/neo4j-console-client",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/neoxygen/neo4j-console-client.git",
+                "reference": "e06edd751c25a130c169d54afb35cf7d32bff5de"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/neoxygen/neo4j-console-client/zipball/e06edd751c25a130c169d54afb35cf7d32bff5de",
+                "reference": "e06edd751c25a130c169d54afb35cf7d32bff5de",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "4.*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Neoxygen\\ConsoleClient\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christophe Willemsen",
+                    "email": "chris@neoxygen.io"
+                }
+            ],
+            "description": "PHP Client for the Neo4j Console API",
+            "homepage": "http://www.neoxygen.io",
+            "keywords": [
+                "api",
+                "client",
+                "console",
+                "graph",
+                "neo4j"
+            ],
+            "time": "2014-10-16 20:32:14"
         },
         {
             "name": "neoxygen/neoclient",

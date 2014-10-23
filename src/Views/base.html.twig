@@ -50,6 +50,9 @@
                         </ul>
                     </div>
                 </li>
+                <li>
+                        <button type="button" class="btn btn-warning" id="console-create-button" data-toggle="modal" data-target="#console-modal" data-validator="{{ path('api_console_create') }}">New ! Create a Neo4j console</button>
+                </li>
                 <li> | </li>
                 <li><button type="button" id="triggerPopBox" class="btn btn-success btn-circle" data-toggle="modal" data-target="#myModal">Populate your database !</button></li>
             </ul>
@@ -118,5 +121,40 @@
             </div>
         </div>
         <div class="hidden" id="gjson_result"></div>
+    </div>
+
+    <div class="modal fade" id="console-modal" tabindex="-1" role="dialog" aria-labelledby="consoleModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Neo4j Console creation</h4>
+                </div>
+                <div class="modal-body" style="text-align: center;">
+                    <div id="modal-console-loading">
+                        <h4>Creating the Neo4j console, please wait ...</h4>
+                        <p style="text-align: center;">
+                            <img style="width: 40%; height: 45px;" src="{{ app.request.basepath }}/resources/assets/images/loader.gif"/>
+                        </p>
+                    </div>
+
+                    <div id="modal-console-success">
+                        <div class="alert alert-success">The console has been successfully created.<br/>
+                            Please not that for graphs excessing 200 nodes, the Neo4j console page may take time to initiate.<br/>
+                            Access it by clicking <a href="#" id="console-target-link" target="_blank">"here"</a>.</div>
+                    </div>
+
+                    <div id="modal-console-error" class="alert alert-warning">
+                        An error occured during the creation of the console.<br/>
+                        <span id="console-error-message"></span>
+                    </div>
+
+                </div>
+                <div id="populate-debug-box"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="consolePopClose" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}
