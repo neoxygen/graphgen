@@ -54,6 +54,11 @@ class ConverterService
         return $cypher;
     }
 
+    public function precalculateGraph($pattern)
+    {
+        return $this->generator->generateGraphFromCypher($pattern, true);
+    }
+
     public function transformGraphJsonToCypherPopulate(array $schema)
     {
         $graph = new Graph();

@@ -53,7 +53,21 @@ $(document).ready(function() {
         })
             .done(function(result){
                 var graph = $.parseJSON(result);
-                $('#precalculate-info').html(graph.nodes.length + ' nodes | ~ ' + graph.edges.length + ' edges');
+                if ($.isNumeric(graph.nodes)){
+                    $('#gen_button').prop("disabled",true);
+                    $('#gen_blocked').show();
+                    $('#precalculate-info').html(graph.nodes + ' nodes ');
+                }
+                else if (graph.nodes.length > 999){
+                    $('#gen_button').prop("disabled",true);
+                    $('#gen_blocked').show();
+                    $('#precalculate-info').html(graph.nodes.length + ' nodes | ~ ' + graph.edges.length + ' edges');
+                } else {
+                    $('#gen_blocked').hide();
+                    $('#gen_button').prop("disabled",false);
+                    $('#precalculate-info').html(graph.nodes.length + ' nodes | ~ ' + graph.edges.length + ' edges');
+                }
+
                 return true;
 
             })

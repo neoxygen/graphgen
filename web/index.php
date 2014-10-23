@@ -40,6 +40,9 @@ $app->get('/support-graphgen', 'Neoxygen\\Graphgen\\Controller\\WebController::s
 $app->post('/api/pattern/transform', 'Neoxygen\\Graphgen\\Controller\\WebController::transformPattern')
     ->bind('api_pattern_transform');
 
+$app->post('/api/pattern/precalculate', 'Neoxygen\\Graphgen\\Controller\\WebController::precalculateAction')
+    ->bind('api_pattern_precalculate');
+
 $app->post('/api/export/graphjson', 'Neoxygen\\Graphgen\\Controller\\WebController::exportToGraphJson')
     ->bind('api_export_graphjson');
 

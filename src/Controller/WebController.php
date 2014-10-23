@@ -86,6 +86,29 @@ class WebController
         return $response;
     }
 
+    public function precalculateAction(Application $application, Request $request)
+    {
+        $pattern = $request->request->get('pattern');
+        $response = new JsonResponse();
+
+        try {
+            $graph = $application['converter']->precalculateGraph($pattern);
+            $response->setData(json_encode($graph));
+            $response->setStatusCode(200);
+        } catch (SchemaException $e){
+            $data = array(
+                'error' => array(
+                    'code' => 320,
+                    'message' => $e->getMessage()
+                )
+            );
+            $response->setData($data);
+            $response->setStatusCode(320);
+        }
+
+        return $response;
+    }
+
     public function exportToGraphJson(Application $application, Request $request)
     {
         $file = sys_get_temp_dir().'/'.uniqid().'.json';
