@@ -10,3 +10,9 @@ Open Source projects T-Shirts and lastly here is my [Amazon Wishlist](http://www
 If you have any question you can always ping me via email *chris (at) neoxygen (dot) io*
 
 Thank you and as a last word *Neo4j Rocks !*
+
+---
+
+### Big thanks to the donators
+
+* Brian Underwood (Dublin - USA)
