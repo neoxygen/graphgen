@@ -16,3 +16,5 @@ Thank you and as a last word *Neo4j Rocks !*
 ### Big thanks to the donators
 
 * Brian Underwood (Dublin - USA)
+
+--- 
