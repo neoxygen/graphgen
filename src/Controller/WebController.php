@@ -33,9 +33,12 @@ class WebController
         return $application['twig']->render('base.html.twig', array('current' => $current, 'pattern' => $pattern));
     }
 
-    public function docAction(Application $application, Request $request)
+    public function docAction(Application $application, Request $request, $part)
     {
-        $file = __DIR__.'/../../docs/00_introduction.md';
+        $file = __DIR__.'/../../docs/'.$part.'.md';
+        if (!file_exists($file)){
+            $application->abort('404', 'The page you asked can not be found');
+        }
         $contents = file_get_contents($file);
 
         $doc = MarkdownExtra::defaultTransform($contents);

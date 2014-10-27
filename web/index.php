@@ -31,7 +31,8 @@ $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 $app->get('/', 'Neoxygen\\Graphgen\\Controller\\WebController::home')
     ->bind('home');
 
-$app->get('/documentation', 'Neoxygen\\Graphgen\\Controller\\WebController::docAction')
+$app->get('/documentation/{part}', 'Neoxygen\\Graphgen\\Controller\\WebController::docAction')
+    ->value('part', 'introduction')
     ->bind('doc');
 
 $app->get('/support-graphgen', 'Neoxygen\\Graphgen\\Controller\\WebController::supportAction')

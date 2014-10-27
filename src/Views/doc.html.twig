@@ -1,4 +1,22 @@
 {% extends "layout.html.twig" %}
 {% block content %}
-    {{ doctext|raw }}
+
+    <div class="col-sm-3 toc">
+        <ul class="nav nav-pills nav-stacked">
+            <li><a href="{{ path('doc', {'part': 'introduction'}) }}">Introduction</a></li>
+            <li><a href="{{ path('doc', {'part': 'describe-your-nodes'}) }}">Describe your nodes</a></li>
+            <li><a href="{{ path('doc', {'part': 'describe-your-relationships'}) }}">Describe your relationships</a></li>
+            <li><a href="#">Add properties</a></li>
+            <li><a href="#">Node Types</a></li>
+            <li><a href="#">Export your Graph</a></li>
+            <li><a href="#">Examples</a></li>
+            <li><a href="#">Support the project</a></li>
+        </ul>
+    </div>
+
+    <div class="col-sm-9">
+        {{ doctext|raw }}
+    </div>
+
+
 {% endblock %}
