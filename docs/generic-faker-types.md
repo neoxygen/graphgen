@@ -43,3 +43,20 @@ Parameters : `maxDecimals = null`, `min = 0`, `max = null`
 
 // c
 ```
+
+#### randomElement
+
+Parameters : `array $elements = ['a','b','c']`
+
+{ level: {randomElement:[[-1,2,3]] }} 
+
+//-1
+
+#### randomElements
+
+Parameters : `array $elements = ['a','b','c']`, `$count = 1`
+
+{ level: {randomElements:[[-1,2,3], 2] }}
+
+// [-1,3]
+
