@@ -22,14 +22,15 @@
                 </ul>
             </li>
 
+            <!--
             <li><a href="#">Node Types</a></li>
             <li><a href="#">Export your Graph</a></li>
-            <li><a href="#">Examples</a></li>
-            <li><a href="#">Support the project</a></li>
+            -->
+            <li><a href="{{ path('doc', {'part': 'examples'}) }}">Examples</a></li>
         </ul>
     </div>
 
-    <div class="col-sm-9">
+    <div class="col-sm-9 docblock">
         {{ doctext|raw }}
     </div>
 

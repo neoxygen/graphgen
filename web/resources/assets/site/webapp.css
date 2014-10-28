@@ -89,3 +89,7 @@ ul.navbar-nav > li > a.supportProjectLink{
 #modal-console-error{
     display: none;
 }
+
+.docblock pre code{
+    font-size: 11px;
+}
