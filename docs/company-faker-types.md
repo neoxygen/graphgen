@@ -8,10 +8,26 @@
 // Rescue Limited
 ```
 
+#### companySuffix
+
+```
+{suffix: companySuffix}
+
+// and Sons
+```
+
+#### bs
+
+```
+{business: bs}
+
+// e-enable robust architectures
+```
+
 #### catchPhrase
 
 ```
-{description: catchPhrase}
+{slogan: catchPhrase}
 
-// Electronic services
+// Monitored regional contingency
 ```

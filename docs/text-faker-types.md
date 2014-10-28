@@ -48,3 +48,14 @@ Parameters : `$nbChars = 200`
 
 // Fuga totam reiciendis qui architecto fugiat nemo. Consequatur recusandae qui cupiditate eos quod.
 ```
+
+#### realText
+
+Parameters: `maxNbChars = 200`
+
+```
+{text: realText}
+
+// And yet I wish you could manage it?) 'And what are they made of?' Alice asked in a shrill, passionate voice. 'Would YOU like cats if you were never even spoke to Time!' 'Perhaps not,' Alice replied.
+
+```

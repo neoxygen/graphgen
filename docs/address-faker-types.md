@@ -91,7 +91,7 @@
 #### longiutde
 
 ```
-{meetup_gps_lat: latitude}
+{meetup_gps_lon: latitude}
 
 //86.211205
 ```
