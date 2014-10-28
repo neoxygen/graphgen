@@ -23,3 +23,7 @@ For a full reference, check the `Properties` section of the documentation.
 Cardinality is defined in the form `*n..n` .
 
 Allowed cardinalities are `n..n`, `1..n`, `n..1` and `1..1`
+
+
+NB: Many to one or many to many relationships will always be limited to a defined percentage, in order to have possibilities to query your graph 
+in cases where relationships are not set (if you've created a console link or imported the graph in your database).
