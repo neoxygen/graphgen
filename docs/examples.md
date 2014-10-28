@@ -25,3 +25,18 @@ You can test this graph on this link [http://graphgen.neoxygen.io/?graph=M9nX5lB
 ![Imgur](http://i.imgur.com/h9MeUhq.png)
 
 You can test this graph here : [http://graphgen.neoxygen.io/?graph=lpW0kXEclwZk2x](http://graphgen.neoxygen.io/?graph=lpW0kXEclwZk2x)
+
+
+### Twitter Workflow Example
+
+```
+(user:User {login:username, name:fullName} *20)-[:TWEETED *1..n]->(tweet:Tweet {text:sentence} *40)
+(tweet)-[:HAS_TAG *n..1]->(tag:Tag {word:hashtag} *20)
+(user)-[:FOLLOW *n..n]->(user)
+(user)-[:RETWEETED *n..n]->(retweet:Retweet *20)-[:RETWEET_OF *n..1]->(tweet)
+```
+
+![Imgur](http://i.imgur.com/3fzYTEp.png)
+
+
+You can test this graph here : [http://graphgen.neoxygen.io/?graph=VNzW2BnczNMv4q](http://graphgen.neoxygen.io/?graph=VNzW2BnczNMv4q)
