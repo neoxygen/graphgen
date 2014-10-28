@@ -1,3 +1,5 @@
+## Generic faker types
+
 #### randomDigit
 
 ```

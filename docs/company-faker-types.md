@@ -1,3 +1,5 @@
+## Company faker types
+
 #### company
 
 ```
