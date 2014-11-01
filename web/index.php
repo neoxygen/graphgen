@@ -55,4 +55,8 @@ $app->post('/api/export/cypher', 'Neoxygen\\Graphgen\\Controller\\WebController:
 
 $app->post('/api/export/populate', 'Neoxygen\\Graphgen\\Controller\\WebController::getPopulateQueries')
     ->bind('api_export_populate');
+
+$app->post('/api/populate/external', 'Neoxygen\\Graphgen\\Controller\\WebController::populateExternal')
+    ->bind('api_populate_external');
+
 $app->run();

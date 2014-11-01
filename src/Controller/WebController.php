@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\Request,
     Neoxygen\Neogen\Converter\StandardCypherConverter,
     Neoxygen\Neogen\Converter\CypherStatementsConverter,
     Neoxygen\Neoclient\Exception\HttpException,
+    Neoxygen\NeoClient\Connection\Connection,
     Neoxygen\ConsoleClient\Client as ConsoleClient;
 use Michelf\MarkdownExtra;
 
@@ -60,6 +61,63 @@ class WebController
         return $application['twig']->render('support.html.twig', array('doctext' => $doc, 'current' => $current));
 
 
+    }
+
+    public function populateExternal(Application $application, Request $request)
+    {
+        $host = $request->request->get('host');
+        $user = $request->request->get('user');
+        $password = $request->request->get('password');
+        $data = json_decode($request->request->get('data'), true);
+        $doEmpty = $request->request->get('doEmpty');
+        $neo = $application['neo4j'];
+        $client = $neo->getClient();
+        $info = parse_url($host);
+        $scheme = $info['scheme'];
+        $hostx = $info['host'];
+        if (isset($info['port'])){
+            $port = $info['port'];
+        } elseif ($scheme == 'http'){
+            $port = 7474;
+        } elseif ($scheme == 'https'){
+            $port = 7473;
+        } else {
+            $port = 7474;
+        }
+
+        $conn = new Connection($host, $scheme, $hostx, $port, true, $user, $password);
+
+        $client->getConnectionManager()->registerConnection($conn);
+
+        if ($doEmpty){
+            $q = 'MATCH (n) OPTIONAL MATCH (n)-[r]-() DELETE r,n';
+            $neo->getClient()->sendCypherQuery($q, array(), $host);
+        }
+        foreach ($data['constraints'] as $constraint){
+            try {
+                $neo->getClient()->sendCypherQuery($constraint['statement'], array(), $host);
+            } catch (HttpException $e){
+
+            }
+
+        }
+
+        foreach ($data['nodes'] as $node){
+            $neo->getClient()->sendCypherQuery($node['statement'], $node['parameters'], $host);
+        }
+
+        foreach ($data['edges'] as $edge){
+            if (!isset($edge['parameters'])){
+                $params = array();
+            } else {
+                $params = $edge['parameters'];
+            }
+            $neo->getClient()->sendCypherQuery($edge['statement'], $params, $host);
+        }
+        $response = new JsonResponse();
+        $response->setStatusCode(200);
+
+        return $response;
     }
 
     public function transformPattern(Application $application, Request $request)

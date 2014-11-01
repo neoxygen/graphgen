@@ -14,25 +14,45 @@ $(document).ready(function(){
         $('form#populator :input').prop('disabled', true);
         var inputBox = $('#populate-debug-box');
         var url = getUrl();
+        var ei = $('#populate-location').val();
+        var external = $('form#populator').attr('server-populator');
         var queriesEndpoint = popForm.attr('action');
         var emptyDB = $('#populate-empty-condition').is(':checked');
         var pattern = $('#gjson_result').html();
         var postCypher = $.post(queriesEndpoint, {'pattern': pattern});
         postCypher.done(function (data) {
-            if (emptyDB){
-                var emptyStatement = JSON.stringify({
-                    statements: [{
-                        statement: 'MATCH (n) OPTIONAL MATCH (n)-[r]-() DELETE r,n'
-                    }]
-                });
-                if (!sendStatement(url, emptyStatement)){
-                    $('form#populator :input').prop('disabled', false);
-                    popForm.show();
-                    return false;
+
+            if (ei !== 'http://localhost:7474' && ei !== 'http://127.0.0.1:7474') {
+                console.log('populate server');
+                serverPopulate(external, data, emptyDB);
+                var queries = JSON.parse(data);
+                var constraintsCount = Object.keys(queries.constraints).length;
+                var nodesCount = countNodes(queries.nodes);
+                var edgesCount = countEdges(queries.edges);
+                inputBox.append('<div class="alert alert-info" role="alert">' + constraintsCount + ' Constraints created</div>');
+                inputBox.append('<div class="alert alert-info" role="alert"> '+ nodesCount +' Nodes imported</div>');
+                var msg = 'Data successfully loaded in your database. ' +
+                    'Open it <a href="' + getBrowserUrl() + '" target="_blank">' + getBrowserUrl() + '</a>';
+
+                inputBox.append('<div class="alert alert-info" role="alert">' + edgesCount + ' Relationships imported</div>');
+                inputBox.append('<div class="alert alert-success" role="alert">' + msg + '</div>');
+                return true;
+            } else {
+
+                if (emptyDB){
+                    var emptyStatement = JSON.stringify({
+                        statements: [{
+                            statement: 'MATCH (n) OPTIONAL MATCH (n)-[r]-() DELETE r,n'
+                        }]
+                    });
+                    if (!sendStatement(url, emptyStatement)){
+                        $('form#populator :input').prop('disabled', false);
+                        popForm.show();
+                        return false;
+                    }
+                    console.log('Database cleared');
+                    inputBox.html('<div class="alert alert-info" role="alert">Database cleared</div>');
                 }
-                console.log('Database cleared');
-                inputBox.html('<div class="alert alert-info" role="alert">Database cleared</div>');
-            }
 
             var queries = JSON.parse(data);
             var constraintsCount = Object.keys(queries.constraints).length;
@@ -65,7 +85,7 @@ $(document).ready(function(){
             inputBox.append('<div class="alert alert-info" role="alert">' + edgesCount + ' Relationships imported</div>');
             inputBox.append('<div class="alert alert-success" role="alert">' + msg + '</div>');
 
-        });
+        }});
     });
 
     function getUrl()
@@ -114,6 +134,38 @@ $(document).ready(function(){
             console.log(neoError);
             return false;
         }
+    }
+
+    function serverPopulate(endpoint, data, doEmpty)
+    {
+        if (doEmpty == 'undefined') {
+            doEmpty = false;
+        }
+        var neoError;
+        var user = $('#populate-user').val();
+        var pwd = $('#populate-password').val();
+        var host = $('#populate-location').val();
+        var dat = {
+            user: user,
+            host: host,
+            password: pwd,
+            data:data,
+            doEmpty:doEmpty
+        };
+        $.ajax({
+            url: endpoint,
+            type: "POST",
+            data: dat,
+            async: false,
+        })
+            .done(function(result){
+                console.log(result)
+
+            })
+            .fail(function(error){
+                console.log(error.statusText);
+                return false;
+            });
     }
 
     function resetBoxContents()
