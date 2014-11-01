@@ -36,7 +36,7 @@ You can test this graph here : [http://graphgen.neoxygen.io/?graph=lpW0kXEclwZk2
 (user)-[:RETWEETED *n..n]->(retweet:Retweet *20)-[:RETWEET_OF *n..1]->(tweet)
 ```
 
-![Imgur](http://i.imgur.com/3fzYTEp.png)
+![Imgur](http://i.imgur.com/XbnSjuS.png)
 
 
-You can test this graph here : [[Imgur](http://i.imgur.com/uzvEkwr.png)]([Imgur](http://i.imgur.com/uzvEkwr.png)
+You can test this graph here : [http://graphgen.neoxygen.io/?graph=VNzW2BnczNMv4q](http://graphgen.neoxygen.io/?graph=VNzW2BnczNMv4q)
