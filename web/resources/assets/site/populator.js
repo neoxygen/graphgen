@@ -79,8 +79,7 @@ $(document).ready(function(){
                 return false;
             }
 
-            var msg = 'Data successfully loaded in your database. ' +
-                'Open it <a href="' + getBrowserUrl() + '" target="_blank">' + getBrowserUrl() + '</a>';
+            var msg = 'Data successfully loaded in your database. ';
 
             inputBox.append('<div class="alert alert-info" role="alert">' + edgesCount + ' Relationships imported</div>');
             inputBox.append('<div class="alert alert-success" role="alert">' + msg + '</div>');
