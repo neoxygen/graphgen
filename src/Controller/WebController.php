@@ -88,34 +88,44 @@ class WebController
         $conn = new Connection($host, $scheme, $hostx, $port, true, $user, $password);
 
         $client->getConnectionManager()->registerConnection($conn);
-
-        if ($doEmpty){
-            $q = 'MATCH (n) OPTIONAL MATCH (n)-[r]-() DELETE r,n';
-            $neo->getClient()->sendCypherQuery($q, array(), $host);
-        }
-        foreach ($data['constraints'] as $constraint){
-            try {
-                $neo->getClient()->sendCypherQuery($constraint['statement'], array(), $host);
-            } catch (HttpException $e){
-
-            }
-
-        }
-
-        foreach ($data['nodes'] as $node){
-            $neo->getClient()->sendCypherQuery($node['statement'], $node['parameters'], $host);
-        }
-
-        foreach ($data['edges'] as $edge){
-            if (!isset($edge['parameters'])){
-                $params = array();
-            } else {
-                $params = $edge['parameters'];
-            }
-            $neo->getClient()->sendCypherQuery($edge['statement'], $params, $host);
-        }
         $response = new JsonResponse();
+        try {
+            if ($doEmpty){
+                $q = 'MATCH (n) OPTIONAL MATCH (n)-[r]-() DELETE r,n';
+                $neo->getClient()->sendCypherQuery($q, array(), $host);
+            }
+            foreach ($data['constraints'] as $constraint){
+                try {
+                    $neo->getClient()->sendCypherQuery($constraint['statement'], array(), $host);
+                } catch (HttpException $e){
+
+                }
+
+            }
+
+            foreach ($data['nodes'] as $node){
+                $neo->getClient()->sendCypherQuery($node['statement'], $node['parameters'], $host);
+            }
+
+            foreach ($data['edges'] as $edge){
+                if (!isset($edge['parameters'])){
+                    $params = array();
+                } else {
+                    $params = $edge['parameters'];
+                }
+                $neo->getClient()->sendCypherQuery($edge['statement'], $params, $host);
+            }
+        } catch (HttpException $e) {
+            $response->setStatusCode(500);
+            $response->setData($e->getMessage());
+
+            return $response;
+        }
+
+        $browserUrl = $scheme . '://' . $hostx . ':' . $port . '/browser';
+        $rdata = ['browser' => $browserUrl];
         $response->setStatusCode(200);
+        $response->setData(json_encode($rdata));
 
         return $response;
     }

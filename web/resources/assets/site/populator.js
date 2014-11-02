@@ -11,6 +11,7 @@ $(document).ready(function(){
     popForm.submit(function(e){
         e.preventDefault();
         popForm.hide();
+        $('#modal-populate-loading').show();
         $('form#populator :input').prop('disabled', true);
         var inputBox = $('#populate-debug-box');
         var url = getUrl();
@@ -24,15 +25,18 @@ $(document).ready(function(){
 
             if (ei !== 'http://localhost:7474' && ei !== 'http://127.0.0.1:7474') {
                 console.log('populate server');
-                serverPopulate(external, data, emptyDB);
+                var resul = serverPopulate(external, data, emptyDB);
+                var da = JSON.parse(resul);
+                var browser = da.browser;
                 var queries = JSON.parse(data);
                 var constraintsCount = Object.keys(queries.constraints).length;
                 var nodesCount = countNodes(queries.nodes);
                 var edgesCount = countEdges(queries.edges);
+                $('#modal-populate-loading').hide();
                 inputBox.append('<div class="alert alert-info" role="alert">' + constraintsCount + ' Constraints created</div>');
                 inputBox.append('<div class="alert alert-info" role="alert"> '+ nodesCount +' Nodes imported</div>');
                 var msg = 'Data successfully loaded in your database. ' +
-                    'Open it <a href="' + getBrowserUrl() + '" target="_blank">' + getBrowserUrl() + '</a>';
+                    'Open it <a href="' + browser + '" target="_blank">' + browser + '</a>';
 
                 inputBox.append('<div class="alert alert-info" role="alert">' + edgesCount + ' Relationships imported</div>');
                 inputBox.append('<div class="alert alert-success" role="alert">' + msg + '</div>');
@@ -140,7 +144,8 @@ $(document).ready(function(){
         if (doEmpty == 'undefined') {
             doEmpty = false;
         }
-        var neoError;
+        var neoError = '';
+        var neoresult = '';
         var user = $('#populate-user').val();
         var pwd = $('#populate-password').val();
         var host = $('#populate-location').val();
@@ -155,16 +160,26 @@ $(document).ready(function(){
             url: endpoint,
             type: "POST",
             data: dat,
-            async: false,
+            async: false
         })
             .done(function(result){
-                console.log(result)
+                neoresult = result;
+                return true;
 
             })
             .fail(function(error){
                 console.log(error.statusText);
+                neoError = error.statusText;
                 return false;
             });
+
+        if (neoError.length == 0){
+            return neoresult;
+        } else {
+            displayError(neoError);
+            console.log(neoError);
+            return false;
+        }
     }
 
     function resetBoxContents()

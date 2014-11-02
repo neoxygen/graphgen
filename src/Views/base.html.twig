@@ -66,6 +66,12 @@
                         <h4 class="modal-title" id="myModalLabel">Populate your database</h4>
                     </div>
                     <div class="modal-body">
+                        <div id="modal-populate-loading">
+                            <h4>Populating your database, please wait ...</h4>
+                            <p style="text-align: center;">
+                                <img style="width: 40%; height: 45px;" src="{{ app.request.basepath }}/resources/assets/images/loader.gif"/>
+                            </p>
+                        </div>
                         <form role="form" id="populator" action="{{ path('api_export_populate') }}" server-populator="{{ path('api_populate_external') }}">
                             <div id="popResult"></div>
                             <div class="form-group" id="populate-form-box">

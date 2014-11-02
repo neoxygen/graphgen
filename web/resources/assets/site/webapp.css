@@ -93,3 +93,7 @@ ul.navbar-nav > li > a.supportProjectLink{
 .docblock pre code{
     font-size: 11px;
 }
+
+#modal-populate-loading {
+    display: none;
+}
