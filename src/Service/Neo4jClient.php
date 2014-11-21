@@ -2,7 +2,7 @@
 
 namespace Neoxygen\Graphgen\Service;
 
-use Neoxygen\NeoClient\Client;
+use Neoxygen\NeoClient\ClientBuilder;
 
 class Neo4jClient
 {
@@ -10,8 +10,9 @@ class Neo4jClient
 
     public function __construct($conn = 'default', $scheme = 'http', $host = 'localhost', $port = 7474)
     {
-        $client = new Client();
-        $client->addConnection($conn, $scheme, $host, $port)
+        $client = ClientBuilder::create()
+            ->addDefaultLocalConnection()
+            ->setAutoFormatResponse(true)
             ->build();
 
         $this->client = $client;
@@ -24,6 +25,6 @@ class Neo4jClient
 
     public function sendQuery($query, array $params = array(), $conn = null, array $resultsDataContents = array('row', 'graph'))
     {
-        return $this->client->sendCypherQuery($query, $params, $conn, $resultsDataContents);
+        return $this->client->sendCypherQuery($query, $params, $conn);
     }
 }

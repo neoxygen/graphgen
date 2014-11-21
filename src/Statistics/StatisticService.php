@@ -65,8 +65,7 @@ class StatisticService
 
         $q = 'MATCH p=(pattern:Pattern) WHERE pattern.url = {url} RETURN pattern';
         $response = $this->neoService->sendQuery($q, $params);
-        $formatter = new ResponseFormatter();
-        $result = $formatter->format($response);
+        $result = $response->getResult();
         if (!$result->getSingleNode('Pattern') instanceof Node){
             return false;
         } else {
@@ -79,9 +78,7 @@ class StatisticService
     {
         $q = 'MATCH p=(n:GenerationCounter) WHERE n.id = 1 RETURN n;';
         $response = $this->neoService->sendQuery($q);
-
-        $formatter = new ResponseFormatter();
-        $result = $formatter->format($response);
+        $result = $response->getResult();
         $counter = $result->getSingleNode();
 
         if (!$counter instanceof Node){

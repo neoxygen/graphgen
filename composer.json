@@ -17,7 +17,7 @@
         }
     ],
     "require": {
-        "neoxygen/neogen": "dev-development",
+        "neoxygen/neogen": "~0.5@dev",
         "silex/silex": "~1.1",
         "twig/twig": ">=1.8,<2.0-dev",
         "symfony/twig-bridge": "~2.3",
@@ -42,11 +42,5 @@
             "Neoxygen\\Graphgen\\Tests\\": "tests/Neoxygen/Graphgen/Tests"
         }
     },
-    "minimum-stability": "dev",
-    "extra": {
-        "heroku": {
-            "document-root": "web",
-            "index-document": "index.php"
-        }
-    }
+    "minimum-stability": "dev"
 }
