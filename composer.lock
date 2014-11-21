@@ -509,16 +509,16 @@
         },
         {
             "name": "neoxygen/neogen",
-            "version": "0.5",
+            "version": "0.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/neoxygen/neo4j-neogen.git",
-                "reference": "e0bad78512845f54d629cac5c591d09f730f1090"
+                "reference": "6290af524fa96b0cb4d771107197694a96330549"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neoxygen/neo4j-neogen/zipball/e0bad78512845f54d629cac5c591d09f730f1090",
-                "reference": "e0bad78512845f54d629cac5c591d09f730f1090",
+                "url": "https://api.github.com/repos/neoxygen/neo4j-neogen/zipball/6290af524fa96b0cb4d771107197694a96330549",
+                "reference": "6290af524fa96b0cb4d771107197694a96330549",
                 "shasum": ""
             },
             "require": {
@@ -562,7 +562,7 @@
                 "graph",
                 "neo4j"
             ],
-            "time": "2014-11-21 18:15:49"
+            "time": "2014-11-21 18:57:56"
         },
         {
             "name": "pimple/pimple",
@@ -2783,17 +2783,17 @@
         },
         {
             "name": "symfony/class-loader",
-            "version": "dev-master",
+            "version": "2.6.x-dev",
             "target-dir": "Symfony/Component/ClassLoader",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/ClassLoader.git",
-                "reference": "fb17f4591a5a9e0342621f69a4b87eac059310e7"
+                "reference": "b403af3d4fa3a2c3c926121c05042107e3a5b916"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/ClassLoader/zipball/fb17f4591a5a9e0342621f69a4b87eac059310e7",
-                "reference": "fb17f4591a5a9e0342621f69a4b87eac059310e7",
+                "url": "https://api.github.com/repos/symfony/ClassLoader/zipball/b403af3d4fa3a2c3c926121c05042107e3a5b916",
+                "reference": "b403af3d4fa3a2c3c926121c05042107e3a5b916",
                 "shasum": ""
             },
             "require": {
@@ -2805,7 +2805,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "2.6-dev"
                 }
             },
             "autoload": {
@@ -2829,7 +2829,7 @@
             ],
             "description": "Symfony ClassLoader Component",
             "homepage": "http://symfony.com",
-            "time": "2014-11-20 13:24:36"
+            "time": "2014-11-20 13:24:23"
         },
         {
             "name": "symfony/process",
