@@ -23,7 +23,7 @@ $(document).ready(function(){
         var postCypher = $.post(queriesEndpoint, {'pattern': pattern});
         postCypher.done(function (data) {
 
-            if (ei !== 'http://localhost:7474' && ei !== 'http://127.0.0.1:7474') {
+            if (ei !== 'http://localhost:7474' && ei !== 'http://127.0.0.1:7474' && ei !== 'http://dev:7474') {
                 console.log('populate server');
                 var resul = serverPopulate(external, data, emptyDB);
                 var da = JSON.parse(resul);
