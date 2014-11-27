@@ -40,7 +40,6 @@ body { padding-top: 70px; }
 }
 
 #footer {
-    height: 60px;
     background-color: #f5f5f5;
     padding-top: 20px;
     margin-top:10px;
@@ -96,4 +95,9 @@ ul.navbar-nav > li > a.supportProjectLink{
 
 #modal-populate-loading {
     display: none;
+}
+
+.vultr {
+    margin-top: 17px;
+    text-align: right;
 }
