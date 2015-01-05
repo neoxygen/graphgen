@@ -2,6 +2,8 @@
 
 require_once __DIR__.'/../vendor/autoload.php';
 
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_NOTICE);
+
 use Neoxygen\Neogen\Neogen;
 use Neoxygen\Graphgen\Service\Neo4jClient,
     Neoxygen\Graphgen\Statistics\StatisticService,

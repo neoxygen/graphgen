@@ -19,8 +19,8 @@
     "require": {
         "neoxygen/neogen": "~0.5@dev",
         "silex/silex": "~1.1",
-        "twig/twig": ">=1.8,<2.0-dev",
-        "symfony/twig-bridge": "~2.3",
+        "twig/twig": "~1.16",
+        "symfony/twig-bridge": "~2.6",
         "michelf/php-markdown": "~1.4",
         "hashids/hashids": "~1.0",
         "neoxygen/neo4j-console-client": "~0.1"
@@ -41,6 +41,5 @@
         "psr-4": {
             "Neoxygen\\Graphgen\\Tests\\": "tests/Neoxygen/Graphgen/Tests"
         }
-    },
-    "minimum-stability": "dev"
+    }
 }

@@ -27,7 +27,7 @@ class WebController
 
         $graph = $request->query->get('graph');
 
-        $pattern = $this->getPattern($graph);
+        $pattern = stripslashes($this->getPattern($graph));
 
         $current = $this->getCounter($application);
 
