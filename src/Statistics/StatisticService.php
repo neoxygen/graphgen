@@ -30,7 +30,6 @@ class StatisticService
     public function addUserGenerateAction($clientIp, $pattern)
     {
         $url = $this->urlService->getShortUrl();
-
         $q = 'CREATE (u:UserRequest)-[r:GENERATE_PATTERN]->(p:Pattern)
         SET u.ip = {ip}, p.pattern = {pattern}, p.url = {url}, r.generated_on = timestamp()';
 

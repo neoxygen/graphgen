@@ -174,16 +174,16 @@
         },
         {
             "name": "hashids/hashids",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ivanakimov/hashids.php.git",
-                "reference": "fd6593e705bee9d0443c6faeaa6aa004a9fca28d"
+                "reference": "991a88b01b01b053fbd39a56780a66e572f1dc1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ivanakimov/hashids.php/zipball/fd6593e705bee9d0443c6faeaa6aa004a9fca28d",
-                "reference": "fd6593e705bee9d0443c6faeaa6aa004a9fca28d",
+                "url": "https://api.github.com/repos/ivanakimov/hashids.php/zipball/991a88b01b01b053fbd39a56780a66e572f1dc1a",
+                "reference": "991a88b01b01b053fbd39a56780a66e572f1dc1a",
                 "shasum": ""
             },
             "require": {
@@ -227,7 +227,7 @@
                 "obfuscate",
                 "youtube"
             ],
-            "time": "2014-11-14 20:39:09"
+            "time": "2015-01-21 00:49:41"
         },
         {
             "name": "ikwattro/faker-extra",
@@ -2942,6 +2942,7 @@
         "neoxygen/neogen": 20
     },
     "prefer-stable": false,
+    "prefer-lowest": false,
     "platform": [],
     "platform-dev": []
 }

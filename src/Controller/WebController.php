@@ -269,14 +269,21 @@ class WebController
         }
     }
 
+    /**
+     * @param Application $application
+     * @param Request $request
+     * @param $pattern
+     * @return null|string the url
+     */
     private function increment(Application $application, Request $request, $pattern)
     {
         try {
             $stats = $application['stats'];
             $url = $stats->addUserGenerateAction($request->getClientIp(), $pattern);
+            
             return $url;
         } catch (HttpException $e){
-            return;
+            return null;
         }
 
     }

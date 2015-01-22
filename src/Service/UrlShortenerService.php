@@ -17,9 +17,10 @@ class UrlShortenerService
     {
         $time = new \DateTime("now");
         $timestamp = $time->getTimestamp();
-        $id = crc32(uniqid());
+        $id = rand(1, 10000);
+        $nid = rand(1,20);
 
-        $code = $this->hasher->encode($timestamp, $id);
+        $code = strtolower($this->hasher->encode($nid, $id));
 
         return $code;
     }
