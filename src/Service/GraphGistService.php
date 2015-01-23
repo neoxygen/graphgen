@@ -13,13 +13,13 @@ class GraphGistService
         ];
         $br = "\n";
         $gist = '';
-        $gist .= '= Your Gist Title'."\n";
+        $gist .= '= CHANGE THIS TO YOUR GIST TITLE'."\n";
         $gist .= $br;
         $gist .= ':neo4j-version: 2.1.0'.$br;
         $gist .= ':author: Your Name'.$br;
         $gist .= ':twitter: @you'.$br;
-        $gist .= ':tags: '.$br;
-        $gist .= ':category: '.$br;
+        $gist .= ':tags: TODO'.$br;
+        $gist .= ':category: TODO'.$br;
         $stats = $this->getStatistics($graph);
         $labels = implode(',', array_keys($stats));
         $gist .= ':labels: '.$labels.$br;
@@ -29,6 +29,14 @@ class GraphGistService
         $remain = '=== Query some graph data'.$br;
         $nodeQueries = $this->createMatchNodeQueries($stats);
         foreach ($nodeQueries as $q) {
+            $remain .= $q.$br;
+        }
+        $propQueries = $this->matchOnPropertyQueries($graph, $stats);
+        foreach ($propQueries as $q) {
+            $remain .= $q.$br;
+        }
+        $relQ = $this->matchRelationshipsQueries($graph);
+        foreach ($relQ as $q) {
             $remain .= $q.$br;
         }
         $remain .= '[source,cypher]
@@ -101,10 +109,69 @@ ORDER BY cnt DESC;
             $q .= '[source,cypher]
             ----'."\n";
             $q .= 'MATCH (n:`'.$nodeType.'`)
-            RETURN n'."\n";
+            RETURN --CHANGE ME--'."\n";
             $q .= '----';
             $q .= "\n";
             $qs[] = $q;
+        }
+
+        return $qs;
+    }
+
+    private function matchOnPropertyQueries(array $graph, $stats)
+    {
+        arsort($stats);
+        $qs = [];
+        $used = [];
+        foreach ($stats as $label => $count) {
+            foreach ($graph['nodes'] as $node) {
+                if (in_array($label, $node['labels']) && !array_key_exists($label, $used)) {
+                    if (isset($node['properties']) && !empty($node['properties'])) {
+                        foreach ($node['properties'] as $k => $v) {
+                            if (is_int($v)) {
+                                $value = $v;
+                            } else {
+                                $value = '"'.$v.'"';
+                            }
+                            $q = '==== Retrieving a '.$label.' by his '.$k."\n";
+                            $q .= '[source,cypher]
+                            ----'."\n";
+                            $q .= 'MATCH (n:`'.$label.'`)
+                            WHERE n.'.$k.' = '.$value.'
+                            RETURN -- CHOOSE WHAT TO RETURN --'."\n";
+                            $q .= '----'."\n";
+                            $q .= '//table'."\n";
+                            $used[$label] = null;
+                            $qs[] = $q;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        return $qs;
+    }
+
+    private function matchRelationshipsQueries($graph)
+    {
+        $qs = [];
+        $used = [];
+        foreach ($graph['edges'] as $edge) {
+            if (!array_key_exists($edge['type'], $used)) {
+                $source = $edge['source_label'];
+                $target = $edge['target_label'];
+                $q = '// Finding '.$edge['type'].' relationships'."\n";
+                $q .= '[source,cypher]
+                ----'."\n";
+                $q .= 'MATCH (a)-[r:`'.$edge['type'].'`]->(b)
+                RETURN a,r,c
+                LIMIT 10'."\n";
+                $q .= '----'."\n";
+                $q .= '//table'."\n";
+                $used[$edge['type']] = null;
+                $qs[] = $q;
+            }
         }
 
         return $qs;
