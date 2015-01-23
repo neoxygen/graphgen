@@ -175,7 +175,7 @@ ORDER BY cnt DESC;
                 $q .= '[source,cypher]
                 ----'."\n";
                 $q .= 'MATCH (a)-[r:`'.$edge['type'].'`]->(b)
-                RETURN a,r,c
+                RETURN a,r,b
                 LIMIT 10'."\n";
                 $q .= '----'."\n";
                 $q .= '//'.$lr."\n";
