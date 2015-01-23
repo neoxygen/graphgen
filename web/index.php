@@ -8,7 +8,8 @@ use Neoxygen\Neogen\Neogen;
 use Neoxygen\Graphgen\Service\Neo4jClient,
     Neoxygen\Graphgen\Statistics\StatisticService,
     Neoxygen\Graphgen\Service\ConverterService,
-    Neoxygen\Graphgen\Service\UrlShortenerService;
+    Neoxygen\Graphgen\Service\UrlShortenerService,
+    Neoxygen\Graphgen\Service\GraphGistService;
 
 $app = new Silex\Application();
 $app['root_dir'] = sys_get_temp_dir();
@@ -19,6 +20,7 @@ $app['neo4j'] = $neo4jService;
 $app['shortUrl'] = new UrlShortenerService();
 $app['stats'] = new StatisticService($app['neo4j'], $app['shortUrl']);
 $app['converter'] = new ConverterService($app['neogen']);
+$app['ggist'] = new GraphGistService();
 
 $app->register(new Silex\Provider\SessionServiceProvider());
 
@@ -60,5 +62,11 @@ $app->post('/api/export/populate', 'Neoxygen\\Graphgen\\Controller\\WebControlle
 
 $app->post('/api/populate/external', 'Neoxygen\\Graphgen\\Controller\\WebController::populateExternal')
     ->bind('api_populate_external');
+
+$app->post('/api/graphgist/create', 'Neoxygen\\Graphgen\\Controller\\WebController::createGraphGist')
+    ->bind('api_graphgist_create');
+
+$app->get('/show/gist/{data}', 'Neoxygen\\Graphgen\\Controller\\WebController::newWindow')
+    ->bind('api_showgist');
 
 $app->run();

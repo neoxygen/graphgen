@@ -206,6 +206,14 @@ $(document).ready(function() {
         }, 500);
     });
 
+    $('#graphGistPopClose').click(function(){
+        setTimeout(function(){
+            $('#graphgist-header').html('');
+            $('#graphgist-creator').html('');
+            $('#graphgist-remain').html('');
+        }, 500);
+    });
+
     function createConsole(){
         var consoleUrl = $('#console-create-button').attr('data-validator');
         var data = $('#gjson_result').html();
@@ -233,4 +241,48 @@ $(document).ready(function() {
                 return false;
             });
     }
+
+    function nl2br (str, is_xhtml) {
+        var breakTag = (is_xhtml || typeof is_xhtml === 'undefined') ? '<br />' : '<br>';
+        return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1'+ breakTag +'$2');
+    }
+
+    function SelectText(element) {
+        var text = document.getElementById(element);
+        if ($.browser.msie) {
+            var range = document.body.createTextRange();
+            range.moveToElementText(text);
+            range.select();
+        } else if ($.browser.mozilla || $.browser.opera) {
+            var selection = window.getSelection();
+            var range = document.createRange();
+            range.selectNodeContents(text);
+            selection.removeAllRanges();
+            selection.addRange(range);
+        } else if ($.browser.safari) {
+            var selection = window.getSelection();
+            selection.setBaseAndExtent(text, 0, text, 1);
+        }
+    }
+
+    $('#graphgist-create-button').click(function(e){
+        e.preventDefault();
+        var target = $(this).attr('data-validator');
+        var graph = $('#gjson_result').html();
+        $.ajax({
+            url: target,
+            type: "POST",
+            data: {'graph': graph}
+        })
+            .done(function(gist){
+                var result = $.parseJSON(gist);
+                console.log(result);
+                $('#graphgist-header').html(nl2br(result.header));
+                $('#graphgist-creator').html(nl2br(result.creator));
+                $('#graphgist-remain').html(nl2br(result.remain));
+            })
+            .fail(function(error){
+                console.log('error');
+            });
+    });
 });

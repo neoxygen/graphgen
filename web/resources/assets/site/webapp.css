@@ -101,3 +101,36 @@ ul.navbar-nav > li > a.supportProjectLink{
     margin-top: 17px;
     text-align: right;
 }
+
+.btn a {
+    color: #fff;
+}
+
+#graphgist-content {
+    text-align: left;
+    overflow: hidden;
+    overflow-y: scroll;
+    max-height: 600px;
+}
+
+#graphgist-creator {
+    text-overflow: ellipsis;
+
+    /* Required for text-overflow to do anything */
+    white-space: nowrap;
+    overflow: hidden;
+    max-height: 75px;
+    overflow-y: scroll;
+    background-color: #c0c0c0;
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 3px;
+    height: 3px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 1px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}

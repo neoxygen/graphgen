@@ -32,6 +32,9 @@
                     </div>
                 </li>
                 <li>
+                    <button type="button" class="btn btn-warning" id="graphgist-create-button" data-toggle="modal" data-target="#graphgist-modal" data-validator="{{ path('api_graphgist_create') }}">Create a Neo4j Graphgist</button>
+                </li>
+                <li>
                     <div class="btn-group">
                         <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
                             <img src="{{ app.request.basepath }}/resources/assets/images/export.png" alt="share this graph"/> Export <span class="caret"></span>
@@ -51,7 +54,7 @@
                     </div>
                 </li>
                 <li>
-                        <button type="button" class="btn btn-warning" id="console-create-button" data-toggle="modal" data-target="#console-modal" data-validator="{{ path('api_console_create') }}">New ! Create a Neo4j console</button>
+                        <button type="button" class="btn btn-warning" id="console-create-button" data-toggle="modal" data-target="#console-modal" data-validator="{{ path('api_console_create') }}">Create a Neo4j console</button>
                 </li>
                 <li> | </li>
                 <li><button type="button" id="triggerPopBox" class="btn btn-success btn-circle" data-toggle="modal" data-target="#myModal">Populate your database !</button></li>
@@ -160,6 +163,35 @@
                 <div id="populate-debug-box"></div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" id="consolePopClose" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="graphgist-modal" tabindex="-1" role="dialog" aria-labelledby="gistModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Neo4j Graphgist Generation</h4>
+                </div>
+                <div class="modal-body" style="text-align: center;">
+                    <div id="graphgist-content">
+                        <div id="graphgist-header">
+
+                        </div>
+                        <div id="graphgist-creator">
+
+                        </div>
+                        <div id="graphgist-remain">
+
+                        </div>
+                    </div>
+
+                </div>
+                <div id="populate-debug-box"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="graphGistPopClose" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

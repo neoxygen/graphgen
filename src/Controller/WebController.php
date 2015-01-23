@@ -253,6 +253,30 @@ class WebController
         }
     }
 
+    public function createGraphGist(Application $application, Request $request)
+    {
+        $graph = json_decode($request->request->get('graph'), true);
+        $converter = $application['converter'];
+        $cQ = $converter->transformGraphJsonToStandardCypher($graph);
+        $cQL = '';
+        $cQL .= '=== Setup
+
+//hide
+//setup
+[source,cypher]
+----
+';
+        foreach ($cQ as $statement) {
+            $cQL .= $statement.PHP_EOL;
+        }
+        $cQL .= '----'."\n";
+        $ggs = $application['ggist'];
+        $gist = $ggs->createGist($graph);
+        $gist['creator'] = $cQL;
+
+        return json_encode($gist);
+    }
+
     public function getPopulateQueries(Application $application, Request $request)
     {
         $pattern = json_decode($request->request->get('pattern'), true);
@@ -269,6 +293,12 @@ class WebController
         }
     }
 
+    public function newWindow(Application $application, Request $request, $data)
+    {
+        echo $data;
+        exit();
+    }
+
     /**
      * @param Application $application
      * @param Request $request
@@ -280,7 +310,7 @@ class WebController
         try {
             $stats = $application['stats'];
             $url = $stats->addUserGenerateAction($request->getClientIp(), $pattern);
-            
+
             return $url;
         } catch (HttpException $e){
             return null;
