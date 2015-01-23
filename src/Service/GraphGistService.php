@@ -171,7 +171,7 @@ ORDER BY cnt DESC;
             if (!array_key_exists($edge['type'], $used)) {
                 $source = $edge['source_label'];
                 $target = $edge['target_label'];
-                $q = '// Finding '.$edge['type'].' relationships'."\n";
+                $q = '==== Finding '.$edge['type'].' relationships'."\n";
                 $q .= '[source,cypher]
                 ----'."\n";
                 $q .= 'MATCH (a)-[r:`'.$edge['type'].'`]->(b)
