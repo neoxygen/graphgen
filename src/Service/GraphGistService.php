@@ -103,15 +103,23 @@ ORDER BY cnt DESC;
         arsort($stats);
         $qs = [];
         $qs[] = "\n";
+        $lr = 'table';
         foreach ($stats as $nodeType => $count) {
             $q = '==== Retrieving '.$nodeType.' nodes'."\n";
             $q .= "\n";
             $q .= '[source,cypher]
             ----'."\n";
             $q .= 'MATCH (n:`'.$nodeType.'`)
-            RETURN --CHANGE ME--'."\n";
+            RETURN --CHANGE ME--
+            LIMIT 10'."\n";
             $q .= '----';
             $q .= "\n";
+            $q .= '//'.$lr."\n";
+            if ($lr == 'table') {
+                $lr = 'graph';
+            } else {
+                $lr = 'table';
+            }
             $qs[] = $q;
         }
 
@@ -138,7 +146,8 @@ ORDER BY cnt DESC;
                             ----'."\n";
                             $q .= 'MATCH (n:`'.$label.'`)
                             WHERE n.'.$k.' = '.$value.'
-                            RETURN -- CHOOSE WHAT TO RETURN --'."\n";
+                            RETURN -- CHOOSE WHAT TO RETURN --
+                            LIMIT 5'."\n";
                             $q .= '----'."\n";
                             $q .= '//table'."\n";
                             $used[$label] = null;
@@ -157,6 +166,7 @@ ORDER BY cnt DESC;
     {
         $qs = [];
         $used = [];
+        $lr = 'table';
         foreach ($graph['edges'] as $edge) {
             if (!array_key_exists($edge['type'], $used)) {
                 $source = $edge['source_label'];
@@ -168,9 +178,14 @@ ORDER BY cnt DESC;
                 RETURN a,r,c
                 LIMIT 10'."\n";
                 $q .= '----'."\n";
-                $q .= '//table'."\n";
+                $q .= '//'.$lr."\n";
                 $used[$edge['type']] = null;
                 $qs[] = $q;
+                if ($lr == 'table') {
+                    $lr = 'graph';
+                } else {
+                    $lr = 'table';
+                }
             }
         }
 
