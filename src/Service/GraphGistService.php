@@ -171,11 +171,28 @@ ORDER BY cnt DESC;
             if (!array_key_exists($edge['type'], $used)) {
                 $source = $edge['source_label'];
                 $target = $edge['target_label'];
-                $q = '==== Finding '.$edge['type'].' relationships'."\n";
+                $q = '==== Finding a '.$source.' node and his '.$edge['type'].' relationships to '.$target."\n";
                 $q .= '[source,cypher]
                 ----'."\n";
-                $q .= 'MATCH (a)-[r:`'.$edge['type'].'`]->(b)
-                RETURN a,r,b
+                if ($this->hasProperties($source, $graph)) {
+                    $kv = $this->getPropertyKeyValue($graph, $source);
+                    $k = key($kv);
+                    $v = $kv[$k];
+                    if (is_int($v)) {
+                        $value = $v;
+                    } else {
+                        $value = '"'.$v.'"';
+                    }
+                    $q .= 'MATCH (a:`'.$source.'`)
+                    WHERE a.'.$k.' = '.$value."\n";
+                    $q .= 'MATCH (a)-[r:'.$edge['type'].']->(b)'."\n";
+                } else {
+                    $q .= 'MATCH (a:`'.$source.'`)
+                    WITH a
+                    LIMIT 1
+                    MATCH (a)-[r:`'.$edge['type'].'`]->(b)';
+                }
+                $q .= 'RETURN a,r,b
                 LIMIT 10'."\n";
                 $q .= '----'."\n";
                 $q .= '//'.$lr."\n";
@@ -190,5 +207,30 @@ ORDER BY cnt DESC;
         }
 
         return $qs;
+    }
+
+    private function hasProperties($key, $graph)
+    {
+        foreach ($graph['nodes'] as $node) {
+            if (in_array($key, $node['labels'])) {
+                if (isset($node['properties']) && !empty($node['properties'])) {
+
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private function getPropertyKeyValue($graph, $label) {
+        foreach ($graph['nodes'] as $node ){
+            if (in_array($label, $node['labels'])) {
+                foreach ($node['properties'] as $k => $v){
+
+                    return array($k => $v);
+                }
+            }
+        }
     }
 }
