@@ -187,10 +187,7 @@ ORDER BY cnt DESC;
                     WHERE a.'.$k.' = '.$value."\n";
                     $q .= 'MATCH (a)-[r:'.$edge['type'].']->(b)'."\n";
                 } else {
-                    $q .= 'MATCH (a:`'.$source.'`)
-                    WITH a
-                    LIMIT 1
-                    MATCH (a)-[r:`'.$edge['type'].'`]->(b)';
+                    $q .= 'MATCH (a:`'.$source.'`)-[r:`'.$edge['type'].'`]->(b)';
                 }
                 $q .= 'RETURN a,r,b
                 LIMIT 10'."\n";
