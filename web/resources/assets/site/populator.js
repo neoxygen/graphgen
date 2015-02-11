@@ -122,6 +122,7 @@ $(document).ready(function(){
             contentType: "application/json"
         })
             .done(function(result){
+                console.log(result);
                 neoError = result.errors;
 
             })
@@ -199,9 +200,9 @@ $(document).ready(function(){
     function sendConstraints(url, constraints){
         $.each(constraints, function(index, constraint){
             var body = JSON.stringify({
-                statements: [{
-                    statement: constraint
-                }]
+                statements: [
+                    constraint
+                ]
             });
             if (!sendStatement(url, body)){
                 return false;
