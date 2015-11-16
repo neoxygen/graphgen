@@ -10,6 +10,8 @@ use Neoxygen\Graphgen\Service\Neo4jClient,
     Neoxygen\Graphgen\Service\ConverterService,
     Neoxygen\Graphgen\Service\UrlShortenerService,
     Neoxygen\Graphgen\Service\GraphGistService;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 $app = new Silex\Application();
 $app['root_dir'] = sys_get_temp_dir();
@@ -31,6 +33,14 @@ $app->register(new Silex\Provider\MonologServiceProvider(), array(
     'monolog.logfile' => __DIR__.'/../logs/graphgen.log'
 ));
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
+
+$app->after(function (Request $request, Response $response) {
+    $response->headers->set('Access-Control-Allow-Origin', '*');
+    $response->headers->set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Key');
+    $response->headers->set('Access-Control-Allow-Methods', '*');
+});
+
+$app->match("{url}", function($url) use ($app) { return "OK"; })->assert('url', '.*')->method("OPTIONS");
 
 $app->get('/', 'Neoxygen\\Graphgen\\Controller\\WebController::home')
     ->bind('home');
