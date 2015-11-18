@@ -65,11 +65,12 @@ class WebController
 
     public function populateExternal(Application $application, Request $request)
     {
+        //var_dump($request->request->all());
         $host = $request->request->get('host');
         $user = $request->request->get('user');
         $password = $request->request->get('password');
         $data = json_decode($request->request->get('data'), true);
-        $doEmpty = $request->request->get('doEmpty');
+        $doEmpty = filter_var($request->request->get('doEmpty'), FILTER_VALIDATE_BOOLEAN);
         $neo = $application['neo4j'];
         $client = $neo->getClient();
         $info = parse_url($host);
@@ -132,6 +133,7 @@ class WebController
 
     public function transformPattern(Application $application, Request $request)
     {
+        //var_dump($request->getContent());
         $pattern = $request->request->get('pattern');
         $response = new JsonResponse();
 
