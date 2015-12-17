@@ -49,6 +49,10 @@ $app->get('/documentation/{part}', 'Neoxygen\\Graphgen\\Controller\\WebControlle
     ->value('part', 'introduction')
     ->bind('doc');
 
+$app->get('api/documentation/{part}', 'Neoxygen\\Graphgen\\Controller\\WebController::apiDocAction')
+    ->value('part', 'introduction')
+    ->bind('doc');
+
 $app->get('/support-graphgen', 'Neoxygen\\Graphgen\\Controller\\WebController::supportAction')
     ->bind('support');
 

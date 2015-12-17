@@ -50,6 +50,21 @@ class WebController
 
     }
 
+    public function apiDocAction(Application $application, Request $request, $part)
+    {
+        $file = __DIR__.'/../../docs/'.$part.'.md';
+        if (!file_exists($file)){
+            $application->abort('404', 'The page you asked can not be found');
+        }
+        $contents = file_get_contents($file);
+
+        $doc = MarkdownExtra::defaultTransform($contents);
+        $response = new JsonResponse();
+        $response->setData(['doc' => $doc]);
+
+        return $response;
+    }
+
     public function supportAction(Application $application, Request $request)
     {
         $file = __DIR__.'/../../docs/support.md';
