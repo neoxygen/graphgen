@@ -30,11 +30,11 @@ Look at the following example of a Cypher statement:
 (person)-[:KNOWS *n..n]->(person)
 ```
 
-With the above, we have defined that we want a graph that contains 35 people (nodes of type:Person),
+With the above, we have defined that we want a graph that contains 35 people (nodes with label `:Person`),
 each having a name (property). We also defined that each of these persons works for exactly one company,
 and that there are 7 companies (nodes with label `:Company`) in total.
 
-Each person also knows every other person in the graph which means the graph will then resemble a real social network. 
+Each person also knows every other person in the graph which means the graph will then resemble a real social network.
 Names of the people and companies will be generated at random.
 
 Once you have clicked the Generate button, you will get your graph nicely visualised.
