@@ -39,7 +39,7 @@ Names of the people and companies will be generated at random.
 
 Once you have clicked the Generate button, you will get your graph nicely visualised.
 
-![Imgur](http://i.imgur.com/Nb2Li64.png)
+![Imgur](http://imgur.com/v73yXpX)
 
 ---
 
