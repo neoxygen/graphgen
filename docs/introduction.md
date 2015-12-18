@@ -1,72 +1,66 @@
 # Introduction
 
-Need to have quickly a demo graph ? Helping people on forums and you want to quickly prototype an approximate related
-to the question ? Want to show the power of Neo4j ?
+Need a ready-made graph for demo purposes? Just experimenting with Neo4j and want to see how graphs work?
 
-`Graphgen` is what you're looking for !
+Do you require a graph prototype for testing and don’t want the pain of cleaning and importing real data?
+
+Or maybe you don’t have any data yet, or maybe it is confidential?
+
+GraphAware GraphGen is what you're looking for!
+
 
 ---
 
 
 ## What is it ?
+GraphAware GraphGen is a graph generation engine based on Cypher specification.
+It creates nodes and relationships for you based on your schema definition and can also generate fake property values.
 
-Graphgen is a graph generation engine based on the `Cypher` specification. It creates nodes and relationships in accordance
-with your schema definition and can also generate fake property values.
 
 ---
 
-## Rapid prototyping
+## Build your Graph
 
-You need to write only a few lines to generate complex graphs.
+You only need to write a few lines of pre-written Cypher to generate your graph.
 
-Look at the following example :
+Look at the following example of a Cypher statement:
 
 ```cypher
 (person:Person {name: fullName} *35)-[:WORKS_AT *n..1]->(comp:Company {name: company} *10)
 (person)-[:KNOWS *n..n]->(person)
 ```
 
-Here we've defined that we want 35 Person nodes having a name property that will be generated, we also describe that these persons
-works for one company, and that there are 7 companies.
+With the above, we have defined that we want a graph that contains 35 people (nodes of type:Person),
+each having a name (property). We also defined that each of these persons works for exactly one company,
+and that there are 7 companies (nodes with label `:Company`) in total.
 
-Also, each person can know each other to implement a social like graph.
+Each person also knows every other person in the graph which means the graph will then resemble a real social network. 
+Names of the people and companies will be generated at random.
 
-After clicking on the **Generate** button, you'll get your graph visualization.
+Once you have clicked the Generate button, you will get your graph nicely visualised.
 
 ![Imgur](http://i.imgur.com/Nb2Li64.png)
 
 ---
 
-## Export features
+## Export your graph
 
-You can export your graph in multiple formats or load it in a database, the available options are :
+You can export your graph into multiple formats or load it into a database.
+
+The following options are available:
 
 * export to GraphJson
 * export to CypherQueries for usage on the Neo4j console or in the shell
 * create a Neo4j console setup with your graph and open it
-* load your graph in a publicly accessible database or even in your local database through the app
+* load your graph into a publicly accessible database or even in your local database through the app
 
 
-Discover how to describe your schema by reading the next sections.
 
+GraphAware GraphGen was created by [Christophe Willemsen](https://twitter.com/ikwattro) and is maintained and supported by GraphAware.
 
-#### Maintainers
-
-This project is an initiative of [Christophe Willemsen](https://twitter.com/ikwattro) .
-
-#### Contribute
+Special thanks go to [Michael Hunger](https://twitter.com/mesirii) for his help and insights and the entire Neo4j community.
 
 All comments, issues, and requests can be made in the respective Github repositories.
-
-The code of the generator, `Neogen` is opensource and available here : https://github.com/neoxygen/neogen
-
-The code of the site is available here : https://github.com/neoxygen/graphgen
-
-#### Thank you
-
-Special thanks to [Michaël Hunger](https://twitter.com/mesirii) for his help and insights.
-
-Thanks to all the people involved in the [Neo4J](http://neo4j.org) community.
 
 ---
 
