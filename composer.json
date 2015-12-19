@@ -17,7 +17,7 @@
         }
     ],
     "require": {
-        "neoxygen/neogen": "0.5.10",
+        "neoxygen/neogen": "0.5.11",
         "silex/silex": "~1.1",
         "twig/twig": "~1.16",
         "symfony/twig-bridge": "~2.6",

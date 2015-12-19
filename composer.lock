@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8495241f029e1bcb0d60f2bfcd008775",
-    "content-hash": "20391e42a32d4e7886d9500ac6e141fa",
+    "hash": "1995def66279d62a0af40d3764c25d3d",
+    "content-hash": "98921dcde6517a1c01359956e022d0ef",
     "packages": [
         {
             "name": "fzaninotto/faker",
@@ -518,16 +518,16 @@
         },
         {
             "name": "neoxygen/neogen",
-            "version": "0.5.10",
+            "version": "0.5.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/neoxygen/neo4j-neogen.git",
-                "reference": "7bc5703d29abff627d842f590e9592c085255239"
+                "reference": "3e48f83180baab85006275ca98224d7ce851f83d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neoxygen/neo4j-neogen/zipball/7bc5703d29abff627d842f590e9592c085255239",
-                "reference": "7bc5703d29abff627d842f590e9592c085255239",
+                "url": "https://api.github.com/repos/neoxygen/neo4j-neogen/zipball/3e48f83180baab85006275ca98224d7ce851f83d",
+                "reference": "3e48f83180baab85006275ca98224d7ce851f83d",
                 "shasum": ""
             },
             "require": {
@@ -575,7 +575,7 @@
                 "graph",
                 "neo4j"
             ],
-            "time": "2015-12-19 12:49:54"
+            "time": "2015-12-19 12:57:16"
         },
         {
             "name": "pimple/pimple",
